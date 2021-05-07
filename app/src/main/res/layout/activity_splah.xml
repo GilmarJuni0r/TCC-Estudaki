@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:background="@color/telaSpalh"
+    android:layout_height="match_parent"
+    tools:context=".SplahActivity">
+
+    <ImageView
+        android:id="@+id/nuvens_ceu_splah"
+        android:layout_width="411dp"
+        android:layout_height="295dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/nuvem1" />
+
+    <ImageView
+        android:id="@+id/logo_splah"
+        android:layout_width="405dp"
+        android:layout_height="171dp"
+        android:layout_marginTop="32dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/nuvens_ceu_splah"
+        app:srcCompat="@drawable/logo_estudaki" />
+
+    <ImageView
+        android:id="@+id/boneco_logo_splah"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="39dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/logo_splah"
+        app:srcCompat="@drawable/boneco_splah" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
