@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "299791860334",
+    "project_id": "estudaki-daf8f",
+    "storage_bucket": "estudaki-daf8f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:299791860334:android:058f6664a5183aa9299c7f",
+        "android_client_info": {
+          "package_name": "nelson.aparecido.estudaki"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "299791860334-6bg6nh9gmjrpsc65abmn3tmjim7qn19o.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "nelson.aparecido.estudaki",
+            "certificate_hash": "7fb20afe4a544f3cdfa4c06f85072a0a95c67bc7"
+          }
+        },
+        {
+          "client_id": "299791860334-hevrjo4jpee1fnep3p9rcgsf7rv9iu9m.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBv1kDt2lNGRJ5198476Ir16cWVON4_qa4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "299791860334-hevrjo4jpee1fnep3p9rcgsf7rv9iu9m.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
