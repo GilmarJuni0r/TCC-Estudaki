@@ -29,25 +29,66 @@
 
             <ImageView
                 android:id="@+id/bonecos_menuprincipal1"
-                android:layout_width="127dp"
-                android:layout_height="340dp"
-                android:layout_marginStart="284dp"
-                android:layout_marginLeft="284dp"
-                android:layout_marginTop="200dp"
+                android:layout_width="86dp"
+                android:layout_height="257dp"
+                android:layout_marginStart="300dp"
+                android:layout_marginLeft="300dp"
+                android:layout_marginTop="208dp"
                 app:layout_constraintStart_toStartOf="@+id/bola_menuinicial"
                 app:layout_constraintTop_toTopOf="parent"
                 app:srcCompat="@drawable/bonecos_menuprincipal1" />
 
             <ImageView
                 android:id="@+id/imageView9bonecos_menuprincipal2"
-                android:layout_width="133dp"
-                android:layout_height="344dp"
+                android:layout_width="89dp"
+                android:layout_height="268dp"
                 android:layout_marginTop="200dp"
                 app:layout_constraintEnd_toStartOf="@+id/bonecos_menuprincipal1"
                 app:layout_constraintHorizontal_bias="1.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="@+id/bola_menuinicial"
                 app:srcCompat="@drawable/bonecos_menuprincipal2" />
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:layout_marginLeft="12dp"
+                android:layout_marginTop="48dp"
+                android:fontFamily="@font/luckiest_guy"
+                android:text="BEM VINDO"
+                android:textColor="#0E0E0E"
+                android:textSize="48dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/nome_aluno_telainicial"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="56dp"
+                android:layout_marginLeft="56dp"
+                android:layout_marginTop="44dp"
+                android:fontFamily="@font/roboto_bold"
+                android:text="ENZO GABRIEL ARAUJO"
+                android:textColor="#000000"
+                android:textSize="20dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:layout_marginLeft="12dp"
+                android:layout_marginTop="308dp"
+                android:fontFamily="@font/roboto_bold"
+                android:text="NOVIDADES NA ESCOLA"
+                android:textColor="#0C0C0C"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/imageView9bonecos_menuprincipal2" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

@@ -2,6 +2,7 @@
 <resources>
     <array name="preloaded_fonts" translatable="false">
         <item>@font/comfortaa_light</item>
+        <item>@font/luckiest_guy</item>
         <item>@font/roboto_bold</item>
     </array>
 </resources>
