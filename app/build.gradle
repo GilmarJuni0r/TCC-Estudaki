@@ -7,7 +7,7 @@ android {
     buildToolsVersion "30.0.3"
 
     defaultConfig {
-        applicationId "nelson.aparecido.appminhaideia"
+        applicationId "nelson.aparecido.estudaki"
         minSdkVersion 16
         targetSdkVersion 30
         versionCode 1
@@ -28,14 +28,9 @@ android {
     }
 }
 
+    apply plugin: 'com.android.application' //Firebase
+    apply plugin: 'com.google.gms.google-services' //Firebase
 
-// juninhio  fire base//
-
-apply plugin: 'com.android.application'
-
-//apply plugin: 'com.google.gms.google-services'
-
-// juninhio  fire base//
 
 dependencies {
 
@@ -49,11 +44,8 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
 
-
-
- // juninhio  fire base//
-    implementation platform('com.google.firebase:firebase-bom:28.0.0')
-    implementation 'com.google.firebase:firebase-analytics'
+    implementation platform('com.google.firebase:firebase-bom:28.0.0') //Firebase
+    implementation 'com.google.firebase:firebase-analytics' //Firebase
 
 }
 
