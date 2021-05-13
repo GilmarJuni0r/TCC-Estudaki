@@ -1,3 +1,12 @@
 <resources>
     <string name="app_name">Estudaki</string>
+    <string name="content_desc_imagemmatematica">imagemMatematica</string>
+    <string name="content_descr_telaincial_colorir">telaincial_colorir</string>
+    <string name="content_descri_barra_de_navecagao_calenderio">barra_de_navecagao_calenderio</string>
+    <string name="content_descri_barra_de_navecagao_lupa">barra_de_navecagao_lupa</string>
+    <string name="content_descri_barra_de_navecagao_home">barra_de_navecagao_home</string>
+    <string name="content_descri_barra_de_navecagao_professores">barra_de_navecagao_professores</string>
+    <string name="content_descri_barra_de_navecagao_perfil">barra_de_navecagao_perfil</string>
+    <string name="content_descr_imagemportugues">imagemportugues</string>
+    <string name="content_descr_imagemgeografia">imagemgeografia</string>
 </resources>
