@@ -120,6 +120,28 @@
                             android:layout_weight="1">
 
                             <ImageView
+                                android:id="@+id/imageView10"
+                                android:layout_width="45dp"
+                                android:layout_height="45dp"
+                                android:layout_marginStart="104dp"
+                                android:layout_marginLeft="104dp"
+                                android:layout_marginTop="8dp"
+                                app:layout_constraintStart_toEndOf="@+id/textView2"
+                                app:layout_constraintTop_toBottomOf="@+id/telaincial_colorir"
+                                app:srcCompat="@drawable/foto_nelson" />
+
+                            <ImageView
+                                android:id="@+id/foto_ana"
+                                android:layout_width="45dp"
+                                android:layout_height="45dp"
+                                android:layout_marginStart="16dp"
+                                android:layout_marginLeft="16dp"
+                                android:layout_marginTop="8dp"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toBottomOf="@+id/telainicial_matematica"
+                                app:srcCompat="@drawable/foto_ana" />
+
+                            <ImageView
                                 android:id="@+id/telainicial_matematica"
                                 android:layout_width="343dp"
                                 android:layout_height="343dp"
@@ -168,6 +190,32 @@
                                 app:layout_constraintTop_toTopOf="parent"
                                 app:srcCompat="@drawable/telaincial_geoagrafia" />
 
+                            <TextView
+                                android:id="@+id/textView2"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="60dp"
+                                android:layout_marginLeft="60dp"
+                                android:layout_marginTop="20dp"
+                                android:fontFamily="@font/roboto_bold"
+                                android:text="Professor Ana Mascelloni"
+                                android:textColor="#000000"
+                                app:layout_constraintStart_toEndOf="@+id/foto_ana"
+                                app:layout_constraintTop_toBottomOf="@+id/telainicial_matematica" />
+
+                            <TextView
+                                android:id="@+id/textView4"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="60dp"
+                                android:layout_marginLeft="60dp"
+                                android:layout_marginTop="20dp"
+                                android:fontFamily="@font/roboto_bold"
+                                android:text="Professor Ana Mascelloni"
+                                android:textColor="#000000"
+                                app:layout_constraintStart_toEndOf="@+id/imageView10"
+                                app:layout_constraintTop_toBottomOf="@+id/telaincial_colorir" />
+
                         </androidx.constraintlayout.widget.ConstraintLayout>
 
                     </LinearLayout>
@@ -178,7 +226,7 @@
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/parte_conteudos"
                 android:layout_width="match_parent"
-                android:layout_height="75dp">
+                android:layout_height="988dp">
 
                 <TextView
                     android:id="@+id/texto_aulas"
@@ -193,6 +241,69 @@
                     android:textSize="13sp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:id="@+id/imageView6"
+                    android:layout_width="393dp"
+                    android:layout_height="225dp"
+                    android:layout_marginTop="16dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/texto_aulas"
+                    app:srcCompat="@drawable/img_aulas_menuprincipal" />
+
+                <TextView
+                    android:id="@+id/texto_aulas4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:layout_marginLeft="12dp"
+                    android:layout_marginTop="16dp"
+                    android:fontFamily="@font/roboto_bold"
+                    android:text="MATÉRIAS"
+                    android:textColor="#050505"
+                    android:textSize="13sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/imageView6" />
+
+                <ImageView
+                    android:id="@+id/imageView7"
+                    android:layout_width="415dp"
+                    android:layout_height="302dp"
+                    android:layout_marginStart="7dp"
+                    android:layout_marginLeft="7dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="7dp"
+                    android:layout_marginRight="7dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/texto_aulas4"
+                    app:srcCompat="@drawable/img_materias_menuprincipal" />
+
+                <TextView
+                    android:id="@+id/texto_aulas5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:layout_marginLeft="12dp"
+                    android:layout_marginTop="16dp"
+                    android:fontFamily="@font/roboto_bold"
+                    android:text="NOTAS"
+                    android:textColor="#050505"
+                    android:textSize="13sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/imageView7" />
+
+                <ImageView
+                    android:id="@+id/imageView8"
+                    android:layout_width="384dp"
+                    android:layout_height="255dp"
+                    android:layout_marginStart="12dp"
+                    android:layout_marginLeft="12dp"
+                    android:layout_marginTop="16dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/texto_aulas5"
+                    app:srcCompat="@drawable/img_notas_menuprincipal" />
             </androidx.constraintlayout.widget.ConstraintLayout>
         </LinearLayout>
     </ScrollView>
