@@ -142,6 +142,17 @@
                                 app:srcCompat="@drawable/foto_ana" />
 
                             <ImageView
+                                android:id="@+id/foto_geovanna"
+                                android:layout_width="45dp"
+                                android:layout_height="45dp"
+                                android:layout_marginStart="72dp"
+                                android:layout_marginLeft="72dp"
+                                android:layout_marginTop="8dp"
+                                app:layout_constraintStart_toEndOf="@+id/textView4"
+                                app:layout_constraintTop_toBottomOf="@+id/telaincial_portugues"
+                                app:srcCompat="@drawable/foto_giovanna" />
+
+                            <ImageView
                                 android:id="@+id/telainicial_matematica"
                                 android:layout_width="343dp"
                                 android:layout_height="343dp"
@@ -211,10 +222,47 @@
                                 android:layout_marginLeft="60dp"
                                 android:layout_marginTop="20dp"
                                 android:fontFamily="@font/roboto_bold"
-                                android:text="Professor Ana Mascelloni"
+                                android:text="Professor Nelson Aparecido"
                                 android:textColor="#000000"
                                 app:layout_constraintStart_toEndOf="@+id/imageView10"
                                 app:layout_constraintTop_toBottomOf="@+id/telaincial_colorir" />
+
+                            <TextView
+                                android:id="@+id/textView5"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="60dp"
+                                android:layout_marginLeft="60dp"
+                                android:layout_marginTop="20dp"
+                                android:fontFamily="@font/roboto_bold"
+                                android:text="Professor Gionna Nascimento"
+                                android:textColor="#000000"
+                                app:layout_constraintStart_toEndOf="@+id/foto_geovanna"
+                                app:layout_constraintTop_toBottomOf="@+id/telaincial_portugues" />
+
+                            <TextView
+                                android:id="@+id/textView6"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="60dp"
+                                android:layout_marginLeft="60dp"
+                                android:layout_marginTop="20dp"
+                                android:fontFamily="@font/roboto_bold"
+                                android:text="Professora Karina Cruz"
+                                android:textColor="#000000"
+                                app:layout_constraintStart_toEndOf="@+id/imageView12"
+                                app:layout_constraintTop_toBottomOf="@+id/telaincial_geografia" />
+
+                            <ImageView
+                                android:id="@+id/imageView12"
+                                android:layout_width="45dp"
+                                android:layout_height="45dp"
+                                android:layout_marginStart="68dp"
+                                android:layout_marginLeft="68dp"
+                                android:layout_marginTop="8dp"
+                                app:layout_constraintStart_toEndOf="@+id/textView5"
+                                app:layout_constraintTop_toBottomOf="@+id/telaincial_geografia"
+                                app:srcCompat="@drawable/foto_karina" />
 
                         </androidx.constraintlayout.widget.ConstraintLayout>
 

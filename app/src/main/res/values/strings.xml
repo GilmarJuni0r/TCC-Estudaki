@@ -9,4 +9,7 @@
     <string name="content_descri_barra_de_navecagao_perfil">barra_de_navecagao_perfil</string>
     <string name="content_descr_imagemportugues">imagemportugues</string>
     <string name="content_descr_imagemgeografia">imagemgeografia</string>
+    <string name="img_backgound_tela_aulas">img_backgound_tela_aulas</string>
+    <string name="img_logo_ajuda">img_logo_ajuda</string>
+    <string name="img_logo_login">img_logo_login</string>
 </resources>

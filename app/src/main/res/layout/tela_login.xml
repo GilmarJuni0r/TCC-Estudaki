@@ -10,15 +10,15 @@
     android:visibility="visible">
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/img_backgound_tela_login"
         android:layout_width="427dp"
         android:layout_height="794dp"
         android:layout_marginEnd="10dp"
         android:layout_marginRight="10dp"
+        android:contentDescription="@string/img_backgound_tela_aulas"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/login_tela_detalhe"
-        android:contentDescription="TODO" />
+        app:srcCompat="@drawable/login_tela_detalhe" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -45,12 +45,13 @@
             app:layout_constraintTop_toBottomOf="@+id/email_login" />
 
         <ImageView
-            android:id="@+id/imageView2"
+            android:id="@+id/img_logo_login"
             android:layout_width="133dp"
             android:layout_height="146dp"
             android:layout_marginStart="128dp"
             android:layout_marginLeft="128dp"
             android:layout_marginTop="144dp"
+            android:contentDescription="@string/img_logo_login"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/boneco_login" />
@@ -87,15 +88,16 @@
             android:text="Digite seu email ..."
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageView2" />
+            app:layout_constraintTop_toBottomOf="@+id/img_logo_login" />
 
         <ImageView
-            android:id="@+id/imageView3"
+            android:id="@+id/img_logo_ajuda"
             android:layout_width="42dp"
             android:layout_height="46dp"
             android:layout_marginTop="184dp"
             android:layout_marginEnd="16dp"
             android:layout_marginRight="16dp"
+            android:contentDescription="@string/img_logo_ajuda"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/button_login"
