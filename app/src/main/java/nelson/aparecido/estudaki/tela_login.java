@@ -28,8 +28,15 @@ public class tela_login extends AppCompatActivity {
         button_login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                gotoURL("https://drive.google.com/uc?export=download&id=1zykW1stbon-IPyOkgixxz5UsLmDXQ2Ym");
 
+                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                startActivity(intent);
+
+
+
+
+             /*   gotoURL("https://drive.google.com/uc?export=download&id=1zykW1stbon-IPyOkgixxz5UsLmDXQ2Ym");
+*/
 
 
 

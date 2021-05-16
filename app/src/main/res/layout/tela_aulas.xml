@@ -8,14 +8,15 @@
 
     <ImageView
         android:id="@+id/img_backgound_tela_aulas"
-        android:layout_width="410dp"
-        android:layout_height="1024dp"
+        android:layout_width="400dp"
+        android:layout_height="969dp"
         android:contentDescription="@string/img_backgound_tela_aulas"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/aula_tela_detalhe" />
 
     <ScrollView
+        android:id="@+id/scrollView4"
         android:layout_width="411dp"
         android:layout_height="752dp"
         app:layout_constraintStart_toStartOf="parent"
@@ -265,7 +266,8 @@
         android:layout_width="410dp"
         android:layout_height="44dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/scrollView4">
 
         <ImageView
             android:id="@+id/barra_de_navecagao_calenderio"

@@ -7,8 +7,11 @@
     tools:context=".MainActivity">
 
     <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:id="@+id/scrollView2"
+        android:layout_width="412dp"
+        android:layout_height="754dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <LinearLayout
             android:id="@+id/linearLayout"
@@ -273,8 +276,8 @@
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/parte_conteudos"
-                android:layout_width="match_parent"
-                android:layout_height="988dp">
+                android:layout_width="wrap_content"
+                android:layout_height="953dp">
 
                 <TextView
                     android:id="@+id/texto_aulas"
@@ -291,7 +294,7 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <ImageView
-                    android:id="@+id/imageView6"
+                    android:id="@+id/img_aulas_telaprincipal"
                     android:layout_width="393dp"
                     android:layout_height="225dp"
                     android:layout_marginTop="16dp"
@@ -312,10 +315,10 @@
                     android:textColor="#050505"
                     android:textSize="13sp"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/imageView6" />
+                    app:layout_constraintTop_toBottomOf="@+id/img_aulas_telaprincipal" />
 
                 <ImageView
-                    android:id="@+id/imageView7"
+                    android:id="@+id/img_materias_telaprincipal"
                     android:layout_width="415dp"
                     android:layout_height="302dp"
                     android:layout_marginStart="7dp"
@@ -340,10 +343,10 @@
                     android:textColor="#050505"
                     android:textSize="13sp"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/imageView7" />
+                    app:layout_constraintTop_toBottomOf="@+id/img_materias_telaprincipal" />
 
                 <ImageView
-                    android:id="@+id/imageView8"
+                    android:id="@+id/img_notas_telaprincipal"
                     android:layout_width="384dp"
                     android:layout_height="255dp"
                     android:layout_marginStart="12dp"
@@ -360,7 +363,8 @@
         android:layout_width="410dp"
         android:layout_height="44dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/scrollView2">
 
         <ImageView
             android:id="@+id/barra_de_navecagao_calenderio"
