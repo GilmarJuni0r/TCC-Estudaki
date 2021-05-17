@@ -12,8 +12,8 @@
 
         <ImageView
             android:id="@+id/img_backgound_tela_materias"
-            android:layout_width="410dp"
-            android:layout_height="1024dp"
+            android:layout_width="369dp"
+            android:layout_height="814dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/login_tela_materias" />
@@ -33,7 +33,7 @@
                 <ImageView
                     android:id="@+id/imageView4"
                     android:layout_width="wrap_content"
-                    android:layout_height="434dp"
+                    android:layout_height="390dp"
                     app:srcCompat="@drawable/img_materias_menuprincipal" />
 
 
@@ -55,6 +55,7 @@
                     android:layout_height="wrap_content" />
 
                 <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/constaint_matematica"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
 
