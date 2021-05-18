@@ -3,54 +3,93 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
 import com.jaeger.library.StatusBarUtil;
 
-public class tela_login extends AppCompatActivity {
+public class tela_login extends AppCompatActivity implements View.OnClickListener {
 
-    Button button_login;
+    private EditText txt_email, txt_senha;
+    private Button btn_login;
+
+    private FirebaseAuth mAuth;
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.tela_login);
 
         StatusBarUtil.setTransparent(this);
 
+        btn_login = (Button) findViewById(R.id.btn_login);
+        btn_login.setOnClickListener(this);
 
-        button_login = findViewById(R.id.button_login);
+        txt_email = (EditText) findViewById(R.id.txt_email);
+        txt_senha = (EditText) findViewById(R.id.txt_senha);
 
+        mAuth = FirebaseAuth.getInstance();
+    }
 
-        button_login.setOnClickListener(new View.OnClickListener() {
+    public void onClick(View v) {
+
+        switch (v.getId()) {
+            case R.id.btn_login:
+                userLogin();
+                break;
+        }
+    }
+
+    private void userLogin() {
+        String email = txt_email.getText().toString();
+        String senha = txt_senha.getText().toString();
+
+        if (email.isEmpty()) {
+            txt_email.setError("Insira um endereço de e-mail");
+            txt_email.requestFocus();
+            return;
+        }
+
+        else if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
+            txt_email.setError("Insira um e-mail válido");
+            txt_email.requestFocus();
+            return;
+        }
+
+        if (senha.isEmpty()) {
+            txt_senha.setError("Insira a senha");
+            txt_senha.requestFocus();
+            return;
+        }
+
+        else if (senha.length() < 6) {
+            txt_senha.setError("Insira uma senha com pelo menos 6 dígitos");
+            txt_senha.requestFocus();
+            return;
+        }
+
+        mAuth.signInWithEmailAndPassword(email, senha).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
             @Override
-            public void onClick(View v) {
-
-                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-                startActivity(intent);
-
-
-
-
-             /*   gotoURL("https://drive.google.com/uc?export=download&id=1zykW1stbon-IPyOkgixxz5UsLmDXQ2Ym");
-*/
-
-
-
+            public void onComplete(@NonNull Task<AuthResult> task) {
+                if (task.isSuccessful()) {
+                    Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                    startActivity(intent);
+                } else {
+                    Toast.makeText(getApplicationContext(), "Falha ao realizar login! Revise seus dados", Toast.LENGTH_LONG).show();
                 }
+            }
         });
-
-
     }
-
-    private void gotoURL(String s) {
-
-        Uri uri = Uri.parse(s);
-        startActivity(new Intent(Intent.ACTION_VIEW,uri));
-    }
-
-
 }

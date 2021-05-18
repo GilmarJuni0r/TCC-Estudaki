@@ -27,7 +27,7 @@
         tools:layout_editor_absoluteY="206dp">
 
         <EditText
-            android:id="@+id/senha_login"
+            android:id="@+id/txt_senha"
             android:layout_width="292dp"
             android:layout_height="38dp"
             android:layout_marginStart="131dp"
@@ -37,12 +37,14 @@
             android:layout_marginRight="131dp"
             android:background="#FFFFFF"
             android:ems="10"
+            android:hint=" Senha"
             android:inputType="textPassword"
+            android:singleLine="true"
             android:textColor="#000000"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.508"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/email_login" />
+            app:layout_constraintTop_toBottomOf="@+id/txt_email" />
 
         <ImageView
             android:id="@+id/img_logo_login"
@@ -59,7 +61,7 @@
         <Button
 
 
-            android:id="@+id/button_login"
+            android:id="@+id/btn_login"
             android:layout_width="149dp"
             android:layout_height="52dp"
             android:layout_marginStart="131dp"
@@ -74,18 +76,19 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/senha_login" />
+            app:layout_constraintTop_toBottomOf="@+id/txt_senha" />
 
         <EditText
-            android:id="@+id/email_login"
+            android:id="@+id/txt_email"
             android:layout_width="291dp"
             android:layout_height="44dp"
             android:layout_marginTop="56dp"
             android:background="#F8F8F8"
             android:ems="10"
-            android:inputType="textPersonName"
+            android:hint=" E-mail "
+            android:inputType="textEmailSubject"
             android:scrollbarStyle="outsideInset"
-            android:text="Digite seu email ..."
+            android:singleLine="true"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/img_logo_login" />
@@ -100,7 +103,7 @@
             android:contentDescription="@string/img_logo_ajuda"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/button_login"
+            app:layout_constraintTop_toBottomOf="@+id/btn_login"
             app:srcCompat="@drawable/tela_login_meajuda" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
