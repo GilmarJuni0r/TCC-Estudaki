@@ -3,10 +3,10 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-             android:layout_height="match_parent">
+    android:layout_height="match_parent">
 
     <ImageView
-        android:id="@+id/img_backgound_tela_aulas"
+        android:id="@+id/img_backgound_tela_aulas2"
         android:layout_width="369dp"
         android:layout_height="814dp"
         app:layout_constraintStart_toStartOf="parent"
@@ -65,20 +65,6 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/text_matematica" />
 
-                <View
-                    android:id="@+id/view_aulas"
-                    android:layout_width="408dp"
-                    android:layout_height="102dp"
-                    android:layout_marginStart="1dp"
-                    android:layout_marginLeft="1dp"
-                    android:layout_marginTop="116dp"
-                    android:layout_marginEnd="1dp"
-                    android:layout_marginRight="1dp"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="1.0"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
                 <ImageView
                     android:id="@+id/img_aulaonline"
                     android:layout_width="73dp"
@@ -88,17 +74,17 @@
                     android:layout_marginTop="12dp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/divider"
-                    app:srcCompat="@drawable/aula_online" />
+                    app:srcCompat="@drawable/img_aulasonline" />
 
                 <TextView
                     android:id="@+id/text_aulas"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="108dp"
-                    android:layout_marginLeft="108dp"
-                    android:layout_marginTop="32dp"
+                    android:layout_marginStart="52dp"
+                    android:layout_marginLeft="52dp"
+                    android:layout_marginTop="36dp"
                     android:fontFamily="@font/roboto_bold"
-                    android:text="AULAS"
+                    android:text="DOWNLOAD - AULA 21/04/2021 "
                     android:textColor="#000000"
                     android:textSize="14dp"
                     app:layout_constraintStart_toEndOf="@+id/img_aulaonline"
@@ -122,17 +108,17 @@
                     android:layout_marginTop="12dp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/divider2"
-                    app:srcCompat="@drawable/img_materias_aulas" />
+                    app:srcCompat="@drawable/img_aulasonline" />
 
                 <TextView
                     android:id="@+id/material_aula"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="68dp"
-                    android:layout_marginLeft="68dp"
+                    android:layout_marginStart="52dp"
+                    android:layout_marginLeft="52dp"
                     android:layout_marginTop="32dp"
                     android:fontFamily="@font/roboto_bold"
-                    android:text="MATERIAL DE AULA"
+                    android:text="DOWNLOAD - AULA 19/04/2021 "
                     android:textColor="#0B0B0B"
                     app:layout_constraintStart_toEndOf="@+id/img_materialaula"
                     app:layout_constraintTop_toBottomOf="@+id/divider2" />
@@ -155,17 +141,17 @@
                     android:layout_marginTop="12dp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/divider3"
-                    app:srcCompat="@drawable/img_correcao_atividades" />
+                    app:srcCompat="@drawable/img_aulasonline" />
 
                 <TextView
                     android:id="@+id/text_atividades"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="100dp"
-                    android:layout_marginLeft="100dp"
+                    android:layout_marginStart="52dp"
+                    android:layout_marginLeft="52dp"
                     android:layout_marginTop="32dp"
                     android:fontFamily="@font/roboto_bold"
-                    android:text="ATIVIDADES"
+                    android:text="DOWNLOAD - AULA 18/04/2021 "
                     android:textColor="#0B0B0B"
                     android:textSize="14sp"
                     app:layout_constraintStart_toEndOf="@+id/img_atividades"
@@ -184,11 +170,11 @@
                     android:id="@+id/textView11"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="100dp"
-                    android:layout_marginLeft="100dp"
+                    android:layout_marginStart="52dp"
+                    android:layout_marginLeft="52dp"
                     android:layout_marginTop="32dp"
                     android:fontFamily="@font/roboto_bold"
-                    android:text="PROVAS"
+                    android:text="DOWNLOAD - AULA 17/04/2021 "
                     android:textColor="#000000"
                     android:textSize="14sp"
                     app:layout_constraintStart_toEndOf="@+id/img_provas"
@@ -203,7 +189,7 @@
                     android:layout_marginTop="12dp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/divider4"
-                    app:srcCompat="@drawable/img_provas_atividades" />
+                    app:srcCompat="@drawable/img_aulasonline" />
 
                 <View
                     android:id="@+id/divider5"
@@ -213,6 +199,14 @@
                     android:background="?android:attr/listDivider"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/textView11" />
+
+                <View
+                    android:id="@+id/view_aula21_04"
+                    android:layout_width="412dp"
+                    android:layout_height="103dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/divider" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -290,4 +284,5 @@
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/bdenavecagao_perfil" />
     </androidx.constraintlayout.widget.ConstraintLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

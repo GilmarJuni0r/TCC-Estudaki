@@ -12,9 +12,6 @@ import com.jaeger.library.StatusBarUtil;
 public class tela_materias extends AppCompatActivity {
 
             ConstraintLayout matematica;
-
-
-
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.tela_materias);
@@ -36,10 +33,6 @@ public class tela_materias extends AppCompatActivity {
 
             }
         });
-
-
-
-
 
 
 

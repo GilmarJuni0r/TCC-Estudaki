@@ -9,6 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppMinhaIdeia">
+        <activity android:name="nelson.aparecido.estudaki.tela_matematica_aulas"> </activity>
         <activity android:name="nelson.aparecido.estudaki.tela_materias_matematica"> </activity>
         <activity android:name="nelson.aparecido.estudaki.tela_materias"> </activity>
         <activity android:name="nelson.aparecido.estudaki.tela_aulas"> </activity>
