@@ -1,6 +1,7 @@
 package nelson.aparecido.estudaki;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -16,6 +17,7 @@ public class SplahActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO); // desativando a tela noturna
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splah);
         StatusBarUtil.setTransparent(this); /*DEIXAR A TELA COM A PARTE DE CIMA TRANSPARENTE PRECISA ESTA ENM Telas*/

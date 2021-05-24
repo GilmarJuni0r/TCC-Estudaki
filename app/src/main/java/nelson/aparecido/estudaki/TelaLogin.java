@@ -31,7 +31,6 @@ public class TelaLogin extends AppCompatActivity implements View.OnClickListener
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
 
     protected void onCreate(Bundle savedInstanceState) {
-        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.tela_login);
 
