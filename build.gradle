@@ -3,9 +3,14 @@ buildscript {
     repositories {
         google()
         jcenter()
+
+        // implementacao nelson
+
+        maven{url "https://jitpack.io"}
+
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:4.0.1'
+        classpath 'com.android.tools.build:gradle:4.2.1'
 
         classpath 'com.google.gms:google-services:4.3.5' //Firebase
 
@@ -18,6 +23,10 @@ allprojects {
     repositories {
         google()
         jcenter()
+
+        //nelson
+
+        maven{url "https://jitpack.io"}
     }
 }
 
