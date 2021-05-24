@@ -33,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                Intent intent = new Intent(getApplicationContext(), tela_materias.class);
+                Intent intent = new Intent(getApplicationContext(), TelaMaterias.class);
                 startActivity(intent);
 
 
@@ -44,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                Intent intent = new Intent(getApplicationContext(), tela_aulas.class);
+                Intent intent = new Intent(getApplicationContext(), TelaAulas.class);
                 startActivity(intent);
 
 

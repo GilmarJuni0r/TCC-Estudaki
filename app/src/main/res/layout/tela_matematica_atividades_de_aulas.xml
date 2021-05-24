@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/img_backgound_tela_aulas4"
+        android:layout_width="369dp"
+        android:layout_height="814dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/login_tela_materias_matematica" />
+
+    <ScrollView
+        android:id="@+id/scrollView5"
+        android:layout_width="410dp"
+        android:layout_height="748dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="748dp">
+
+                <ImageView
+                    android:id="@+id/img_matematica"
+                    android:layout_width="62dp"
+                    android:layout_height="62dp"
+                    android:layout_marginStart="60dp"
+                    android:layout_marginLeft="60dp"
+                    android:layout_marginTop="32dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/img_matematica" />
+
+                <TextView
+                    android:id="@+id/text_matematica"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="72dp"
+                    android:layout_marginLeft="72dp"
+                    android:layout_marginTop="48dp"
+                    android:fontFamily="@font/comfortaa"
+                    android:text="MATEMÁTICA"
+                    android:textColor="#000000"
+                    android:textSize="24sp"
+                    app:layout_constraintStart_toEndOf="@+id/img_matematica"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/textView8"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="84dp"
+                    android:layout_marginRight="84dp"
+                    android:fontFamily="@font/comfortaa"
+                    android:text="ATIVIDADES"
+                    android:textColor="#050505"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/text_matematica" />
+
+                <View
+                    android:id="@+id/divider"
+                    android:layout_width="409dp"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="60dp"
+                    android:background="?android:attr/listDivider"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.521"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/text_matematica" />
+
+                <ImageView
+                    android:id="@+id/img_aulaonline"
+                    android:layout_width="73dp"
+                    android:layout_height="73dp"
+                    android:layout_marginStart="28dp"
+                    android:layout_marginLeft="28dp"
+                    android:layout_marginTop="12dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/divider"
+                    app:srcCompat="@drawable/amg_atividade_corrigida" />
+
+                <TextView
+                    android:id="@+id/text_aulas"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="52dp"
+                    android:layout_marginLeft="52dp"
+                    android:layout_marginTop="36dp"
+                    android:fontFamily="@font/roboto_bold"
+                    android:text="ATIVIDADE SOMA "
+                    android:textColor="#000000"
+                    android:textSize="14dp"
+                    app:layout_constraintStart_toEndOf="@+id/img_aulaonline"
+                    app:layout_constraintTop_toBottomOf="@+id/divider" />
+
+                <View
+                    android:id="@+id/divider2"
+                    android:layout_width="409dp"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="50dp"
+                    android:background="?android:attr/listDivider"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/text_aulas" />
+
+                <ImageView
+                    android:id="@+id/img_materialaula"
+                    android:layout_width="73dp"
+                    android:layout_height="73dp"
+                    android:layout_marginStart="28dp"
+                    android:layout_marginLeft="28dp"
+                    android:layout_marginTop="12dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/divider2"
+                    app:srcCompat="@drawable/img_correcao_atividades" />
+
+                <TextView
+                    android:id="@+id/material_aula"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="52dp"
+                    android:layout_marginLeft="52dp"
+                    android:layout_marginTop="32dp"
+                    android:fontFamily="@font/roboto_bold"
+                    android:text=" ATIVIDADE DE DIVISÃO "
+                    android:textColor="#0B0B0B"
+                    app:layout_constraintStart_toEndOf="@+id/img_materialaula"
+                    app:layout_constraintTop_toBottomOf="@+id/divider2" />
+
+                <View
+                    android:id="@+id/divider3"
+                    android:layout_width="409dp"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="50dp"
+                    android:background="?android:attr/listDivider"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/material_aula" />
+
+                <View
+                    android:id="@+id/view_como_fazer_multiplicacoes"
+                    android:layout_width="412dp"
+                    android:layout_height="103dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/divider" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/barra_De_navegacao"
+        android:layout_width="411dp"
+        android:layout_height="48dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/scrollView5">
+
+        <ImageView
+            android:id="@+id/barra_de_navecagao_calenderio"
+            android:layout_width="50dp"
+            android:layout_height="35dp"
+            android:layout_marginStart="4dp"
+            android:layout_marginLeft="4dp"
+            android:layout_marginTop="4dp"
+            android:contentDescription="@string/content_descri_barra_de_navecagao_calenderio"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/bdenavecagao_calendario" />
+
+        <ImageView
+            android:id="@+id/barra_de_navecagao_lupa"
+            android:layout_width="50dp"
+            android:layout_height="35dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginLeft="32dp"
+            android:layout_marginTop="4dp"
+            android:contentDescription="@string/content_descri_barra_de_navecagao_lupa"
+            app:layout_constraintStart_toEndOf="@+id/barra_de_navecagao_calenderio"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/bdenavecagao_pesquisa" />
+
+        <ImageView
+            android:id="@+id/barra_de_navecagao_home"
+            android:layout_width="50dp"
+            android:layout_height="35dp"
+            android:layout_marginStart="44dp"
+            android:layout_marginLeft="44dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="4dp"
+            android:contentDescription="@string/content_descri_barra_de_navecagao_home"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/barra_de_navecagao_lupa"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0"
+            app:srcCompat="@drawable/bdenavecagao_home" />
+
+        <ImageView
+            android:id="@+id/barra_de_navecagao_professores"
+            android:layout_width="66dp"
+            android:layout_height="39dp"
+            android:layout_marginStart="36dp"
+            android:layout_marginLeft="36dp"
+            android:layout_marginTop="4dp"
+            android:contentDescription="@string/content_descri_barra_de_navecagao_professores"
+            app:layout_constraintStart_toEndOf="@+id/barra_de_navecagao_home"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/bdenavecagao_talkprofessor" />
+
+        <ImageView
+            android:id="@+id/barra_de_navecagao_perfil"
+            android:layout_width="47dp"
+            android:layout_height="39dp"
+            android:layout_marginStart="28dp"
+            android:layout_marginLeft="28dp"
+            android:layout_marginTop="4dp"
+            android:contentDescription="@string/content_descri_barra_de_navecagao_perfil"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/barra_de_navecagao_professores"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/bdenavecagao_perfil" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

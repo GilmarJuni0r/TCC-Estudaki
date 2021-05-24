@@ -9,13 +9,13 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.jaeger.library.StatusBarUtil;
 
-public class tela_matematica_aulas extends AppCompatActivity {
+public class TelaListaAulasDisponiveis extends AppCompatActivity {
 
     View aula21_05;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.tela_matematica_aulas);
+        setContentView(R.layout.tela_lista_aulas_disponiveis);
 
         StatusBarUtil.setTransparent(this);
 
