@@ -99,6 +99,7 @@
                     android:layout_height="30dp" />
 
                 <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/constaint_portugues"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
 
@@ -143,6 +144,7 @@
                     android:layout_height="wrap_content" />
 
                 <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/constaint_ciencias"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
 
@@ -184,6 +186,7 @@
                     android:layout_height="wrap_content" />
 
                 <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/constaint_geografia"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
 
@@ -226,6 +229,7 @@
                     android:layout_height="wrap_content" />
 
                 <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/constaint_historia"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
 

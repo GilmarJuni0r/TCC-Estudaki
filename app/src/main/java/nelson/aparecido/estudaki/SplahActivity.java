@@ -33,7 +33,7 @@ public class SplahActivity extends AppCompatActivity {
             @Override
             public void run() {
 
-                Intent trocarDeTela = new Intent(SplahActivity.this, tela_login.class); /* teste muda aqui*/
+                Intent trocarDeTela = new Intent(SplahActivity.this, TelaLogin.class); /* teste muda aqui*/
                 startActivity(trocarDeTela);
                 finish();
 

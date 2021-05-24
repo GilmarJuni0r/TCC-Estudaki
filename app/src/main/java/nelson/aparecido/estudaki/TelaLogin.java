@@ -1,6 +1,6 @@
 package nelson.aparecido.estudaki;
+
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Patterns;
@@ -20,7 +20,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.jaeger.library.StatusBarUtil;
 
-public class tela_login extends AppCompatActivity implements View.OnClickListener {
+public class TelaLogin extends AppCompatActivity implements View.OnClickListener {
 
     private EditText txt_email, txt_senha;
     private Button btn_login;

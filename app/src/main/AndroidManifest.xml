@@ -9,11 +9,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppMinhaIdeia">
-        <activity android:name="nelson.aparecido.estudaki.tela_matematica_aulas"> </activity>
-        <activity android:name="nelson.aparecido.estudaki.tela_materias_matematica"> </activity>
-        <activity android:name="nelson.aparecido.estudaki.tela_materias"> </activity>
-        <activity android:name="nelson.aparecido.estudaki.tela_aulas"> </activity>
-        <activity android:name="nelson.aparecido.estudaki.tela_login"> </activity>
+        <activity android:name="nelson.aparecido.estudaki.TelaListaAulasDisponiveis"> </activity>
+        <activity android:name="nelson.aparecido.estudaki.TelaMenuMaterial"> </activity>
+        <activity android:name="nelson.aparecido.estudaki.TelaMaterias"> </activity>
+        <activity android:name="nelson.aparecido.estudaki.TelaAulas"> </activity>
+        <activity android:name="nelson.aparecido.estudaki.TelaLogin"> </activity>
         <activity android:name="nelson.aparecido.estudaki.MainActivity"></activity>
         <activity android:name="nelson.aparecido.estudaki.SplahActivity">
             <intent-filter>
