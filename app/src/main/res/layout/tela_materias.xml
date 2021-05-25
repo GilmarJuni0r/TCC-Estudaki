@@ -33,7 +33,7 @@
                 <ImageView
                     android:id="@+id/imageView4"
                     android:layout_width="wrap_content"
-                    android:layout_height="390dp"
+                    android:layout_height="396dp"
                     app:srcCompat="@drawable/img_materias_menuprincipal" />
 
 

@@ -14,7 +14,7 @@ public class TelaMenuMaterial extends AppCompatActivity {
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.tela_menu_material);
+        setContentView(R.layout.tela_menu_materia);
 
         StatusBarUtil.setTransparent(this);
 
