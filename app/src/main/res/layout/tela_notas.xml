@@ -34,7 +34,7 @@
                     android:id="@+id/imageView4"
                     android:layout_width="match_parent"
                     android:layout_height="176dp"
-                    android:layout_weight="176dp"
+                    android:layout_weight="@dimen/cardview_compat_inset_shadow"
                     app:srcCompat="@drawable/img_icon_notas" />
 
 
