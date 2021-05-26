@@ -1,23 +1,27 @@
 package nelson.aparecido.estudaki;
 
-
 import android.content.Intent;
-import android.os.Bundle;
-import android.view.View;
+        import android.os.Bundle;
+        import android.view.View;
 
-import androidx.appcompat.app.AppCompatActivity;
+        import androidx.appcompat.app.AppCompatActivity;
 
-import com.jaeger.library.StatusBarUtil;
+        import com.jaeger.library.StatusBarUtil;
 
-public class TelaPerfil extends AppCompatActivity {
+public class TelaBatepapoProfessores extends AppCompatActivity {
 
     View calendario, lupa, home, professor, perfil;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.tela_perfil);
+        setContentView(R.layout.tela_batepapo_professores);
 
         StatusBarUtil.setTransparent(this);
+
+
+
+
+
 
         /* BARRA DE TAREFA */
         calendario = findViewById(R.id.view_calendario);
@@ -49,6 +53,21 @@ public class TelaPerfil extends AppCompatActivity {
             }
         });
 
+
+        professor.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent intent = new Intent(getApplicationContext(), TelaBatepapoProfessores.class);
+                startActivity(intent);
+
+
+            }
+        });
+
+
+
+
         /*  FIM BARRA DE TAREFA */
 
 
@@ -57,7 +76,3 @@ public class TelaPerfil extends AppCompatActivity {
     }
 
 }
-
-
-
-

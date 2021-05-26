@@ -1,22 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <ImageView
-        android:id="@+id/img_backgound_tela_aulas3"
-        android:layout_width="400dp"
-        android:layout_height="969dp"
+        android:id="@+id/img_backgound_tela_aulas"
+        android:layout_width="454dp"
+        android:layout_height="900dp"
         android:contentDescription="@string/img_backgound_tela_aulas"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/aula_tela_detalhe" />
+        app:srcCompat="@drawable/login_tela_professores" />
 
     <ScrollView
         android:id="@+id/scrollView4"
         android:layout_width="411dp"
-        android:layout_height="752dp"
+        android:layout_height="754dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
@@ -24,13 +26,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
-
-            <ImageView
-                android:id="@+id/imagem_logo_menina"
-                android:layout_width="wrap_content"
-                android:layout_height="434dp"
-                app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/logo_aula" />
 
             <TextView
 
@@ -40,9 +35,9 @@
                 android:autoText="true"
                 android:fontFamily="@font/comfortaa_light"
                 android:gravity="center"
-                android:text="AULAS"
+                android:text="Chat com os Professores"
                 android:textColor="#000000"
-                android:textSize="55sp"
+                android:textSize="24dp"
                 android:textStyle="bold" />
 
             <ProgressBar
@@ -56,7 +51,7 @@
                 android:layout_height="match_parent">
 
                 <ImageView
-                    android:id="@+id/logo_matematica"
+                    android:id="@+id/img_professor_nelson"
                     android:layout_width="78dp"
                     android:layout_height="76dp"
                     android:layout_marginStart="35dp"
@@ -66,10 +61,10 @@
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:srcCompat="@drawable/logo_matematica" />
+                    app:srcCompat="@drawable/img_professor_nelson" />
 
                 <TextView
-                    android:id="@+id/text_matematica"
+                    android:id="@+id/text_prof_nelson"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
@@ -77,14 +72,35 @@
                     android:layout_marginTop="16dp"
                     android:layout_marginBottom="16dp"
                     android:fontFamily="@font/roboto_bold"
-                    android:text="Matemática"
+                    android:text="Professor Nelson"
                     android:textColor="#000000"
-                    android:textSize="30sp"
+                    android:textSize="13dp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.51"
-                    app:layout_constraintStart_toEndOf="@+id/logo_matematica"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintHorizontal_bias="0.011"
+                    app:layout_constraintStart_toEndOf="@+id/img_professor_nelson"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.0" />
+
+                <TextView
+                    android:id="@+id/text_prof_nelson2"
+                    android:layout_width="245dp"
+                    android:layout_height="41dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginBottom="16dp"
+                    android:fontFamily="@font/roboto_light"
+                    android:text="Vou postar a atividade nova semana que vem."
+                    android:textColor="#040404"
+                    android:textSize="13dp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.054"
+                    app:layout_constraintStart_toEndOf="@+id/img_professor_nelson"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="1.0" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -99,7 +115,7 @@
                 android:layout_height="match_parent">
 
                 <ImageView
-                    android:id="@+id/logo_portugues"
+                    android:id="@+id/img_professor_ana"
                     android:layout_width="78dp"
                     android:layout_height="76dp"
                     android:layout_marginStart="32dp"
@@ -109,10 +125,10 @@
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:srcCompat="@drawable/logo_portugues" />
+                    app:srcCompat="@drawable/img_professor_ana" />
 
                 <TextView
-                    android:id="@+id/text_portugues"
+                    android:id="@+id/text_prof_ana"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
@@ -120,14 +136,34 @@
                     android:layout_marginTop="20dp"
                     android:layout_marginBottom="16dp"
                     android:fontFamily="@font/roboto_bold"
-                    android:text="Português"
+                    android:text="Professora Ana Marcellogni"
                     android:textColor="#000000"
-                    android:textSize="30sp"
+                    android:textSize="13dp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.503"
-                    app:layout_constraintStart_toEndOf="@+id/logo_portugues"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toEndOf="@+id/img_professor_ana"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.0" />
+
+                <TextView
+                    android:id="@+id/text_prof_ana2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginBottom="16dp"
+                    android:fontFamily="@font/roboto_light"
+                    android:text="Ficou lindo seu desenho!!! "
+                    android:textColor="#000000"
+                    android:textSize="13dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toEndOf="@+id/img_professor_ana"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.648" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -142,7 +178,7 @@
                 android:layout_height="match_parent">
 
                 <ImageView
-                    android:id="@+id/logo_ciencias"
+                    android:id="@+id/img_professor_karina"
                     android:layout_width="78dp"
                     android:layout_height="76dp"
                     android:layout_marginStart="35dp"
@@ -152,10 +188,10 @@
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:srcCompat="@drawable/logo_ciencia" />
+                    app:srcCompat="@drawable/img_professor_karina" />
 
                 <TextView
-                    android:id="@+id/text_ciencias"
+                    android:id="@+id/text_prof_karina"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
@@ -163,13 +199,34 @@
                     android:layout_marginTop="16dp"
                     android:layout_marginBottom="16dp"
                     android:fontFamily="@font/roboto_bold"
-                    android:text="Ciências"
+                    android:text="Professora Karina"
                     android:textColor="#000000"
-                    android:textSize="30sp"
+                    android:textSize="13dp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toEndOf="@+id/logo_ciencias"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toEndOf="@+id/img_professor_karina"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.0" />
+
+                <TextView
+                    android:id="@+id/text_prof_karina2"
+                    android:layout_width="250dp"
+                    android:layout_height="42dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginBottom="16dp"
+                    android:fontFamily="@font/roboto_light"
+                    android:text="Acabei de postar sua nota, pode verificar na aba de notas!"
+                    android:textColor="#000000"
+                    android:textSize="13dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toEndOf="@+id/img_professor_karina"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.756" />
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <ProgressBar
@@ -183,7 +240,7 @@
                 android:layout_height="match_parent">
 
                 <ImageView
-                    android:id="@+id/logo_geografia"
+                    android:id="@+id/img_professor_giovanna"
                     android:layout_width="78dp"
                     android:layout_height="76dp"
                     android:layout_marginStart="35dp"
@@ -193,10 +250,10 @@
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:srcCompat="@drawable/logo_geografia" />
+                    app:srcCompat="@drawable/img_professor_giovanna" />
 
                 <TextView
-                    android:id="@+id/text_geografia"
+                    android:id="@+id/text_prof_giovanna"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
@@ -204,12 +261,32 @@
                     android:layout_marginTop="16dp"
                     android:layout_marginBottom="16dp"
                     android:fontFamily="@font/roboto_bold"
-                    android:text="Geografia"
+                    android:text="Professora Giovanna Nascimento"
                     android:textColor="#000000"
-                    android:textSize="30sp"
+                    android:textSize="13dp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toEndOf="@+id/logo_geografia"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toEndOf="@+id/img_professor_giovanna"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.0" />
+
+                <TextView
+                    android:id="@+id/text_prof_giovanna2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginBottom="16dp"
+                    android:fontFamily="@font/roboto_light"
+                    android:text="Ainda não corrigi o trabalho de vocês."
+                    android:textColor="#000000"
+                    android:textSize="13dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toEndOf="@+id/img_professor_giovanna"
                     app:layout_constraintTop_toTopOf="parent" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
@@ -222,10 +299,10 @@
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="98dp">
 
                 <ImageView
-                    android:id="@+id/logo_historia"
+                    android:id="@+id/img_professor_gilmar"
                     android:layout_width="78dp"
                     android:layout_height="76dp"
                     android:layout_marginStart="35dp"
@@ -235,10 +312,10 @@
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:srcCompat="@drawable/logo_historia" />
+                    app:srcCompat="@drawable/img_professor_gilmar" />
 
                 <TextView
-                    android:id="@+id/text_historia"
+                    android:id="@+id/text_prof_gilmar"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
@@ -246,23 +323,51 @@
                     android:layout_marginTop="16dp"
                     android:layout_marginBottom="16dp"
                     android:fontFamily="@font/roboto_bold"
-                    android:text="Historia"
+                    android:text="Professor Gilmar George"
                     android:textColor="#000000"
-                    android:textSize="30sp"
+                    android:textSize="13dp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.482"
-                    app:layout_constraintStart_toEndOf="@+id/logo_historia"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toEndOf="@+id/img_professor_gilmar"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.0" />
+
+                <TextView
+                    android:id="@+id/text_prof_gilmar2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginBottom="16dp"
+                    android:fontFamily="@font/roboto_light"
+                    android:text="Ainda não corrigi as provas de vocês."
+                    android:textColor="#000000"
+                    android:textSize="13dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toEndOf="@+id/img_professor_gilmar"
                     app:layout_constraintTop_toTopOf="parent" />
+
             </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <ProgressBar
+                android:id="@+id/progressBar6"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="345dp"
+                android:layout_height="0dp" />
 
 
         </LinearLayout>
     </ScrollView>
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/barradenavegacao"
         android:layout_width="410dp"
         android:layout_height="44dp"
+        android:layout_marginTop="1dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/scrollView2">
