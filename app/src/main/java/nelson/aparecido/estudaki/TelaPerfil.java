@@ -90,6 +90,7 @@ public class TelaPerfil extends AppCompatActivity {
                         txtRaCpf.setText("CPF: " + documentSnapshotPerfil.getString("cpf"));
                         txtNomeProfessor.setText("");
                         txtEscola.setText("");
+
                     }else{
                         txtOcupacao.setText("Estudante");
                         txtTurma.setText("");

@@ -17,14 +17,14 @@
 
     <ScrollView
         android:id="@+id/scrollView4"
-        android:layout_width="411dp"
-        android:layout_height="754dp"
+        android:layout_width="409dp"
+        android:layout_height="717dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:orientation="vertical">
 
             <TextView
@@ -199,7 +199,7 @@
                     android:layout_marginTop="16dp"
                     android:layout_marginBottom="16dp"
                     android:fontFamily="@font/roboto_bold"
-                    android:text="Professora Karina"
+                    android:text="Professora Karina Cruz"
                     android:textColor="#000000"
                     android:textSize="13dp"
                     app:layout_constraintBottom_toBottomOf="parent"
@@ -356,8 +356,8 @@
             <ProgressBar
                 android:id="@+id/progressBar6"
                 style="?android:attr/progressBarStyleHorizontal"
-                android:layout_width="345dp"
-                android:layout_height="0dp" />
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
 
 
         </LinearLayout>
@@ -367,10 +367,9 @@
         android:id="@+id/barradenavegacao"
         android:layout_width="410dp"
         android:layout_height="44dp"
-        android:layout_marginTop="1dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/scrollView2">
+        app:layout_constraintTop_toBottomOf="@+id/scrollView4">
 
         <View
             android:id="@+id/view_calendario"

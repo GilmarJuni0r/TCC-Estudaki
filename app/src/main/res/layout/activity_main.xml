@@ -213,7 +213,7 @@
                                 android:layout_marginLeft="60dp"
                                 android:layout_marginTop="20dp"
                                 android:fontFamily="@font/roboto_bold"
-                                android:text="Professor Ana Mascelloni"
+                                android:text="Professora Ana Mascelloni"
                                 android:textColor="#000000"
                                 app:layout_constraintStart_toEndOf="@+id/foto_ana"
                                 app:layout_constraintTop_toBottomOf="@+id/telainicial_matematica" />
@@ -239,7 +239,7 @@
                                 android:layout_marginLeft="60dp"
                                 android:layout_marginTop="20dp"
                                 android:fontFamily="@font/roboto_bold"
-                                android:text="Professor Gionna Nascimento"
+                                android:text="Professora Gionna Nascimento"
                                 android:textColor="#000000"
                                 app:layout_constraintStart_toEndOf="@+id/foto_geovanna"
                                 app:layout_constraintTop_toBottomOf="@+id/telaincial_portugues" />
