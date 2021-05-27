@@ -91,6 +91,17 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        professor.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent intent = new Intent(getApplicationContext(), TelaBatepapoProfessores.class);
+                startActivity(intent);
+
+
+            }
+        });
+
     }
     @Override
     protected void onStart() {
