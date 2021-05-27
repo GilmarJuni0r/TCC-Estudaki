@@ -85,7 +85,7 @@
                     app:srcCompat="@drawable/img_observacoes_usuarios" />
 
                 <TextView
-                    android:id="@+id/text_nome_usuario"
+                    android:id="@+id/txt_nome"
                     android:layout_width="267dp"
                     android:layout_height="28dp"
                     android:layout_marginStart="68dp"
@@ -99,7 +99,7 @@
                     app:layout_constraintTop_toTopOf="@+id/imageView" />
 
                 <TextView
-                    android:id="@+id/textView9"
+                    android:id="@+id/txt_ocupacao"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="152dp"
@@ -110,10 +110,10 @@
                     android:textColor="#000000"
                     android:textSize="20dp"
                     app:layout_constraintStart_toStartOf="@+id/imageView"
-                    app:layout_constraintTop_toBottomOf="@+id/text_nome_usuario" />
+                    app:layout_constraintTop_toBottomOf="@+id/txt_nome" />
 
                 <TextView
-                    android:id="@+id/textView10"
+                    android:id="@+id/txt_turma"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="80dp"
@@ -124,10 +124,10 @@
                     android:textColor="#050505"
                     android:textSize="20dp"
                     app:layout_constraintStart_toStartOf="@+id/imageView"
-                    app:layout_constraintTop_toBottomOf="@+id/textView9" />
+                    app:layout_constraintTop_toBottomOf="@+id/txt_ocupacao" />
 
                 <TextView
-                    android:id="@+id/textView12"
+                    android:id="@+id/txt_idade"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="168dp"
@@ -138,10 +138,10 @@
                     android:textColor="#000000"
                     android:textSize="20dp"
                     app:layout_constraintStart_toStartOf="@+id/imageView"
-                    app:layout_constraintTop_toBottomOf="@+id/textView10" />
+                    app:layout_constraintTop_toBottomOf="@+id/txt_turma" />
 
                 <TextView
-                    android:id="@+id/textView13"
+                    android:id="@+id/txt_raCpf"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="152dp"
@@ -152,10 +152,10 @@
                     android:textColor="#000000"
                     android:textSize="20dp"
                     app:layout_constraintStart_toStartOf="@+id/imageView"
-                    app:layout_constraintTop_toBottomOf="@+id/textView12" />
+                    app:layout_constraintTop_toBottomOf="@+id/txt_idade" />
 
                 <TextView
-                    android:id="@+id/textView14"
+                    android:id="@+id/txt_NomeProfessor"
                     android:layout_width="308dp"
                     android:layout_height="47dp"
                     android:layout_marginStart="52dp"
@@ -166,10 +166,10 @@
                     android:textColor="#000000"
                     android:textSize="15sp"
                     app:layout_constraintStart_toStartOf="@+id/imageView"
-                    app:layout_constraintTop_toBottomOf="@+id/textView13" />
+                    app:layout_constraintTop_toBottomOf="@+id/txt_raCpf" />
 
                 <TextView
-                    android:id="@+id/textView15"
+                    android:id="@+id/txt_NomeEscola"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="52dp"
@@ -180,10 +180,10 @@
                     android:textColor="#040404"
                     android:textSize="15dp"
                     app:layout_constraintStart_toStartOf="@+id/imageView"
-                    app:layout_constraintTop_toBottomOf="@+id/textView14" />
+                    app:layout_constraintTop_toBottomOf="@+id/txt_NomeProfessor" />
 
                 <TextView
-                    android:id="@+id/textView16"
+                    android:id="@+id/txt_emailPerfil"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="64dp"
@@ -194,7 +194,7 @@
                     android:textColor="#000000"
                     android:textSize="20dp"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/textView15" />
+                    app:layout_constraintTop_toBottomOf="@+id/txt_NomeEscola" />
 
                 <View
                     android:id="@+id/btn_logout"
