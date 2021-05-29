@@ -6,11 +6,11 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.jaeger.library.StatusBarUtil;
 
-public class tela_matematica_material_de_aulas extends AppCompatActivity {
+public class MateriaAtividadeAulaActivity extends AppCompatActivity {
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.tela_matematica_material_de_aulas);
+        setContentView(R.layout.tela_atividades);
 
         StatusBarUtil.setTransparent(this);
 

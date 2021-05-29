@@ -48,7 +48,7 @@ public class  MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                Intent intent = new Intent(getApplicationContext(), TelaMaterias.class);
+                Intent intent = new Intent(getApplicationContext(), MateriasActivity.class);
                 startActivity(intent);
 
 
@@ -59,7 +59,7 @@ public class  MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                Intent intent = new Intent(getApplicationContext(), TelaAulas.class);
+                Intent intent = new Intent(getApplicationContext(), AulasActivity.class);
                 startActivity(intent);
 
 
@@ -78,7 +78,7 @@ public class  MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                Intent intent = new Intent(getApplicationContext(), TelaPerfil.class);
+                Intent intent = new Intent(getApplicationContext(), PerfilActivity.class);
                 startActivity(intent);
 
 
@@ -100,7 +100,7 @@ public class  MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                Intent intent = new Intent(getApplicationContext(), TelaBatepapoProfessores.class);
+                Intent intent = new Intent(getApplicationContext(), BatePapoActivity.class);
                 startActivity(intent);
 
 
@@ -111,7 +111,7 @@ public class  MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                Intent intent = new Intent(getApplicationContext(), TelaCalendario.class);
+                Intent intent = new Intent(getApplicationContext(), CalendarioActivity.class);
                 startActivity(intent);
 
 
@@ -122,7 +122,7 @@ public class  MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                Intent intent = new Intent(getApplicationContext(), TelaPesquisa.class);
+                Intent intent = new Intent(getApplicationContext(), PesquisaActivity.class);
                 startActivity(intent);
 
 

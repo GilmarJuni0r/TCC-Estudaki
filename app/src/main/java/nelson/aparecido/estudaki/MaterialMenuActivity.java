@@ -8,13 +8,13 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.jaeger.library.StatusBarUtil;
 
-public class TelaMenuMaterial extends AppCompatActivity {
+public class MaterialMenuActivity extends AppCompatActivity {
 
         View aulas;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.tela_menu_materia);
+        setContentView(R.layout.tela_materia_menu);
 
         StatusBarUtil.setTransparent(this);
 
@@ -26,7 +26,7 @@ public class TelaMenuMaterial extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                Intent intent = new Intent(getApplicationContext(), TelaListaAulasDisponiveis.class);
+                Intent intent = new Intent(getApplicationContext(), MateriaListaAulasDisponiveisActivity.class);
                 startActivity(intent);
 
 

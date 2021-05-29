@@ -9,7 +9,7 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 
 import com.jaeger.library.StatusBarUtil;
 
-public class TelaMaterias extends AppCompatActivity {
+public class MateriasActivity extends AppCompatActivity {
 
     ConstraintLayout matematica;
     ConstraintLayout portugues;
@@ -28,7 +28,7 @@ public class TelaMaterias extends AppCompatActivity {
         matematica.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), TelaMenuMaterial.class);
+                Intent intent = new Intent(getApplicationContext(), MaterialMenuActivity.class);
                 startActivity(intent);
             }
         });
@@ -38,7 +38,7 @@ public class TelaMaterias extends AppCompatActivity {
         portugues.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), TelaMenuMaterial.class);
+                Intent intent = new Intent(getApplicationContext(), MaterialMenuActivity.class);
                 startActivity(intent);
             }
         });
@@ -48,7 +48,7 @@ public class TelaMaterias extends AppCompatActivity {
         ciencias.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), TelaMenuMaterial.class);
+                Intent intent = new Intent(getApplicationContext(), MaterialMenuActivity.class);
                 startActivity(intent);
             }
         });
@@ -58,7 +58,7 @@ public class TelaMaterias extends AppCompatActivity {
         geografia.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), TelaMenuMaterial.class);
+                Intent intent = new Intent(getApplicationContext(), MaterialMenuActivity.class);
                 startActivity(intent);
             }
         });
@@ -68,7 +68,7 @@ public class TelaMaterias extends AppCompatActivity {
         historia.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), TelaMenuMaterial.class);
+                Intent intent = new Intent(getApplicationContext(), MaterialMenuActivity.class);
                 startActivity(intent);
             }
         });

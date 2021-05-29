@@ -9,7 +9,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.jaeger.library.StatusBarUtil;
 
-public class TelaListaAulasDisponiveis extends AppCompatActivity {
+public class MateriaListaAulasDisponiveisActivity extends AppCompatActivity {
 
     View aula21_05;
 

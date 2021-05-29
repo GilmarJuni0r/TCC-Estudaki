@@ -1,6 +1,6 @@
 package nelson.aparecido.estudaki;
 
-import android.content.Intent;
+        import android.content.Intent;
         import android.os.Bundle;
         import android.view.View;
 
@@ -8,19 +8,15 @@ import android.content.Intent;
 
         import com.jaeger.library.StatusBarUtil;
 
-public class TelaBatepapoProfessores extends AppCompatActivity {
+public class CalendarioActivity extends AppCompatActivity {
 
-    View calendario, lupa, home, professor, perfil;
+    private View calendario, lupa, home, professor, perfil;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.tela_batepapo_professores);
+        setContentView(R.layout.tela_calendario);
 
         StatusBarUtil.setTransparent(this);
-
-
-
-
 
 
         /* BARRA DE TAREFA */
@@ -35,7 +31,7 @@ public class TelaBatepapoProfessores extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                Intent intent = new Intent(getApplicationContext(), TelaPerfil.class);
+                Intent intent = new Intent(getApplicationContext(), PerfilActivity.class);
                 startActivity(intent);
 
 
@@ -57,7 +53,7 @@ public class TelaBatepapoProfessores extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                Intent intent = new Intent(getApplicationContext(), TelaBatepapoProfessores.class);
+                Intent intent = new Intent(getApplicationContext(), BatePapoActivity.class);
                 startActivity(intent);
 
 
@@ -69,7 +65,7 @@ public class TelaBatepapoProfessores extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                Intent intent = new Intent(getApplicationContext(), TelaCalendario.class);
+                Intent intent = new Intent(getApplicationContext(), CalendarioActivity.class);
                 startActivity(intent);
 
 
@@ -80,21 +76,14 @@ public class TelaBatepapoProfessores extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                Intent intent = new Intent(getApplicationContext(), TelaPesquisa.class);
+                Intent intent = new Intent(getApplicationContext(), PesquisaActivity.class);
                 startActivity(intent);
 
 
             }
         });
 
-
-
-
-        /*  FIM BARRA DE TAREFA */
-
-
-
-
+    }
     }
 
-}
+

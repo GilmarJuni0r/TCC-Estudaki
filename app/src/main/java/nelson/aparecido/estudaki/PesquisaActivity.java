@@ -8,13 +8,13 @@ package nelson.aparecido.estudaki;
 
         import com.jaeger.library.StatusBarUtil;
 
-public class TelaCalendario extends AppCompatActivity {
+public class PesquisaActivity extends AppCompatActivity {
 
     private View calendario, lupa, home, professor, perfil;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.tela_calendario);
+        setContentView(R.layout.tela_pesquisa);
 
         StatusBarUtil.setTransparent(this);
 
@@ -31,7 +31,7 @@ public class TelaCalendario extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                Intent intent = new Intent(getApplicationContext(), TelaPerfil.class);
+                Intent intent = new Intent(getApplicationContext(), PerfilActivity.class);
                 startActivity(intent);
 
 
@@ -53,7 +53,7 @@ public class TelaCalendario extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                Intent intent = new Intent(getApplicationContext(), TelaBatepapoProfessores.class);
+                Intent intent = new Intent(getApplicationContext(), BatePapoActivity.class);
                 startActivity(intent);
 
 
@@ -65,7 +65,7 @@ public class TelaCalendario extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                Intent intent = new Intent(getApplicationContext(), TelaCalendario.class);
+                Intent intent = new Intent(getApplicationContext(), CalendarioActivity.class);
                 startActivity(intent);
 
 
@@ -76,7 +76,7 @@ public class TelaCalendario extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                Intent intent = new Intent(getApplicationContext(), TelaPesquisa.class);
+                Intent intent = new Intent(getApplicationContext(), PesquisaActivity.class);
                 startActivity(intent);
 
 
@@ -84,6 +84,6 @@ public class TelaCalendario extends AppCompatActivity {
         });
 
     }
-    }
+}
 
 

@@ -9,15 +9,15 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppMinhaIdeia">
-        <activity android:name="nelson.aparecido.estudaki.TelaPesquisa"> </activity>
-        <activity android:name="nelson.aparecido.estudaki.TelaCalendario"> </activity>
-        <activity android:name="nelson.aparecido.estudaki.TelaBatepapoProfessores"> </activity>
-        <activity android:name="nelson.aparecido.estudaki.TelaPerfil"> </activity>
-        <activity android:name="nelson.aparecido.estudaki.TelaListaAulasDisponiveis"> </activity>
-        <activity android:name="nelson.aparecido.estudaki.TelaMenuMaterial"> </activity>
-        <activity android:name="nelson.aparecido.estudaki.TelaMaterias"> </activity>
-        <activity android:name="nelson.aparecido.estudaki.TelaAulas"> </activity>
-        <activity android:name="nelson.aparecido.estudaki.TelaLogin"> </activity>
+        <activity android:name="nelson.aparecido.estudaki.PesquisaActivity"> </activity>
+        <activity android:name="nelson.aparecido.estudaki.CalendarioActivity"> </activity>
+        <activity android:name="nelson.aparecido.estudaki.BatePapoActivity"> </activity>
+        <activity android:name="nelson.aparecido.estudaki.PerfilActivity"> </activity>
+        <activity android:name="nelson.aparecido.estudaki.MateriaListaAulasDisponiveisActivity"> </activity>
+        <activity android:name="nelson.aparecido.estudaki.MaterialMenuActivity"> </activity>
+        <activity android:name="nelson.aparecido.estudaki.MateriasActivity"> </activity>
+        <activity android:name="nelson.aparecido.estudaki.AulasActivity"> </activity>
+        <activity android:name="nelson.aparecido.estudaki.LoginActivity"> </activity>
         <activity android:name="nelson.aparecido.estudaki.MainActivity"></activity>
         <activity android:name="nelson.aparecido.estudaki.SplahActivity">
             <intent-filter>
