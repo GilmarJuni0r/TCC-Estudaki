@@ -8,13 +8,13 @@ package nelson.aparecido.estudaki;
 
         import com.jaeger.library.StatusBarUtil;
 
-public class TelaCalendario extends AppCompatActivity {
+public class TelaPesquisa extends AppCompatActivity {
 
     private View calendario, lupa, home, professor, perfil;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.tela_calendario);
+        setContentView(R.layout.tela_pesquisa);
 
         StatusBarUtil.setTransparent(this);
 
@@ -84,6 +84,6 @@ public class TelaCalendario extends AppCompatActivity {
         });
 
     }
-    }
+}
 
 

@@ -53,12 +53,34 @@ public class TelaBatepapoProfessores extends AppCompatActivity {
             }
         });
 
-
         professor.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
                 Intent intent = new Intent(getApplicationContext(), TelaBatepapoProfessores.class);
+                startActivity(intent);
+
+
+            }
+        });
+
+
+        calendario.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent intent = new Intent(getApplicationContext(), TelaCalendario.class);
+                startActivity(intent);
+
+
+            }
+        });
+
+        lupa.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent intent = new Intent(getApplicationContext(), TelaPesquisa.class);
                 startActivity(intent);
 
 

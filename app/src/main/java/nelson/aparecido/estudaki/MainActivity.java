@@ -113,6 +113,17 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        lupa.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent intent = new Intent(getApplicationContext(), TelaPesquisa.class);
+                startActivity(intent);
+
+
+            }
+        });
+
     }
     @Override
     protected void onStart() {
