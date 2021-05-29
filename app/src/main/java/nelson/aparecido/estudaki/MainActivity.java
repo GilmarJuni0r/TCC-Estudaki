@@ -136,26 +136,26 @@ public class  MainActivity extends AppCompatActivity {
 
         usuarioID = FirebaseAuth.getInstance().getCurrentUser().getUid();
         DocumentReference ref = db.collection("Usuario").document(usuarioID);
-        ref.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
-            @Override
-            public void onComplete(@NonNull @NotNull Task<DocumentSnapshot> task) {
-               if(task.isSuccessful()){
-                   DocumentSnapshot documentSnapshot = task.getResult();
-                   if(documentSnapshot.exists()){
-                       txtNome.setText(documentSnapshot.getString("nome"));
-                   }
-               }else{
+        ref.addSnapshotListener(new EventListener<DocumentSnapshot>() {
 
-               }
+            @Override
+            public void onEvent(@Nullable @org.jetbrains.annotations.Nullable DocumentSnapshot documentSnapshotMain, @Nullable @org.jetbrains.annotations.Nullable FirebaseFirestoreException error) {
+                if(documentSnapshotMain != null){
+                    txtNome.setText(documentSnapshotMain.getString("nome"));
+                }
             }
         });
-//        documentReference.addSnapshotListener(new EventListener<DocumentSnapshot>() {
-//
+//        ref.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
 //            @Override
-//            public void onEvent(@Nullable @org.jetbrains.annotations.Nullable DocumentSnapshot documentSnapshotMain, @Nullable @org.jetbrains.annotations.Nullable FirebaseFirestoreException error) {
-//                if(documentSnapshotMain != null){
-//                    txtNome.setText(documentSnapshotMain.getString("nome"));
-//                }
+//            public void onComplete(@NonNull @NotNull Task<DocumentSnapshot> task) {
+//               if(task.isSuccessful()){
+//                   DocumentSnapshot documentSnapshot = task.getResult();
+//                   if(documentSnapshot.exists()){
+//                       txtNome.setText(documentSnapshot.getString("nome"));
+//                   }
+//               }else{
+//
+//               }
 //            }
 //        });
     }

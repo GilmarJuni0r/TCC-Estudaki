@@ -23,7 +23,6 @@ import java.time.format.DateTimeFormatter;
 
 public class TelaPerfil extends AppCompatActivity {
 
-
     private View calendario, lupa, home, professor, perfil, btnLogout;
     private TextView txtNome, txtOcupacao, txtTurma, txtIdade, txtRaCpf, txtNomeProfessor, txtEscola, txtEmail;
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
@@ -70,49 +69,7 @@ public class TelaPerfil extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
-
-        usuarioID = FirebaseAuth.getInstance().getCurrentUser().getUid();
-        DocumentReference documentReference = db.collection("Usuario").document(usuarioID);
-
-        documentReference.addSnapshotListener(new EventListener<DocumentSnapshot>() {
-
-            @RequiresApi(api = Build.VERSION_CODES.O)
-            @Override
-            public void onEvent(@Nullable @org.jetbrains.annotations.Nullable DocumentSnapshot documentSnapshotPerfil, @Nullable @org.jetbrains.annotations.Nullable FirebaseFirestoreException error) {
-                if(documentSnapshotPerfil != null){
-                    String dataNascimento = documentSnapshotPerfil.getString("dataNascimento");
-
-                    txtNome.setText(documentSnapshotPerfil.getString("nome"));
-                    txtEmail.setText(FirebaseAuth.getInstance().getCurrentUser().getEmail());
-                    txtIdade.setText("Idade: "+ calculaIdade(dataNascimento) + " anos");
-
-                    if(documentSnapshotPerfil.getString("ocupacao").equalsIgnoreCase("Professor") || documentSnapshotPerfil.getString("ocupacao").equalsIgnoreCase("Professora")){
-                        txtOcupacao.setText("Docente");
-                        //txtTurma.setText("");
-                        txtRaCpf.setText("CPF: " + documentSnapshotPerfil.getString("cpf"));
-                        txtNomeProfessor.setText("");
-                        txtEscola.setText("");
-
-
-
-                    }else{
-                        txtOcupacao.setText("Estudante");
-                        txtTurma.setText("");
-                        txtRaCpf.setText("RA: " + documentSnapshotPerfil.getString("ra"));
-                        txtNomeProfessor.setText("");
-                        txtEscola.setText("");
-                        String turmaID = documentSnapshotPerfil.getString("turma");
-                        DocumentReference testeRef = db.collection("Turma").document(turmaID);
-                        testeRef.addSnapshotListener(new EventListener<DocumentSnapshot>() {
-                            @Override
-                            public void onEvent(@Nullable @org.jetbrains.annotations.Nullable DocumentSnapshot value, @Nullable @org.jetbrains.annotations.Nullable FirebaseFirestoreException error) {
-                                txtTurma.setText(value.getString("sala"));
-                            }
-                        });
-                    }
-                }
-            }
-        });
+        exibirDados();
     }
 
     @RequiresApi(api = Build.VERSION_CODES.O)
@@ -138,15 +95,86 @@ public class TelaPerfil extends AppCompatActivity {
         txtEscola = findViewById(R.id.txt_NomeEscola);
         txtEmail = findViewById(R.id.txt_emailPerfil);
 
-        /* BARRA DE TAREFA */
+        //Barra de tarefa
         calendario = findViewById(R.id.view_calendario);
         lupa = findViewById(R.id.view_lupa);
         home = findViewById(R.id.view_home);
         professor = findViewById(R.id.view_conversa_professor);
         perfil = findViewById(R.id.view_perfil);
     }
+
+    private void exibirDados(){
+
+        usuarioID = FirebaseAuth.getInstance().getCurrentUser().getUid();
+        DocumentReference documentReference = db.collection("Usuario").document(usuarioID);
+
+        documentReference.addSnapshotListener(new EventListener<DocumentSnapshot>() {
+
+            @RequiresApi(api = Build.VERSION_CODES.O)
+            @Override
+            public void onEvent(@Nullable @org.jetbrains.annotations.Nullable DocumentSnapshot documentSnapshotPerfil, @Nullable @org.jetbrains.annotations.Nullable FirebaseFirestoreException error) {
+                if(documentSnapshotPerfil != null){
+                    String dataNascimento = documentSnapshotPerfil.getString("dataNascimento");
+
+                    String turmaID = documentSnapshotPerfil.getString("turma");
+                    DocumentReference turmaRef = db.collection("Turma").document(turmaID);
+
+                    String escolaID = documentSnapshotPerfil.getString("escola");
+                    DocumentReference escolaRef = db.collection("Escola").document(escolaID);
+
+                    txtNome.setText(documentSnapshotPerfil.getString("nome"));
+                    txtEmail.setText("Email: "+FirebaseAuth.getInstance().getCurrentUser().getEmail());
+                    txtIdade.setText("Data de nascimento: "+documentSnapshotPerfil.getString("dataNascimento") +"\nIdade: "+ calculaIdade(dataNascimento) + " anos");
+
+                    if(documentSnapshotPerfil.getString("ocupacao").equalsIgnoreCase("Professor") || documentSnapshotPerfil.getString("ocupacao").equalsIgnoreCase("Professora")){
+                        txtOcupacao.setText("Docente");
+                        //txtTurma.setText("");
+                        txtRaCpf.setText("CPF: " + documentSnapshotPerfil.getString("cpf"));
+                        txtNomeProfessor.setText("");
+                    }else{
+                        txtOcupacao.setText("Estudante");
+                        txtRaCpf.setText("RA: " + documentSnapshotPerfil.getString("ra"));
+
+                        turmaRef.addSnapshotListener(new EventListener<DocumentSnapshot>() {
+                            @Override
+                            public void onEvent(@Nullable @org.jetbrains.annotations.Nullable DocumentSnapshot documentSnapshotTurma, @Nullable @org.jetbrains.annotations.Nullable FirebaseFirestoreException error) {
+                                if(documentSnapshotTurma != null){
+                                    txtTurma.setText(documentSnapshotTurma.getString("sala"));
+
+                                    String professorID =  documentSnapshotTurma.getString("professor");
+                                    DocumentReference professorRef = db.collection("Usuario").document(professorID);
+
+                                    professorRef.addSnapshotListener(new EventListener<DocumentSnapshot>() {
+                                        @Override
+                                        public void onEvent(@Nullable @org.jetbrains.annotations.Nullable DocumentSnapshot documentSnapshotProf, @Nullable @org.jetbrains.annotations.Nullable FirebaseFirestoreException error) {
+                                            if(documentSnapshotProf != null)
+                                                txtNomeProfessor.setText("Professor(a): "+documentSnapshotProf.getString("nome"));
+                                        }
+                                    });
+                                }
+
+                            }
+                        });
+                    }
+
+                    escolaRef.addSnapshotListener(new EventListener<DocumentSnapshot>() {
+                        @Override
+                        public void onEvent(@Nullable @org.jetbrains.annotations.Nullable DocumentSnapshot documentSnapshotEscola, @Nullable @org.jetbrains.annotations.Nullable FirebaseFirestoreException error) {
+                            if(documentSnapshotEscola != null)
+                                txtEscola.setText("Escola: "+documentSnapshotEscola.getString("nome"));
+                        }
+                    });
+
+                    turmaRef.addSnapshotListener(new EventListener<DocumentSnapshot>() {
+                        @Override
+                        public void onEvent(@Nullable @org.jetbrains.annotations.Nullable DocumentSnapshot documentSnapshotTurma, @Nullable @org.jetbrains.annotations.Nullable FirebaseFirestoreException error) {
+                            if(documentSnapshotTurma!=null)
+                                txtTurma.setText("Turma: "+documentSnapshotTurma.getString("sala"));
+                        }
+                    });
+
+                }
+            }
+        });
+    }
 }
-
-
-
-
