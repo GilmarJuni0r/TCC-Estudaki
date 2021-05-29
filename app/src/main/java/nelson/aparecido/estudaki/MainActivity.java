@@ -102,6 +102,17 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        calendario.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent intent = new Intent(getApplicationContext(), TelaCalendario.class);
+                startActivity(intent);
+
+
+            }
+        });
+
     }
     @Override
     protected void onStart() {

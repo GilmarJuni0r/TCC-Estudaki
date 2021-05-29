@@ -9,6 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppMinhaIdeia">
+        <activity android:name="nelson.aparecido.estudaki.TelaCalendario"> </activity>
         <activity android:name="nelson.aparecido.estudaki.TelaBatepapoProfessores"> </activity>
         <activity android:name="nelson.aparecido.estudaki.TelaPerfil"> </activity>
         <activity android:name="nelson.aparecido.estudaki.TelaListaAulasDisponiveis"> </activity>
