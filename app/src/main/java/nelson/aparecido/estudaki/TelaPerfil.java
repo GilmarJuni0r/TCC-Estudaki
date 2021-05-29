@@ -63,42 +63,6 @@ public class TelaPerfil extends AppCompatActivity {
 
                 Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                 startActivity(intent);
-
-
-            }
-        });
-
-        professor.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                Intent intent = new Intent(getApplicationContext(), TelaBatepapoProfessores.class);
-                startActivity(intent);
-
-
-            }
-        });
-
-
-        calendario.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                Intent intent = new Intent(getApplicationContext(), TelaCalendario.class);
-                startActivity(intent);
-
-
-            }
-        });
-
-        lupa.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                Intent intent = new Intent(getApplicationContext(), TelaPesquisa.class);
-                startActivity(intent);
-
-
             }
         });
     }
@@ -109,6 +73,7 @@ public class TelaPerfil extends AppCompatActivity {
 
         usuarioID = FirebaseAuth.getInstance().getCurrentUser().getUid();
         DocumentReference documentReference = db.collection("Usuario").document(usuarioID);
+
         documentReference.addSnapshotListener(new EventListener<DocumentSnapshot>() {
 
             @RequiresApi(api = Build.VERSION_CODES.O)
@@ -120,12 +85,15 @@ public class TelaPerfil extends AppCompatActivity {
                     txtNome.setText(documentSnapshotPerfil.getString("nome"));
                     txtEmail.setText(FirebaseAuth.getInstance().getCurrentUser().getEmail());
                     txtIdade.setText("Idade: "+ calculaIdade(dataNascimento) + " anos");
+
                     if(documentSnapshotPerfil.getString("ocupacao").equalsIgnoreCase("Professor") || documentSnapshotPerfil.getString("ocupacao").equalsIgnoreCase("Professora")){
                         txtOcupacao.setText("Docente");
-                        txtTurma.setText("");
+                        //txtTurma.setText("");
                         txtRaCpf.setText("CPF: " + documentSnapshotPerfil.getString("cpf"));
                         txtNomeProfessor.setText("");
                         txtEscola.setText("");
+
+
 
                     }else{
                         txtOcupacao.setText("Estudante");
@@ -133,6 +101,14 @@ public class TelaPerfil extends AppCompatActivity {
                         txtRaCpf.setText("RA: " + documentSnapshotPerfil.getString("ra"));
                         txtNomeProfessor.setText("");
                         txtEscola.setText("");
+                        String turmaID = documentSnapshotPerfil.getString("turma");
+                        DocumentReference testeRef = db.collection("Turma").document(turmaID);
+                        testeRef.addSnapshotListener(new EventListener<DocumentSnapshot>() {
+                            @Override
+                            public void onEvent(@Nullable @org.jetbrains.annotations.Nullable DocumentSnapshot value, @Nullable @org.jetbrains.annotations.Nullable FirebaseFirestoreException error) {
+                                txtTurma.setText(value.getString("sala"));
+                            }
+                        });
                     }
                 }
             }
