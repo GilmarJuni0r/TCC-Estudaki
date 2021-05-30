@@ -21,7 +21,7 @@ import java.time.LocalDate;
 import java.time.Period;
 import java.time.format.DateTimeFormatter;
 
-public class TelaPerfil extends AppCompatActivity {
+public class PerfilActivity extends AppCompatActivity {
 
     private View calendario, lupa, home, professor, perfil, btnLogout;
     private TextView txtNome, txtOcupacao, txtTurma, txtIdade, txtRaCpf, txtNomeProfessor, txtEscola, txtEmail;
@@ -39,7 +39,7 @@ public class TelaPerfil extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 FirebaseAuth.getInstance().signOut();
-                Intent intent = new Intent(TelaPerfil.this, TelaLogin.class);
+                Intent intent = new Intent(PerfilActivity.this, LoginActivity.class);
                 startActivity(intent);
                 finish();
             }
@@ -49,7 +49,7 @@ public class TelaPerfil extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                Intent intent = new Intent(getApplicationContext(), TelaPerfil.class);
+                Intent intent = new Intent(getApplicationContext(), PerfilActivity.class);
                 startActivity(intent);
 
 

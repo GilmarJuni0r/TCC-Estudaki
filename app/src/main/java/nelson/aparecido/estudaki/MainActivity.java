@@ -6,11 +6,8 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.annotations.Nullable;
 import com.google.firebase.firestore.DocumentReference;
@@ -20,9 +17,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.jaeger.library.StatusBarUtil;
 
-import org.jetbrains.annotations.NotNull;
-
-public class  MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity {
 
     private ImageView materias, aulas;
 
@@ -135,8 +130,8 @@ public class  MainActivity extends AppCompatActivity {
         super.onStart();
 
         usuarioID = FirebaseAuth.getInstance().getCurrentUser().getUid();
-        DocumentReference ref = db.collection("Usuario").document(usuarioID);
-        ref.addSnapshotListener(new EventListener<DocumentSnapshot>() {
+        DocumentReference documentReference = db.collection("Usuario").document(usuarioID);
+        documentReference.addSnapshotListener(new EventListener<DocumentSnapshot>() {
 
             @Override
             public void onEvent(@Nullable @org.jetbrains.annotations.Nullable DocumentSnapshot documentSnapshotMain, @Nullable @org.jetbrains.annotations.Nullable FirebaseFirestoreException error) {
@@ -145,18 +140,5 @@ public class  MainActivity extends AppCompatActivity {
                 }
             }
         });
-//        ref.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
-//            @Override
-//            public void onComplete(@NonNull @NotNull Task<DocumentSnapshot> task) {
-//               if(task.isSuccessful()){
-//                   DocumentSnapshot documentSnapshot = task.getResult();
-//                   if(documentSnapshot.exists()){
-//                       txtNome.setText(documentSnapshot.getString("nome"));
-//                   }
-//               }else{
-//
-//               }
-//            }
-//        });
     }
 }
