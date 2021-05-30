@@ -25,6 +25,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
     private EditText txt_email, txt_senha;
     private Button btn_login;
+    private View btn_me_ajuda;
 
     private FirebaseAuth mAuth;
 
@@ -36,6 +37,16 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
         StatusBarUtil.setTransparent(this);
 
+        //Ir para tela Me Ajuda
+        btn_me_ajuda = (View) findViewById(R.id.view_meAjuda);
+        btn_me_ajuda.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), MeAjudaActivity.class);
+                startActivity(intent);
+            }
+        });
+
         btn_login = (Button) findViewById(R.id.btn_login);
         btn_login.setOnClickListener(this);
 
@@ -43,6 +54,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         txt_senha = (EditText) findViewById(R.id.txt_senha);
 
         mAuth = FirebaseAuth.getInstance();
+
     }
 
     public void onClick(View v) {

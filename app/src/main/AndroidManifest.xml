@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="nelson.aparecido.estudaki">
 
     <application
@@ -19,6 +20,7 @@
         <activity android:name="nelson.aparecido.estudaki.AulasActivity"> </activity>
         <activity android:name="nelson.aparecido.estudaki.LoginActivity"> </activity>
         <activity android:name="nelson.aparecido.estudaki.MainActivity"></activity>
+        <activity android:name="nelson.aparecido.estudaki.MeAjudaActivity"></activity>
         <activity android:name="nelson.aparecido.estudaki.SplahActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

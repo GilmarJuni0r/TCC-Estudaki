@@ -11,11 +11,7 @@ import com.jaeger.library.StatusBarUtil;
 
 public class MateriasActivity extends AppCompatActivity {
 
-    ConstraintLayout matematica;
-    ConstraintLayout portugues;
-    ConstraintLayout ciencias;
-    ConstraintLayout geografia;
-    ConstraintLayout historia;
+    ConstraintLayout matematica, portugues, ciencias, geografia, historia;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
