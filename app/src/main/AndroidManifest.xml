@@ -10,6 +10,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppMinhaIdeia">
+        <activity android:name="nelson.aparecido.estudaki.BatePapoActivity_Professor"> </activity>
         <activity android:name="nelson.aparecido.estudaki.NotasActivity"> </activity>
         <activity android:name="nelson.aparecido.estudaki.MateriaAtividadeAulaActivity"> </activity>
         <activity android:name="nelson.aparecido.estudaki.MaterialMaterialAulaActivity"> </activity>
