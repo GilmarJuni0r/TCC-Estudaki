@@ -1,36 +1,24 @@
 package nelson.aparecido.estudaki;
 
-import android.content.Intent;
-import android.net.Uri;
-import android.os.Bundle;
-import android.view.View;
+        import android.content.Intent;
+        import android.os.Bundle;
+        import android.view.View;
 
-import androidx.appcompat.app.AppCompatActivity;
+        import androidx.appcompat.app.AppCompatActivity;
 
-import com.jaeger.library.StatusBarUtil;
+        import com.jaeger.library.StatusBarUtil;
 
-public class MateriaListaAulasDisponiveisActivity extends AppCompatActivity {
+public class NotasActivity extends AppCompatActivity {
 
     private View calendario, lupa, home, professor, perfil, btn_me_ajuda;
-    View aula21_05;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.tela_lista_aulas_disponiveis);
+        setContentView(R.layout.tela_notas);
 
         StatusBarUtil.setTransparent(this);
 
-        aula21_05 = findViewById(R.id.view_aula21_04);
 
-        aula21_05.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-
-                gotoURL("https://drive.google.com/uc?export=download&id=12LKzhLjrd6YJvmKfyTXdc9ZY4fYu-DTQ");
-
-            }
-        });
 
 
         /* BARRA DE TAREFA */
@@ -81,14 +69,6 @@ public class MateriaListaAulasDisponiveisActivity extends AppCompatActivity {
             }
         });
 
-
     }
-
-    private void gotoURL(String s) {
-
-        Uri uri = Uri.parse(s);
-        startActivity(new Intent(Intent.ACTION_VIEW,uri));
-    }
-
 
 }

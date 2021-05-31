@@ -19,7 +19,7 @@ import com.jaeger.library.StatusBarUtil;
 
 public class MainActivity extends AppCompatActivity {
 
-    private ImageView materias, aulas;
+    private ImageView materias, aulas, notas, img_aulas_telaprincipal;
     private View calendario, lupa, home, professor, perfil, btn_me_ajuda;
     private TextView txtNome;
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
@@ -35,6 +35,7 @@ public class MainActivity extends AppCompatActivity {
         txtNome = findViewById(R.id.txt_nome_principal);
         materias = findViewById(R.id.img_materias_telaprincipal);
         aulas = findViewById(R.id.img_aulas_telaprincipal);
+        notas = findViewById(R.id.img_notas_telaprincipal);
 
         //Ir para tela Me Ajuda
         btn_me_ajuda = (View) findViewById(R.id.view_me_ajuda_main);
@@ -62,6 +63,17 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
 
                 Intent intent = new Intent(getApplicationContext(), AulasActivity.class);
+                startActivity(intent);
+
+
+            }
+        });
+
+        notas.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent intent = new Intent(getApplicationContext(), NotasActivity.class);
                 startActivity(intent);
 
 

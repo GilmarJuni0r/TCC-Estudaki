@@ -124,6 +124,16 @@
                     app:layout_constraintTop_toBottomOf="@+id/divider2"
                     app:srcCompat="@drawable/img_materias_aulas" />
 
+                <View
+                    android:id="@+id/view_matematica_materialdeaula"
+                    android:layout_width="409dp"
+                    android:layout_height="102dp"
+                    android:layout_marginEnd="1dp"
+                    android:layout_marginRight="1dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/divider2" />
+
                 <TextView
                     android:id="@+id/material_aula"
                     android:layout_width="wrap_content"
@@ -213,6 +223,26 @@
                     android:background="?android:attr/listDivider"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/textView11" />
+
+                <View
+                    android:id="@+id/view_matematica_atividades"
+                    android:layout_width="411dp"
+                    android:layout_height="100dp"
+                    android:layout_marginStart="1dp"
+                    android:layout_marginLeft="1dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/view_matematica_materialdeaula" />
+
+                <View
+                    android:id="@+id/view_matematica_provas"
+                    android:layout_width="410dp"
+                    android:layout_height="99dp"
+                    android:layout_marginStart="1dp"
+                    android:layout_marginLeft="1dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/divider4" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 

@@ -10,12 +10,16 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppMinhaIdeia">
+        <activity android:name="nelson.aparecido.estudaki.NotasActivity"> </activity>
+        <activity android:name="nelson.aparecido.estudaki.MateriaAtividadeAulaActivity"> </activity>
+        <activity android:name="nelson.aparecido.estudaki.MaterialMaterialAulaActivity"> </activity>
+        <activity android:name="nelson.aparecido.estudaki.ProvasMatematicaActivity"> </activity>
         <activity android:name="nelson.aparecido.estudaki.PesquisaActivity"> </activity>
         <activity android:name="nelson.aparecido.estudaki.CalendarioActivity"> </activity>
         <activity android:name="nelson.aparecido.estudaki.BatePapoActivity"> </activity>
         <activity android:name="nelson.aparecido.estudaki.PerfilActivity"> </activity>
         <activity android:name="nelson.aparecido.estudaki.MateriaListaAulasDisponiveisActivity"> </activity>
-        <activity android:name="nelson.aparecido.estudaki.MaterialMenuActivity"> </activity>
+        <activity android:name="nelson.aparecido.estudaki.MateriaMenuActivity"> </activity>
         <activity android:name="nelson.aparecido.estudaki.MateriasActivity"> </activity>
         <activity android:name="nelson.aparecido.estudaki.AulasActivity"> </activity>
         <activity android:name="nelson.aparecido.estudaki.LoginActivity"> </activity>
