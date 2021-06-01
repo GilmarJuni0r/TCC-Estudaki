@@ -19,7 +19,7 @@ import com.jaeger.library.StatusBarUtil;
 
 public class MainActivity extends AppCompatActivity {
 
-    private ImageView materias, aulas, notas, img_aulas_telaprincipal;
+    private ImageView materias, aulas, notas;
     private View calendario, lupa, home, professor, perfil, btn_me_ajuda;
     private TextView txtNome;
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
@@ -73,7 +73,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                Intent intent = new Intent(getApplicationContext(), NotasActivity.class);
+                Intent intent = new Intent(getApplicationContext(), TelaNotasActivity.class);
                 startActivity(intent);
 
 

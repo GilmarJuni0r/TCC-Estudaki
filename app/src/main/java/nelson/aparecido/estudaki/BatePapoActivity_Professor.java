@@ -1,6 +1,6 @@
 package nelson.aparecido.estudaki;
 
-import android.content.Intent;
+        import android.content.Intent;
         import android.os.Bundle;
         import android.view.View;
 
@@ -8,13 +8,13 @@ import android.content.Intent;
 
         import com.jaeger.library.StatusBarUtil;
 
-public class BatePapoActivity extends AppCompatActivity {
+public class BatePapoActivity_Professor extends AppCompatActivity {
 
     View calendario, lupa, home, professor, perfil;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.tela_batepapo);
+        setContentView(R.layout.tela_batepapo_professor);
 
         StatusBarUtil.setTransparent(this);
 

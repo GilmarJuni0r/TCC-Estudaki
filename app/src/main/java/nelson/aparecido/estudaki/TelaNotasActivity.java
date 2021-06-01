@@ -8,17 +8,15 @@ package nelson.aparecido.estudaki;
 
         import com.jaeger.library.StatusBarUtil;
 
-public class NotasActivity extends AppCompatActivity {
+public class TelaNotasActivity extends AppCompatActivity {
 
-    private View calendario, lupa, home, professor, perfil, btn_me_ajuda;
+    private View calendario, lupa, home, professor, perfil;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.tela_notas);
 
         StatusBarUtil.setTransparent(this);
-
-
 
 
         /* BARRA DE TAREFA */
@@ -32,43 +30,60 @@ public class NotasActivity extends AppCompatActivity {
         perfil.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 Intent intent = new Intent(getApplicationContext(), PerfilActivity.class);
                 startActivity(intent);
+
+
             }
         });
 
         home.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                 startActivity(intent);
+
+
             }
         });
 
         professor.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 Intent intent = new Intent(getApplicationContext(), BatePapoActivity.class);
                 startActivity(intent);
+
+
             }
         });
+
 
         calendario.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 Intent intent = new Intent(getApplicationContext(), CalendarioActivity.class);
                 startActivity(intent);
+
+
             }
         });
 
         lupa.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 Intent intent = new Intent(getApplicationContext(), PesquisaActivity.class);
                 startActivity(intent);
+
+
             }
         });
 
     }
-
 }
+
+

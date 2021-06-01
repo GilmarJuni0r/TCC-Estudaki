@@ -79,6 +79,14 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
+                <View
+                    android:id="@+id/view_batepapo_professor"
+                    android:layout_width="409dp"
+                    android:layout_height="105dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
                 <ImageView
                     android:id="@+id/img_professor_nelson"
                     android:layout_width="78dp"
