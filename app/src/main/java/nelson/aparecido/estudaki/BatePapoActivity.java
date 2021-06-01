@@ -10,7 +10,7 @@ import android.content.Intent;
 
 public class BatePapoActivity extends AppCompatActivity {
 
-    View calendario, lupa, home, professor, perfil;
+    View calendario, lupa, home, professor, perfil, btn_me_ajuda;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -18,7 +18,15 @@ public class BatePapoActivity extends AppCompatActivity {
 
         StatusBarUtil.setTransparent(this);
 
-
+        //Ir para tela Me Ajuda
+        btn_me_ajuda = (View) findViewById(R.id.view_me_ajuda_batepapo);
+        btn_me_ajuda.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), MeAjudaActivity.class);
+                startActivity(intent);
+            }
+        });
 
 
 

@@ -21,7 +21,7 @@ public class AulasActivity extends AppCompatActivity {
 
         StatusBarUtil.setTransparent(this);
 
-        //Ir para tela Me Ajuda
+        /*Ir para tela Me Ajuda
         btn_me_ajuda = (View) findViewById(R.id.view_me_ajuda_aulas);
         btn_me_ajuda.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -29,7 +29,7 @@ public class AulasActivity extends AppCompatActivity {
                 Intent intent = new Intent(getApplicationContext(), MeAjudaActivity.class);
                 startActivity(intent);
             }
-        });
+        });*/
 
         aulas_matematica = findViewById(R.id.view_tela_aulas_matematica);
 
