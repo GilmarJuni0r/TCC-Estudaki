@@ -20,13 +20,21 @@ public class MateriaListaAulasDisponiveisActivity extends AppCompatActivity {
 
         StatusBarUtil.setTransparent(this);
 
+        //Ir para tela Me Ajuda
+        btn_me_ajuda = (View) findViewById(R.id.view_me_ajuda_lista_aulas_disponiveis);
+        btn_me_ajuda.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), MeAjudaActivity.class);
+                startActivity(intent);
+            }
+        });
+
         aula21_05 = findViewById(R.id.view_aula21_04);
 
         aula21_05.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-
                 gotoURL("https://drive.google.com/uc?export=download&id=12LKzhLjrd6YJvmKfyTXdc9ZY4fYu-DTQ");
 
             }
@@ -80,12 +88,9 @@ public class MateriaListaAulasDisponiveisActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
-
     }
 
     private void gotoURL(String s) {
-
         Uri uri = Uri.parse(s);
         startActivity(new Intent(Intent.ACTION_VIEW,uri));
     }

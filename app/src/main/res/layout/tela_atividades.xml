@@ -165,7 +165,7 @@
                     android:layout_marginRight="4dp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:srcCompat="@drawable/tela_login_meajuda" />
+                    app:srcCompat="@drawable/icon_meajuda" />
 
                 <View
                     android:id="@+id/view_me_ajuda_atividades"

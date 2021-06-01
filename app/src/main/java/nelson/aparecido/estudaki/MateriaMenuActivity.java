@@ -10,7 +10,7 @@ import com.jaeger.library.StatusBarUtil;
 
 public class MateriaMenuActivity extends AppCompatActivity {
 
-        View aulas, matematica_material_aula, matematica_atividades,matematica_provas;
+    View aulas, matematica_material_aula, matematica_atividades,matematica_provas;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -18,11 +18,9 @@ public class MateriaMenuActivity extends AppCompatActivity {
 
         StatusBarUtil.setTransparent(this);
 
-
-
         aulas = findViewById(R.id.view_aulas);
 
-        matematica_material_aula = findViewById(R.id.view_matematica_materialdeaula);
+        matematica_material_aula = findViewById(R.id.view_material_de_aula);
 
         matematica_atividades = findViewById(R.id.view_matematica_atividades);
 
@@ -44,7 +42,7 @@ public class MateriaMenuActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                Intent intent = new Intent(getApplicationContext(), MaterialMaterialAulaActivity.class);
+                Intent intent = new Intent(getApplicationContext(), MateriaMaterialAulaActivity.class);
                 startActivity(intent);
 
 
@@ -66,7 +64,7 @@ public class MateriaMenuActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                Intent intent = new Intent(getApplicationContext(), ProvasMatematicaActivity.class);
+                Intent intent = new Intent(getApplicationContext(), MateriaProvaActivity.class);
                 startActivity(intent);
 
 

@@ -27,18 +27,47 @@
             android:layout_height="match_parent"
             android:orientation="vertical">
 
-            <TextView
-
-                android:id="@+id/text_aulas"
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="117dp"
-                android:autoText="true"
-                android:fontFamily="@font/comfortaa_light"
-                android:gravity="center"
-                android:text="Chat com os Professores"
-                android:textColor="#000000"
-                android:textSize="24dp"
-                android:textStyle="bold" />
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:id="@+id/image_me_ajuda_batepapo"
+                    android:layout_width="42dp"
+                    android:layout_height="46dp"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginEnd="4dp"
+                    android:layout_marginRight="4dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/icon_meajuda" />
+
+                <TextView
+                    android:id="@+id/text_aulas"
+                    android:layout_width="match_parent"
+                    android:layout_height="117dp"
+                    android:autoText="true"
+                    android:fontFamily="@font/comfortaa_light"
+                    android:gravity="center"
+                    android:text="Chat com os Professores"
+                    android:textColor="#000000"
+                    android:textSize="24dp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <View
+                    android:id="@+id/view_me_ajuda_batepapo"
+                    android:layout_width="42dp"
+                    android:layout_height="46dp"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginEnd="4dp"
+                    android:layout_marginRight="4dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
             <ProgressBar
                 android:id="@+id/progressBar"
@@ -358,7 +387,6 @@
                 style="?android:attr/progressBarStyleHorizontal"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent" />
-
 
         </LinearLayout>
     </ScrollView>

@@ -10,7 +10,7 @@ package nelson.aparecido.estudaki;
 
 public class CalendarioActivity extends AppCompatActivity {
 
-    private View calendario, lupa, home, professor, perfil;
+    private View calendario, lupa, home, professor, perfil, btn_me_ajuda;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -18,6 +18,15 @@ public class CalendarioActivity extends AppCompatActivity {
 
         StatusBarUtil.setTransparent(this);
 
+        //Ir para tela Me Ajuda
+        btn_me_ajuda = (View) findViewById(R.id.view_me_ajuda_calendario);
+        btn_me_ajuda.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), MeAjudaActivity.class);
+                startActivity(intent);
+            }
+        });
 
         /* BARRA DE TAREFA */
         calendario = findViewById(R.id.view_calendario);

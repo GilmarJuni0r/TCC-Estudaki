@@ -8,7 +8,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.jaeger.library.StatusBarUtil;
 
-public class MaterialMaterialAulaActivity extends AppCompatActivity {
+public class MateriaMaterialAulaActivity extends AppCompatActivity {
 
     private View calendario, lupa, home, professor, perfil, btn_me_ajuda;
 
@@ -18,8 +18,15 @@ public class MaterialMaterialAulaActivity extends AppCompatActivity {
 
         StatusBarUtil.setTransparent(this);
 
-
-
+        //Ir para tela Me Ajuda
+        btn_me_ajuda = (View) findViewById(R.id.view_me_ajuda_materia_material_de_aulas);
+        btn_me_ajuda.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), MeAjudaActivity.class);
+                startActivity(intent);
+            }
+        });
 
         /* BARRA DE TAREFA */
         calendario = findViewById(R.id.view_calendario);
@@ -70,5 +77,4 @@ public class MaterialMaterialAulaActivity extends AppCompatActivity {
         });
 
     }
-
 }

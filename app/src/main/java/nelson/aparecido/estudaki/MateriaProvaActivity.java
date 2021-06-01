@@ -1,6 +1,6 @@
 package nelson.aparecido.estudaki;
 
-        import android.content.Intent;
+import android.content.Intent;
         import android.os.Bundle;
         import android.view.View;
 
@@ -8,7 +8,7 @@ package nelson.aparecido.estudaki;
 
         import com.jaeger.library.StatusBarUtil;
 
-public class ProvasMatematicaActivity extends AppCompatActivity {
+public class MateriaProvaActivity extends AppCompatActivity {
 
     private View calendario, lupa, home, professor, perfil, btn_me_ajuda;
 
@@ -18,8 +18,6 @@ public class ProvasMatematicaActivity extends AppCompatActivity {
         setContentView(R.layout.tela_materia_prova);
 
         StatusBarUtil.setTransparent(this);
-
-
 
         /* BARRA DE TAREFA */
         calendario = findViewById(R.id.view_calendario);

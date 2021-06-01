@@ -12,8 +12,7 @@ import com.jaeger.library.StatusBarUtil;
 
 public class AulasActivity extends AppCompatActivity {
 
-    private View calendario, lupa, home, professor, perfil, btn_me_ajuda;
-    private View aulas_matematica;
+    private View calendario, lupa, home, professor, perfil, btn_me_ajuda, aulas_matematica;
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,6 +20,16 @@ public class AulasActivity extends AppCompatActivity {
         setContentView(R.layout.tela_aulas);
 
         StatusBarUtil.setTransparent(this);
+
+        //Ir para tela Me Ajuda
+        btn_me_ajuda = (View) findViewById(R.id.view_me_ajuda_aulas);
+        btn_me_ajuda.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), MeAjudaActivity.class);
+                startActivity(intent);
+            }
+        });
 
         aulas_matematica = findViewById(R.id.view_tela_aulas_matematica);
 
@@ -32,8 +41,8 @@ public class AulasActivity extends AppCompatActivity {
             }
         });
 
-                /* BARRA DE TAREFA */
-                calendario = findViewById(R.id.view_calendario);
+         /* BARRA DE TAREFA */
+        calendario = findViewById(R.id.view_calendario);
         lupa = findViewById(R.id.view_lupa);
         home = findViewById(R.id.view_home);
         professor = findViewById(R.id.view_conversa_professor);
@@ -79,6 +88,5 @@ public class AulasActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
     }
-    }
+}

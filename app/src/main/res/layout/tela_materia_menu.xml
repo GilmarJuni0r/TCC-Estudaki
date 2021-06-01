@@ -125,7 +125,7 @@
                     app:srcCompat="@drawable/img_materias_aulas" />
 
                 <View
-                    android:id="@+id/view_matematica_materialdeaula"
+                    android:id="@+id/view_material_de_aula"
                     android:layout_width="409dp"
                     android:layout_height="102dp"
                     android:layout_marginEnd="1dp"
@@ -232,7 +232,7 @@
                     android:layout_marginLeft="1dp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/view_matematica_materialdeaula" />
+                    app:layout_constraintTop_toBottomOf="@+id/view_material_de_aula" />
 
                 <View
                     android:id="@+id/view_matematica_provas"

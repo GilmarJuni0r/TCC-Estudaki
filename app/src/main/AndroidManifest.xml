@@ -12,8 +12,8 @@
         android:theme="@style/Theme.AppMinhaIdeia">
         <activity android:name="nelson.aparecido.estudaki.NotasActivity"> </activity>
         <activity android:name="nelson.aparecido.estudaki.MateriaAtividadeAulaActivity"> </activity>
-        <activity android:name="nelson.aparecido.estudaki.MaterialMaterialAulaActivity"> </activity>
-        <activity android:name="nelson.aparecido.estudaki.ProvasMatematicaActivity"> </activity>
+        <activity android:name="nelson.aparecido.estudaki.MateriaMaterialAulaActivity"> </activity>
+        <activity android:name="nelson.aparecido.estudaki.MateriaProvaActivity"> </activity>
         <activity android:name="nelson.aparecido.estudaki.PesquisaActivity"> </activity>
         <activity android:name="nelson.aparecido.estudaki.CalendarioActivity"> </activity>
         <activity android:name="nelson.aparecido.estudaki.BatePapoActivity"> </activity>

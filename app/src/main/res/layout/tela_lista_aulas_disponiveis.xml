@@ -30,6 +30,25 @@
                 android:layout_height="748dp">
 
                 <ImageView
+                    android:id="@+id/imageView_me_ajuda_lista_aulas_disponiveis"
+                    android:layout_width="42dp"
+                    android:layout_height="46dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginRight="8dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/icon_meajuda" />
+
+                <View
+                    android:id="@+id/view_me_ajuda_lista_aulas_disponiveis"
+                    android:layout_width="42dp"
+                    android:layout_height="46dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginRight="8dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
                     android:id="@+id/img_matematica"
                     android:layout_width="62dp"
                     android:layout_height="62dp"
