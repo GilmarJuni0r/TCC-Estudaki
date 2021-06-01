@@ -91,8 +91,13 @@
                     android:id="@+id/view_tela_aulas_matematica"
                     android:layout_width="407dp"
                     android:layout_height="103dp"
-                    tools:layout_editor_absoluteX="2dp"
-                    tools:layout_editor_absoluteY="0dp" />
+                    android:layout_marginStart="2dp"
+                    android:layout_marginLeft="2dp"
+                    android:layout_marginEnd="2dp"
+                    android:layout_marginRight="2dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
