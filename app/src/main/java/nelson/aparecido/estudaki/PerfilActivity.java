@@ -1,25 +1,42 @@
 package nelson.aparecido.estudaki;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.view.View;
+import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.UploadTask;
 import com.jaeger.library.StatusBarUtil;
 
+import org.jetbrains.annotations.NotNull;
+
+import java.io.IOException;
 import java.time.LocalDate;
 import java.time.Period;
 import java.time.format.DateTimeFormatter;
+import java.util.UUID;
 
 public class PerfilActivity extends AppCompatActivity {
 
@@ -27,6 +44,9 @@ public class PerfilActivity extends AppCompatActivity {
     private TextView txtNome, txtOcupacao, txtTurma, txtIdade, txtRaCpf, txtNomeProfessor, txtEscola, txtEmail;
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
     private String usuarioID;
+    private Button btnFotoSelecionada;
+    private ImageView imgFoto;
+    private Uri selectedUri;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,6 +54,13 @@ public class PerfilActivity extends AppCompatActivity {
 
         StatusBarUtil.setTransparent(this);
         inicializarComponentes();
+
+        btnFotoSelecionada.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                selecionarFoto();
+            }
+        });
 
         btnLogout.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -81,10 +108,62 @@ public class PerfilActivity extends AppCompatActivity {
         return periodo.getYears();
     }
 
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable @org.jetbrains.annotations.Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if(requestCode == 0){
+            selectedUri = data.getData();
+
+            Bitmap bitmap = null;
+            try {
+                bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), selectedUri);
+                imgFoto.setImageDrawable(new BitmapDrawable(bitmap));
+                btnFotoSelecionada.setAlpha(0);
+                salvarFoto();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    private void selecionarFoto() {
+        Intent intent = new Intent(Intent.ACTION_PICK);
+        intent.setType("image/*");
+        startActivityForResult(intent, 0);
+    }
+
+    private void salvarFoto(){
+        String filename = usuarioID;//String filename = UUID.randomUUID().toString();
+        final StorageReference ref = FirebaseStorage.getInstance().getReference("/images/" + filename );
+        ref.putFile(selectedUri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+            @Override
+            public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                ref.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                    @Override
+                    public void onSuccess(Uri uri) {
+                        Toast.makeText(getApplicationContext(), "Foto de perfil alterada com sucesso", Toast.LENGTH_LONG).show();
+                    }
+                });
+            }
+        })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull @NotNull Exception e) {
+                        Toast.makeText(getApplicationContext(), "Falha ao enviar imagem, tente novamente", Toast.LENGTH_LONG).show();
+                    }
+                });
+    }
+
+
     protected void inicializarComponentes(){
+
+        usuarioID = FirebaseAuth.getInstance().getCurrentUser().getUid();
 
         //Compenentes da tela
         btnLogout = findViewById(R.id.btn_logout);
+        btnFotoSelecionada = findViewById(R.id.btn_foto_selecionada);
+        imgFoto = findViewById(R.id.img_fotoPerfil);
 
         txtNome = findViewById(R.id.txt_nome);
         txtOcupacao = findViewById(R.id.txt_ocupacao);
@@ -105,7 +184,6 @@ public class PerfilActivity extends AppCompatActivity {
 
     private void exibirDados(){
 
-        usuarioID = FirebaseAuth.getInstance().getCurrentUser().getUid();
         DocumentReference documentReference = db.collection("Usuario").document(usuarioID);
 
         documentReference.addSnapshotListener(new EventListener<DocumentSnapshot>() {

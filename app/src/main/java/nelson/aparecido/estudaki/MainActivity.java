@@ -1,4 +1,4 @@
-package nelson.aparecido.estudaki;
+ package nelson.aparecido.estudaki;
 
 import android.content.Intent;
 import android.net.Uri;
@@ -93,16 +93,16 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        notas.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                Intent intent = new Intent(getApplicationContext(), NotasActivity.class);
-                startActivity(intent);
-
-
-            }
-        });
+//        notas.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//
+//                Intent intent = new Intent(getApplicationContext(), NotasActivity.class);
+//                startActivity(intent);
+//
+//
+//            }
+//        });
 
             /* BARRA DE TAREFA */
             calendario = findViewById(R.id.view_calendario);

@@ -12,7 +12,6 @@ import com.jaeger.library.StatusBarUtil;
 public class MateriaListaAulasDisponiveisActivity extends AppCompatActivity {
 
     private View calendario, lupa, home, professor, perfil, btn_me_ajuda;
-    View aula21_05;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,15 +29,6 @@ public class MateriaListaAulasDisponiveisActivity extends AppCompatActivity {
             }
         });
 
-        aula21_05 = findViewById(R.id.view_aula21_04);
-
-        aula21_05.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                gotoURL("https://drive.google.com/uc?export=download&id=12LKzhLjrd6YJvmKfyTXdc9ZY4fYu-DTQ");
-
-            }
-        });
 
 
         /* BARRA DE TAREFA */

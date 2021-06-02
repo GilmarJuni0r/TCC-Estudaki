@@ -168,4 +168,12 @@
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/bdenavecagao_perfil" />
     </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <EditText
+        android:id="@+id/editTextTextMultiLine"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:gravity="start|top"
+        android:inputType="textMultiLine" />
 </androidx.constraintlayout.widget.ConstraintLayout>

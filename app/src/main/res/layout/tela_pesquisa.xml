@@ -83,13 +83,13 @@
                     app:layout_constraintTop_toBottomOf="@+id/text_matematica" />
 
                 <EditText
-                    android:id="@+id/editTextTextPersonName"
+                    android:id="@+id/txt_pesquisa"
                     android:layout_width="281dp"
                     android:layout_height="48dp"
                     android:layout_marginTop="48dp"
                     android:ems="10"
+                    android:hint="Pesquisar"
                     android:inputType="textPersonName"
-                    android:text="Pesquia"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.502"
                     app:layout_constraintStart_toStartOf="parent"
