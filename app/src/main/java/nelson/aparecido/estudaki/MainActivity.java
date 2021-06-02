@@ -97,7 +97,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                Intent intent = new Intent(getApplicationContext(), TelaNotasActivity.class);
+                Intent intent = new Intent(getApplicationContext(), NotasActivity.class);
                 startActivity(intent);
 
 

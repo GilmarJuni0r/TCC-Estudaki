@@ -19,6 +19,16 @@ public class MateriaProvaActivity extends AppCompatActivity {
 
         StatusBarUtil.setTransparent(this);
 
+        //Ir para tela Me Ajuda
+        btn_me_ajuda = (View) findViewById(R.id.imageView_me_ajuda_materia_prova);
+        btn_me_ajuda.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), MeAjudaActivity.class);
+                startActivity(intent);
+            }
+        });
+
         /* BARRA DE TAREFA */
         calendario = findViewById(R.id.view_calendario);
         lupa = findViewById(R.id.view_lupa);

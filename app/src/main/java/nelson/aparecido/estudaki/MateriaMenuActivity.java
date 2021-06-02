@@ -10,7 +10,7 @@ import com.jaeger.library.StatusBarUtil;
 
 public class MateriaMenuActivity extends AppCompatActivity {
 
-    View aulas, matematica_material_aula, matematica_atividades,matematica_provas;
+    View aulas, material_aula, atividades, provas, btn_me_ajuda;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -18,64 +18,54 @@ public class MateriaMenuActivity extends AppCompatActivity {
 
         StatusBarUtil.setTransparent(this);
 
+        //Ir para tela Me Ajuda
+        btn_me_ajuda = (View) findViewById(R.id.imageView_me_ajuda_materia_menu);
+        btn_me_ajuda.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), MeAjudaActivity.class);
+                startActivity(intent);
+            }
+        });
+
         aulas = findViewById(R.id.view_aulas);
-
-        matematica_material_aula = findViewById(R.id.view_material_de_aula);
-
-        matematica_atividades = findViewById(R.id.view_matematica_atividades);
-
-        matematica_provas = findViewById(R.id.view_matematica_provas);
+        material_aula = findViewById(R.id.view_material_de_aula);
+        atividades = findViewById(R.id.view_matematica_atividades);
+        provas = findViewById(R.id.view_matematica_provas);
 
         aulas.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 Intent intent = new Intent(getApplicationContext(), MateriaListaAulasDisponiveisActivity.class);
                 startActivity(intent);
-
-
             }
         });
 
 
-        matematica_material_aula.setOnClickListener(new View.OnClickListener() {
+        material_aula.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 Intent intent = new Intent(getApplicationContext(), MateriaMaterialAulaActivity.class);
                 startActivity(intent);
-
-
             }
         });
 
-        matematica_atividades.setOnClickListener(new View.OnClickListener() {
+        atividades.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 Intent intent = new Intent(getApplicationContext(), MateriaAtividadeAulaActivity.class);
                 startActivity(intent);
-
-
             }
         });
 
-        matematica_provas.setOnClickListener(new View.OnClickListener() {
+        provas.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 Intent intent = new Intent(getApplicationContext(), MateriaProvaActivity.class);
                 startActivity(intent);
-
-
             }
         });
-
-
-
-
     }
-
 }
 
 
