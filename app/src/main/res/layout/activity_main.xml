@@ -86,14 +86,16 @@
 
                 <TextView
                     android:id="@+id/textView3"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="12dp"
-                    android:layout_marginLeft="12dp"
-                    android:layout_marginTop="308dp"
-                    android:fontFamily="@font/roboto_bold"
+                    android:layout_width="393dp"
+                    android:layout_height="33dp"
+                    android:layout_marginTop="296dp"
+                    android:fontFamily="@font/luckiest_guy"
                     android:text="NOVIDADES NA ESCOLA"
                     android:textColor="#0C0C0C"
+                    android:textSize="24sp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.104"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="@+id/imageView9bonecos_menuprincipal2" />
 
@@ -152,8 +154,8 @@
                                 android:layout_marginLeft="104dp"
                                 android:layout_marginTop="8dp"
                                 app:layout_constraintStart_toEndOf="@+id/textView2"
-                                app:layout_constraintTop_toBottomOf="@+id/telaincial_colorir"
-                                app:srcCompat="@drawable/foto_nelson" />
+                                app:layout_constraintTop_toBottomOf="@+id/playlist_filmes_telainicial"
+                                app:srcCompat="@drawable/professora_telma" />
 
                             <ImageView
                                 android:id="@+id/foto_ana"
@@ -163,22 +165,11 @@
                                 android:layout_marginLeft="16dp"
                                 android:layout_marginTop="8dp"
                                 app:layout_constraintStart_toStartOf="parent"
-                                app:layout_constraintTop_toBottomOf="@+id/telainicial_matematica"
-                                app:srcCompat="@drawable/foto_ana" />
+                                app:layout_constraintTop_toBottomOf="@+id/playlist_telainicial"
+                                app:srcCompat="@drawable/professora_maria" />
 
                             <ImageView
-                                android:id="@+id/foto_geovanna"
-                                android:layout_width="45dp"
-                                android:layout_height="45dp"
-                                android:layout_marginStart="72dp"
-                                android:layout_marginLeft="72dp"
-                                android:layout_marginTop="8dp"
-                                app:layout_constraintStart_toEndOf="@+id/textView4"
-                                app:layout_constraintTop_toBottomOf="@+id/telaincial_portugues"
-                                app:srcCompat="@drawable/foto_giovanna" />
-
-                            <ImageView
-                                android:id="@+id/telainicial_matematica"
+                                android:id="@+id/playlist_telainicial"
                                 android:layout_width="343dp"
                                 android:layout_height="343dp"
                                 android:layout_marginStart="15dp"
@@ -188,43 +179,19 @@
                                 android:contentDescription="@string/content_desc_imagemmatematica"
                                 app:layout_constraintStart_toStartOf="parent"
                                 app:layout_constraintTop_toTopOf="parent"
-                                app:srcCompat="@drawable/telaincial_matematica" />
+                                app:srcCompat="@drawable/img_musicas_estudar" />
 
                             <ImageView
-                                android:id="@+id/telaincial_colorir"
+                                android:id="@+id/playlist_filmes_telainicial"
                                 android:layout_width="343dp"
                                 android:layout_height="343dp"
                                 android:layout_marginStart="15dp"
                                 android:layout_marginLeft="15dp"
                                 android:layout_marginTop="15dp"
                                 android:contentDescription="@string/content_descr_telaincial_colorir"
-                                app:layout_constraintStart_toEndOf="@+id/telainicial_matematica"
+                                app:layout_constraintStart_toEndOf="@+id/playlist_telainicial"
                                 app:layout_constraintTop_toTopOf="parent"
-                                app:srcCompat="@drawable/telaincial_colorir" />
-
-                            <ImageView
-                                android:id="@+id/telaincial_portugues"
-                                android:layout_width="343dp"
-                                android:layout_height="343dp"
-                                android:layout_marginStart="15dp"
-                                android:layout_marginLeft="15dp"
-                                android:layout_marginTop="16dp"
-                                android:contentDescription="@string/content_descr_imagemportugues"
-                                app:layout_constraintStart_toEndOf="@+id/telaincial_colorir"
-                                app:layout_constraintTop_toTopOf="parent"
-                                app:srcCompat="@drawable/telaincial_linguaportuguesa" />
-
-                            <ImageView
-                                android:id="@+id/telaincial_geografia"
-                                android:layout_width="343dp"
-                                android:layout_height="343dp"
-                                android:layout_marginStart="15dp"
-                                android:layout_marginLeft="15dp"
-                                android:layout_marginTop="15dp"
-                                android:contentDescription="@string/content_descr_imagemgeografia"
-                                app:layout_constraintStart_toEndOf="@+id/telaincial_portugues"
-                                app:layout_constraintTop_toTopOf="parent"
-                                app:srcCompat="@drawable/telaincial_geoagrafia" />
+                                app:srcCompat="@drawable/img_filmes_estudar" />
 
                             <TextView
                                 android:id="@+id/textView2"
@@ -234,10 +201,10 @@
                                 android:layout_marginLeft="60dp"
                                 android:layout_marginTop="20dp"
                                 android:fontFamily="@font/roboto_bold"
-                                android:text="Professora Ana Mascelloni"
+                                android:text="Professora Maria Aparecida"
                                 android:textColor="#000000"
                                 app:layout_constraintStart_toEndOf="@+id/foto_ana"
-                                app:layout_constraintTop_toBottomOf="@+id/telainicial_matematica" />
+                                app:layout_constraintTop_toBottomOf="@+id/playlist_telainicial" />
 
                             <TextView
                                 android:id="@+id/textView4"
@@ -247,47 +214,10 @@
                                 android:layout_marginLeft="60dp"
                                 android:layout_marginTop="20dp"
                                 android:fontFamily="@font/roboto_bold"
-                                android:text="Professor Nelson Aparecido"
+                                android:text="Professora Telma Silva"
                                 android:textColor="#000000"
                                 app:layout_constraintStart_toEndOf="@+id/imageView10"
-                                app:layout_constraintTop_toBottomOf="@+id/telaincial_colorir" />
-
-                            <TextView
-                                android:id="@+id/textView5"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginStart="60dp"
-                                android:layout_marginLeft="60dp"
-                                android:layout_marginTop="20dp"
-                                android:fontFamily="@font/roboto_bold"
-                                android:text="Professora Gionna Nascimento"
-                                android:textColor="#000000"
-                                app:layout_constraintStart_toEndOf="@+id/foto_geovanna"
-                                app:layout_constraintTop_toBottomOf="@+id/telaincial_portugues" />
-
-                            <TextView
-                                android:id="@+id/textView6"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginStart="60dp"
-                                android:layout_marginLeft="60dp"
-                                android:layout_marginTop="20dp"
-                                android:fontFamily="@font/roboto_bold"
-                                android:text="Professora Karina Cruz"
-                                android:textColor="#000000"
-                                app:layout_constraintStart_toEndOf="@+id/imageView12"
-                                app:layout_constraintTop_toBottomOf="@+id/telaincial_geografia" />
-
-                            <ImageView
-                                android:id="@+id/imageView12"
-                                android:layout_width="45dp"
-                                android:layout_height="45dp"
-                                android:layout_marginStart="68dp"
-                                android:layout_marginLeft="68dp"
-                                android:layout_marginTop="8dp"
-                                app:layout_constraintStart_toEndOf="@+id/textView5"
-                                app:layout_constraintTop_toBottomOf="@+id/telaincial_geografia"
-                                app:srcCompat="@drawable/foto_karina" />
+                                app:layout_constraintTop_toBottomOf="@+id/playlist_filmes_telainicial" />
 
                         </androidx.constraintlayout.widget.ConstraintLayout>
 

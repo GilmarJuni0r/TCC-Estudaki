@@ -1,6 +1,7 @@
 package nelson.aparecido.estudaki;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
@@ -19,7 +20,7 @@ import com.jaeger.library.StatusBarUtil;
 
 public class MainActivity extends AppCompatActivity {
 
-    private ImageView materias, aulas, notas;
+    private ImageView materias, aulas, notas, playlist,playlist_historia;
     private View calendario, lupa, home, professor, perfil, btn_me_ajuda;
     private TextView txtNome;
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
@@ -36,6 +37,8 @@ public class MainActivity extends AppCompatActivity {
         materias = findViewById(R.id.img_materias_telaprincipal);
         aulas = findViewById(R.id.img_aulas_telaprincipal);
         notas = findViewById(R.id.img_notas_telaprincipal);
+        playlist = findViewById(R.id.playlist_telainicial);
+        playlist_historia = findViewById(R.id.playlist_filmes_telainicial);
 
         //Ir para tela Me Ajuda
         btn_me_ajuda = (View) findViewById(R.id.view_me_ajuda_main);
@@ -44,6 +47,27 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), MeAjudaActivity.class);
                 startActivity(intent);
+            }
+        });
+
+
+        playlist.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                gotoURL("https://youtube.com/playlist?list=PLVkT5_GzN_AL0Vuaz1PTK-wuWTU6AIGKL");
+
+
+            }
+        });
+
+        playlist_historia.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                gotoURL("https://youtube.com/playlist?list=PLVkT5_GzN_ALcVpcTap1r8AK4VfJCLmED");
+
+
             }
         });
 
@@ -144,5 +168,11 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
+    }
+
+    private void gotoURL(String s) {
+
+        Uri uri = Uri.parse(s);
+        startActivity(new Intent(Intent.ACTION_VIEW,uri));
     }
 }
