@@ -72,6 +72,15 @@
         </LinearLayout>
     </ScrollView>
 
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycle"
+        android:layout_width="415dp"
+        android:layout_height="610dp"
+        android:layout_marginTop="120dp"
+        app:layout_constraintEnd_toEndOf="@+id/barradenavegacao"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/img_backgound_tela_aulas" />
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/barradenavegacao"
         android:layout_width="410dp"
@@ -192,15 +201,5 @@
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/bdenavecagao_perfil" />
     </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recycle"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="130dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/barradenavegacao"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/scrollView4" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
