@@ -1,6 +1,7 @@
 package nelson.aparecido.estudaki;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
 import android.os.Build;
@@ -25,6 +26,7 @@ import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
+import com.google.firebase.storage.FileDownloadTask;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
@@ -35,6 +37,7 @@ import com.xwray.groupie.ViewHolder;
 
 import org.jetbrains.annotations.NotNull;
 
+import java.io.File;
 import java.io.IOException;
 import java.time.LocalDate;
 import java.time.Period;
@@ -46,6 +49,7 @@ public class PerfilActivity extends AppCompatActivity {
     private View calendario, lupa, home, professor, perfil, btnLogout;
     private TextView txtNome, txtOcupacao, txtTurma, txtIdade, txtRaCpf, txtNomeProfessor, txtEscola, txtEmail;
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
+    StorageReference foto;
     private String usuarioID;
     private Button btnFotoSelecionada;
     private ImageView imgFoto;
@@ -78,22 +82,43 @@ public class PerfilActivity extends AppCompatActivity {
         perfil.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 Intent intent = new Intent(getApplicationContext(), PerfilActivity.class);
                 startActivity(intent);
-
-
             }
         });
 
         home.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                 startActivity(intent);
             }
         });
+
+        professor.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), ContatosActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        calendario.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), CalendarioActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        lupa.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), PesquisaActivity.class);
+                startActivity(intent);
+            }
+        });
+
     }
 
     @Override
@@ -186,15 +211,29 @@ public class PerfilActivity extends AppCompatActivity {
     }
 
     private void exibirDados(){
-
         DocumentReference documentReference = db.collection("Usuario").document(usuarioID);
-
         documentReference.addSnapshotListener(new EventListener<DocumentSnapshot>() {
 
             @RequiresApi(api = Build.VERSION_CODES.O)
             @Override
             public void onEvent(@Nullable @org.jetbrains.annotations.Nullable DocumentSnapshot documentSnapshotPerfil, @Nullable @org.jetbrains.annotations.Nullable FirebaseFirestoreException error) {
                 if(documentSnapshotPerfil != null){
+                    foto = FirebaseStorage.getInstance().getReferenceFromUrl(documentSnapshotPerfil.getString("fotoPerfil"));
+
+                    try {
+                        final File tempfile = File.createTempFile("fotoPerfil", "jpg");
+                        foto.getFile(tempfile).addOnSuccessListener(new OnSuccessListener<FileDownloadTask.TaskSnapshot>() {
+                            @Override
+                            public void onSuccess(FileDownloadTask.TaskSnapshot taskSnapshot) {
+                                Bitmap bitmap = BitmapFactory.decodeFile(tempfile.getAbsolutePath());
+                                imgFoto.setImageBitmap(bitmap);
+                                btnFotoSelecionada.setAlpha(0);
+                            }
+                        });
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+
                     String dataNascimento = documentSnapshotPerfil.getString("dataNascimento");
 
                     String turmaID = documentSnapshotPerfil.getString("turma");
