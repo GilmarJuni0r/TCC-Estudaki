@@ -29,6 +29,9 @@ import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 import com.jaeger.library.StatusBarUtil;
+import com.squareup.picasso.Picasso;
+import com.xwray.groupie.Item;
+import com.xwray.groupie.ViewHolder;
 
 import org.jetbrains.annotations.NotNull;
 
@@ -158,9 +161,9 @@ public class PerfilActivity extends AppCompatActivity {
 
     protected void inicializarComponentes(){
 
+        //Compenentes da tela
         usuarioID = FirebaseAuth.getInstance().getCurrentUser().getUid();
 
-        //Compenentes da tela
         btnLogout = findViewById(R.id.btn_logout);
         btnFotoSelecionada = findViewById(R.id.btn_foto_selecionada);
         imgFoto = findViewById(R.id.img_fotoPerfil);
@@ -255,4 +258,5 @@ public class PerfilActivity extends AppCompatActivity {
             }
         });
     }
+
 }

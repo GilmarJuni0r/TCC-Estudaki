@@ -93,7 +93,7 @@
                     app:srcCompat="@drawable/amg_atividade_corrigida" />
 
                 <TextView
-                    android:id="@+id/text_aulas"
+                    android:id="@+id/txt_chat"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="52dp"
@@ -113,7 +113,7 @@
                     android:layout_marginTop="50dp"
                     android:background="?android:attr/listDivider"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/text_aulas" />
+                    app:layout_constraintTop_toBottomOf="@+id/txt_chat" />
 
                 <ImageView
                     android:id="@+id/img_materialaula"

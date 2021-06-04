@@ -55,7 +55,7 @@ public class PesquisaActivity extends AppCompatActivity {
         professor.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), BatePapoActivity.class);
+                Intent intent = new Intent(getApplicationContext(), ContatosActivity.class);
                 startActivity(intent);
             }
         });

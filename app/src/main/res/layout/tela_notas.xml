@@ -62,7 +62,7 @@
 
             <TextView
 
-                android:id="@+id/text_aulas"
+                android:id="@+id/txt_chat"
                 android:layout_width="match_parent"
                 android:layout_height="117dp"
                 android:autoText="true"

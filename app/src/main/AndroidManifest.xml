@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     package="nelson.aparecido.estudaki">
-
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -11,13 +11,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppMinhaIdeia">
         <activity android:name="nelson.aparecido.estudaki.NotasActivity"> </activity>
-        <activity android:name="nelson.aparecido.estudaki.BatePapoActivity_Professor"> </activity>
+        <activity android:name="nelson.aparecido.estudaki.ChatActivity"> </activity>
         <activity android:name="nelson.aparecido.estudaki.MateriaAtividadeAulaActivity"> </activity>
         <activity android:name="nelson.aparecido.estudaki.MateriaMaterialAulaActivity"> </activity>
         <activity android:name="nelson.aparecido.estudaki.MateriaProvaActivity"> </activity>
         <activity android:name="nelson.aparecido.estudaki.PesquisaActivity"> </activity>
         <activity android:name="nelson.aparecido.estudaki.CalendarioActivity"> </activity>
-        <activity android:name="nelson.aparecido.estudaki.BatePapoActivity"> </activity>
+        <activity android:name="nelson.aparecido.estudaki.ContatosActivity"></activity>
         <activity android:name="nelson.aparecido.estudaki.PerfilActivity"> </activity>
         <activity android:name="nelson.aparecido.estudaki.MateriaListaAulasDisponiveisActivity"> </activity>
         <activity android:name="nelson.aparecido.estudaki.MateriaMenuActivity"> </activity>

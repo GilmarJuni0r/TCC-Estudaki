@@ -63,7 +63,7 @@
                     android:layout_marginLeft="12dp"
                     android:layout_marginTop="48dp"
                     android:fontFamily="@font/luckiest_guy"
-                    android:text="BEM VINDO"
+                    android:text="BEM VINDO(A)"
                     android:textColor="#0E0E0E"
                     android:textSize="48dp"
                     app:layout_constraintStart_toStartOf="parent"

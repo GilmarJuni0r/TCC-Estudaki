@@ -8,13 +8,13 @@ package nelson.aparecido.estudaki;
 
         import com.jaeger.library.StatusBarUtil;
 
-public class BatePapoActivity_Professor extends AppCompatActivity {
+public class ChatActivity extends AppCompatActivity {
 
     View calendario, lupa, home, professor, perfil;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.tela_batepapo_professor);
+        setContentView(R.layout.tela_chat);
 
         StatusBarUtil.setTransparent(this);
 
@@ -57,7 +57,7 @@ public class BatePapoActivity_Professor extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                Intent intent = new Intent(getApplicationContext(), BatePapoActivity.class);
+                Intent intent = new Intent(getApplicationContext(), ContatosActivity.class);
                 startActivity(intent);
 
 

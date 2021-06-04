@@ -62,7 +62,7 @@ public class CalendarioActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                Intent intent = new Intent(getApplicationContext(), BatePapoActivity.class);
+                Intent intent = new Intent(getApplicationContext(), ContatosActivity.class);
                 startActivity(intent);
 
 
