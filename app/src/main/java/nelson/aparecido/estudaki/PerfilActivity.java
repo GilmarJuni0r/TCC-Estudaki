@@ -121,6 +121,9 @@ public class PerfilActivity extends AppCompatActivity {
 
     }
 
+
+
+
     @Override
     protected void onStart() {
         super.onStart();
@@ -296,6 +299,43 @@ public class PerfilActivity extends AppCompatActivity {
                 }
             }
         });
+
+
+    professor.setOnClickListener(new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+
+            Intent intent = new Intent(getApplicationContext(), ContatosActivity.class);
+            startActivity(intent);
+
+
+        }
+    });
+
+
+        calendario.setOnClickListener(new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+
+            Intent intent = new Intent(getApplicationContext(), CalendarioActivity.class);
+            startActivity(intent);
+
+
+        }
+    });
+
+        lupa.setOnClickListener(new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+
+            Intent intent = new Intent(getApplicationContext(), PesquisaActivity.class);
+            startActivity(intent);
+
+
+        }
+    });
+    /*  FIM BARRA DE TAREFA */
+
     }
 
 }

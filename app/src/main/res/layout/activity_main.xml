@@ -10,6 +10,7 @@
         android:id="@+id/scrollView2"
         android:layout_width="412dp"
         android:layout_height="754dp"
+        app:layout_constraintBottom_toTopOf="@+id/constraintLayout"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
@@ -312,6 +313,7 @@
     </ScrollView>
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout"
         android:layout_width="410dp"
         android:layout_height="44dp"
         app:layout_constraintBottom_toBottomOf="parent"

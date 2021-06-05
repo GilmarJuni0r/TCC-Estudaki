@@ -7,8 +7,8 @@
 
     <ImageView
         android:id="@+id/img_backgound_tela_aulas8"
-        android:layout_width="454dp"
-        android:layout_height="900dp"
+        android:layout_width="369dp"
+        android:layout_height="814dp"
         android:contentDescription="@string/img_backgound_tela_aulas"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
