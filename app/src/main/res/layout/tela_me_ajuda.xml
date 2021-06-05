@@ -51,7 +51,6 @@
         android:layout_width="341dp"
         android:layout_height="50dp"
         android:layout_marginTop="76dp"
-        android:text="NÃO TENHO LOGIN E NEM A SENHA"
         android:textColor="#000000"
         android:textStyle="bold"
         app:backgroundTint="#FFFFFF"
@@ -60,13 +59,10 @@
         app:layout_constraintTop_toBottomOf="@+id/textView7" />
 
     <Button
-
-
-        android:id="@+id/button2"
+        android:id="@+id/btn_pergunta2"
         android:layout_width="341dp"
         android:layout_height="51dp"
         android:layout_marginTop="42dp"
-        android:text="ESQUECI MINHA SENHA"
         android:textColor="#000000"
         android:textStyle="bold"
         app:backgroundTint="#FFFFFF"

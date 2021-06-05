@@ -12,4 +12,8 @@
     <string name="img_backgound_tela_aulas">img_backgound_tela_aulas</string>
     <string name="img_logo_ajuda">img_logo_ajuda</string>
     <string name="img_logo_login">img_logo_login</string>
+    <string name="txt_me_ajuda_without_login1">NÃO TENHO LOGIN E NEM A SENHA</string>
+    <string name="txt_me_ajuda_without_login2">ESQUECI MINHA SENHA</string>
+    <string name="txt_me_ajuda_with_login1">NÃO CONSIGO ACHAR A MATÉRIA</string>
+    <string name="txt_me_ajuda_with_login2">ONDE VEJO MINHA NOTA?</string>
 </resources>
