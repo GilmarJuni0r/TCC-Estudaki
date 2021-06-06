@@ -16,4 +16,6 @@
     <string name="txt_me_ajuda_without_login2">ESQUECI MINHA SENHA</string>
     <string name="txt_me_ajuda_with_login1">NÃO CONSIGO ACHAR A MATÉRIA</string>
     <string name="txt_me_ajuda_with_login2">ONDE VEJO MINHA NOTA?</string>
+    <string name="btn_chat">Enviar</string>
+    <string name="message">Digite uma mensagem</string>
 </resources>

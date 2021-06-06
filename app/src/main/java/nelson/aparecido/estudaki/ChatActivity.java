@@ -19,10 +19,6 @@ public class ChatActivity extends AppCompatActivity {
         StatusBarUtil.setTransparent(this);
 
 
-
-
-
-
         /* BARRA DE TAREFA */
         calendario = findViewById(R.id.view_calendario);
         lupa = findViewById(R.id.view_lupa);

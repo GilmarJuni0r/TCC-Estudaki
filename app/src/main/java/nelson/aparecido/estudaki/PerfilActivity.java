@@ -181,8 +181,7 @@ public class PerfilActivity extends AppCompatActivity {
                 .addOnFailureListener(new OnFailureListener() {
                     @Override
                     public void onFailure(@NonNull @NotNull Exception e) {
-                        Toast.makeText(getApplicationContext(), "Falha ao enviar imagem, tente novamente", Toast.LENGTH_LONG).show();
-                    }
+                        Toast.makeText(getApplicationContext(), "Falha ao enviar imagem, tente novamente", Toast.LENGTH_LONG).show(); }
                 });
     }
 
@@ -247,7 +246,7 @@ public class PerfilActivity extends AppCompatActivity {
 
                     txtNome.setText(documentSnapshotPerfil.getString("nome"));
                     txtEmail.setText("Email: "+FirebaseAuth.getInstance().getCurrentUser().getEmail());
-                    txtIdade.setText("Data de nascimento: "+documentSnapshotPerfil.getString("dataNascimento") +"\nIdade: "+ calculaIdade(dataNascimento) + " anos");
+                    txtIdade.setText("Idade: "+ calculaIdade(dataNascimento) + " anos");
 
                     if(documentSnapshotPerfil.getString("ocupacao").equalsIgnoreCase("Professor") || documentSnapshotPerfil.getString("ocupacao").equalsIgnoreCase("Professora")){
                         txtOcupacao.setText("Docente");

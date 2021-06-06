@@ -2,6 +2,6 @@
 <shape xmlns:android="http://schemas.android.com/apk/res/android">
 
     <solid android:color="@color/teal_700" />
-    <corners android:radius="150dp"/>
+    <corners android:radius="50dp"/>
 
 </shape>

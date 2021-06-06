@@ -179,6 +179,7 @@ public class ContatosActivity extends AppCompatActivity {
                     }
                 });
     }
+
     private class UserItem extends Item<ViewHolder> {
 
         private final Usuario usuario;
