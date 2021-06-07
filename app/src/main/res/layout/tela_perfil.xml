@@ -36,12 +36,13 @@
 
     <TextView
         android:id="@+id/txt_ocupacao"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="128dp"
-        android:layout_marginRight="128dp"
+        android:layout_width="137dp"
+        android:layout_height="31dp"
+        android:layout_marginTop="31dp"
+        android:layout_marginEnd="144dp"
+        android:layout_marginRight="144dp"
         android:fontFamily="@font/comfortaa"
+        android:gravity="center"
         android:text="TIPO USUARIO"
         android:textColor="#000000"
         android:textSize="20dp"
@@ -49,7 +50,7 @@
         app:layout_constraintBottom_toTopOf="@+id/divider"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/img_fotoPerfil"
-        app:layout_constraintVertical_bias="0.477" />
+        app:layout_constraintVertical_bias="0.333" />
 
     <ImageView
         android:id="@+id/img_logout"
@@ -131,99 +132,117 @@
                     android:layout_height="37dp"
                     android:layout_marginTop="60dp"
                     android:fontFamily="@font/comfortaa"
+                    android:gravity="center"
                     android:text="NOME USUARIO"
                     android:textColor="#040404"
                     android:textSize="20dp"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.584"
+                    app:layout_constraintHorizontal_bias="0.53"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="@+id/imageView" />
 
                 <TextView
                     android:id="@+id/txt_turma"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="24dp"
+                    android:layout_width="149dp"
+                    android:layout_height="31dp"
+                    android:layout_marginTop="20dp"
                     android:fontFamily="@font/comfortaa"
+                    android:gravity="center"
                     android:text="TURMA USUARIO"
                     android:textColor="#050505"
                     android:textSize="20dp"
                     app:layout_constraintEnd_toEndOf="@+id/imageView"
-                    app:layout_constraintHorizontal_bias="0.528"
+                    app:layout_constraintHorizontal_bias="0.57"
                     app:layout_constraintStart_toStartOf="@+id/imageView"
-                    app:layout_constraintTop_toBottomOf="@+id/txt_nome" />
+                    app:layout_constraintTop_toBottomOf="@+id/txt_NomeEscola" />
 
                 <TextView
                     android:id="@+id/txt_idade"
-                    android:layout_width="193dp"
-                    android:layout_height="97dp"
-                    android:layout_marginTop="16dp"
+                    android:layout_width="149dp"
+                    android:layout_height="31dp"
+                    android:layout_marginTop="20dp"
                     android:fontFamily="@font/comfortaa"
+                    android:gravity="center"
                     android:text="IDADE USUARIO"
                     android:textColor="#000000"
                     android:textSize="20dp"
                     app:layout_constraintEnd_toEndOf="@+id/imageView"
-                    app:layout_constraintHorizontal_bias="0.544"
-                    app:layout_constraintStart_toStartOf="@+id/imageView"
-                    app:layout_constraintTop_toBottomOf="@+id/txt_turma" />
+                    app:layout_constraintHorizontal_bias="0.57"
 
-                <TextView
-                    android:id="@+id/txt_raCpf"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:fontFamily="@font/comfortaa"
-                    android:text="RA USUARIO"
-                    android:textColor="#000000"
-                    android:textSize="20dp"
-                    app:layout_constraintEnd_toEndOf="@+id/imageView"
-                    app:layout_constraintHorizontal_bias="0.528"
-                    app:layout_constraintStart_toStartOf="@+id/imageView"
-                    app:layout_constraintTop_toBottomOf="@+id/txt_idade" />
 
-                <TextView
-                    android:id="@+id/txt_NomeProfessor"
-                    android:layout_width="202dp"
-                    android:layout_height="25dp"
-                    android:layout_marginTop="16dp"
-                    android:fontFamily="@font/comfortaa"
-                    android:text="PROFESSORA USUARIO"
-                    android:textColor="#000000"
-                    android:textSize="15sp"
-                    app:layout_constraintEnd_toEndOf="@+id/imageView"
-                    app:layout_constraintHorizontal_bias="0.587"
                     app:layout_constraintStart_toStartOf="@+id/imageView"
                     app:layout_constraintTop_toBottomOf="@+id/txt_raCpf" />
 
                 <TextView
-                    android:id="@+id/txt_NomeEscola"
-                    android:layout_width="224dp"
-                    android:layout_height="36dp"
-                    android:layout_marginTop="24dp"
+                    android:id="@+id/txt_raCpf"
+                    android:layout_width="149dp"
+                    android:layout_height="31dp"
+                    android:layout_marginTop="20dp"
                     android:fontFamily="@font/comfortaa"
+                    android:gravity="center"
+                    android:text="RA USUARIO"
+                    android:textColor="#000000"
+                    android:textSize="20dp"
+                    app:layout_constraintEnd_toEndOf="@+id/imageView"
+                    app:layout_constraintHorizontal_bias="0.57"
+                    app:layout_constraintStart_toStartOf="@+id/imageView"
+                    app:layout_constraintTop_toBottomOf="@+id/txt_nome" />
+
+                <View
+                    android:id="@+id/divider6"
+                    android:layout_width="353dp"
+                    android:layout_height="2dp"
+                    android:layout_marginStart="28dp"
+                    android:layout_marginLeft="28dp"
+                    android:layout_marginTop="24dp"
+                    android:background="?android:attr/listDivider"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/txt_emailPerfil" />
+
+                <TextView
+                    android:id="@+id/txt_NomeProfessor"
+                    android:layout_width="245dp"
+                    android:layout_height="31dp"
+                    android:layout_marginTop="20dp"
+                    android:fontFamily="@font/comfortaa"
+                    android:gravity="center"
+                    android:text="PROFESSORA USUARIO"
+                    android:textColor="#000000"
+                    android:textSize="15sp"
+                    app:layout_constraintEnd_toEndOf="@+id/imageView"
+                    app:layout_constraintHorizontal_bias="0.561"
+                    app:layout_constraintStart_toStartOf="@+id/imageView"
+                    app:layout_constraintTop_toBottomOf="@+id/txt_turma" />
+
+                <TextView
+                    android:id="@+id/txt_NomeEscola"
+                    android:layout_width="375dp"
+                    android:layout_height="31dp"
+                    android:layout_marginTop="40dp"
+                    android:fontFamily="@font/comfortaa"
+                    android:gravity="center"
                     android:text="ESCOLA USUARIO"
                     android:textColor="#040404"
                     android:textSize="15dp"
                     app:layout_constraintEnd_toEndOf="@+id/imageView"
-                    app:layout_constraintHorizontal_bias="0.497"
+                    app:layout_constraintHorizontal_bias="1.0"
                     app:layout_constraintStart_toStartOf="@+id/imageView"
-                    app:layout_constraintTop_toBottomOf="@+id/txt_NomeProfessor" />
+                    app:layout_constraintTop_toBottomOf="@+id/divider6" />
 
                 <TextView
                     android:id="@+id/txt_emailPerfil"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="95dp"
-                    android:layout_marginLeft="95dp"
+                    android:layout_width="300dp"
+                    android:layout_height="31dp"
                     android:layout_marginTop="24dp"
                     android:fontFamily="@font/comfortaa"
+                    android:gravity="center"
                     android:text="EMAIL USUARIO"
                     android:textColor="#000000"
                     android:textSize="15dp"
                     app:layout_constraintEnd_toEndOf="@+id/imageView"
-                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintHorizontal_bias="0.593"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/txt_NomeEscola" />
+                    app:layout_constraintTop_toBottomOf="@+id/txt_idade" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
