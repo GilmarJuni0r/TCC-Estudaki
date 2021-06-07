@@ -6,8 +6,8 @@
     android:layout_height="wrap_content"
     android:background="?android:attr/activatedBackgroundIndicator">
 
-    <ImageView
-        android:id="@+id/img_chat_message_user"
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/img_mensagem"
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:layout_marginStart="8dp"
@@ -18,17 +18,15 @@
         tools:srcCompat="@tools:sample/avatars" />
 
     <TextView
-        android:id="@+id/txt_message"
-        android:layout_width="0dp"
+        android:id="@+id/txt_mensagem"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
-        android:layout_marginEnd="15dp"
-        android:layout_marginRight="15dp"
-        android:background="@drawable/bg_messages"
+        android:background="@drawable/bg_messages_receiving"
+        android:maxWidth="240dp"
         android:padding="8dp"
-        android:text="TextView TextView TextView TextView TextView TextView TextView TextView TextView TextView TextView TextView TextView TextView TextView TextView TextView TextView TextView TextView TextView TextView TextView TextView TextView TextView TextView TextView TextView TextView TextView TextView TextView TextView TextView TextView TextView TextView"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/img_chat_message_user"
-        app:layout_constraintTop_toTopOf="@+id/img_chat_message_user" />
+        android:text="TextView"
+        app:layout_constraintStart_toEndOf="@+id/img_mensagem"
+        app:layout_constraintTop_toTopOf="@+id/img_mensagem" />
 </androidx.constraintlayout.widget.ConstraintLayout>

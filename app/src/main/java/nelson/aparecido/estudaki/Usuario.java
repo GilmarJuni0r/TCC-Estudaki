@@ -5,6 +5,7 @@ import android.os.Parcelable;
 
 public class Usuario implements Parcelable {
 
+    private String uid;
     private String nome;
     private String ocupacao;
     private String dataNascimento;
@@ -19,6 +20,7 @@ public class Usuario implements Parcelable {
     }
 
     protected Usuario(Parcel in) {
+        uid = in.readString();
         nome = in.readString();
         ocupacao = in.readString();
         dataNascimento = in.readString();
@@ -40,6 +42,14 @@ public class Usuario implements Parcelable {
             return new Usuario[size];
         }
     };
+
+    public String getUid() {
+        return uid;
+    }
+
+    public void setUid(String uid) {
+        this.uid = uid;
+    }
 
     public String getNome() {
         return nome;
@@ -112,6 +122,7 @@ public class Usuario implements Parcelable {
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(uid);
         dest.writeString(nome);
         dest.writeString(ocupacao);
         dest.writeString(dataNascimento);
