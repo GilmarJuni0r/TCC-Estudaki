@@ -32,7 +32,7 @@
 
                 android:id="@+id/txt_chat"
                 android:layout_width="match_parent"
-                android:layout_height="117dp"
+                android:layout_height="match_parent"
                 android:autoText="true"
                 android:fontFamily="@font/comfortaa_light"
                 android:gravity="center"
@@ -204,5 +204,11 @@
         app:backgroundTint="@color/teal_700"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="408dp"
+        android:layout_height="497dp"
+        app:layout_constraintBottom_toTopOf="@+id/edit_chat"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
