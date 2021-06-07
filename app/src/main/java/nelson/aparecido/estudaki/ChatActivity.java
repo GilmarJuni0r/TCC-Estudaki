@@ -3,6 +3,7 @@ package nelson.aparecido.estudaki;
         import android.content.Intent;
         import android.os.Bundle;
         import android.os.Parcelable;
+        import android.util.Log;
         import android.view.View;
         import android.widget.Button;
         import android.widget.EditText;
@@ -15,7 +16,9 @@ package nelson.aparecido.estudaki;
         import androidx.recyclerview.widget.LinearLayoutManager;
         import androidx.recyclerview.widget.RecyclerView;
 
+        import com.google.android.gms.tasks.OnCompleteListener;
         import com.google.android.gms.tasks.OnSuccessListener;
+        import com.google.android.gms.tasks.Task;
         import com.google.firebase.auth.FirebaseAuth;
         import com.google.firebase.firestore.DocumentChange;
         import com.google.firebase.firestore.DocumentReference;
@@ -151,7 +154,7 @@ public class ChatActivity extends AppCompatActivity {
                                 for (DocumentChange doc: documentChanges) {
                                     if(doc.getType() == DocumentChange.Type.ADDED){
                                         Mensagem mensagem = doc.getDocument().toObject(Mensagem.class);
-                                        adapter.add(new MessageItem(mensagem));
+                                        adapter.add(new MessageItem(mensagem , mensagem.getFromId()));
                                     }
                                 }
                             }
@@ -195,11 +198,20 @@ public class ChatActivity extends AppCompatActivity {
     private class MessageItem extends Item<ViewHolder> {
 
         private final Mensagem mensagem;
+        private String fromId;
 
-        private MessageItem(Mensagem mensagem) {
+        private MessageItem(Mensagem mensagem,String Id) {
             this.mensagem = mensagem;
+            this.fromId = Id;
         }
 
+        public String getFromId() {
+            return fromId;
+        }
+
+        public void setFromId(String id) {
+            this.fromId = id;
+        }
 
         @Override
         public void bind(@NonNull @NotNull ViewHolder viewHolder, int position) {
@@ -208,6 +220,31 @@ public class ChatActivity extends AppCompatActivity {
 
             txtMensagem.setText(mensagem.getTexto());
             Picasso.get().load(usuario.getFotoPerfil()).into(imgMensagem);
+
+            // aqui eu baixo a foto da pessoa que enviou a mensagem e coloco no imageView pelo Picasso
+
+
+            DocumentReference docRef = FirebaseFirestore.getInstance()
+                    .collection("Usuario")
+                    .document(fromId);
+
+            docRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                @Override
+                public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                    if(task.isSuccessful()){
+                        DocumentSnapshot document = task.getResult();
+                        if (document.exists()){
+                            String profileUrl = document.get("fotoPerfil").toString();
+
+                            Picasso.get()
+                                    .load(profileUrl)
+                                    .fit().centerInside()
+                                    .into(imgMensagem);
+                        }
+                    }
+                }
+            });
+            //txtMsg.setText(message.getText());
         }
 
         @Override
