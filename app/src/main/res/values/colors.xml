@@ -7,7 +7,8 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="lightcyan">#E0FFFF</color>
+
+    <color name="lightcyan">#E0FFFF</color>/* cor mensaguem enviada*/
 
     <color name="telaSpalh">#5D92FB</color>
 
