@@ -43,7 +43,7 @@
                     app:srcCompat="@drawable/icon_meajuda" />
 
                 <TextView
-                    android:id="@+id/txt_chat"
+                    android:id="@+id/txt_chatNome"
                     android:layout_width="match_parent"
                     android:layout_height="117dp"
                     android:autoText="true"
@@ -73,7 +73,7 @@
     </ScrollView>
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recycle"
+        android:id="@+id/recycler_contatos"
         android:layout_width="415dp"
         android:layout_height="610dp"
         android:layout_marginTop="120dp"

@@ -30,7 +30,7 @@
 
             <TextView
 
-                android:id="@+id/txt_chat"
+                android:id="@+id/txt_chatNome"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:autoText="true"
@@ -83,16 +83,21 @@
         android:hint="@string/message"
         android:inputType="textPersonName"
         android:paddingLeft="10dp"
+        android:paddingRight="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/btn_chat"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent" />
 
     <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_chat"
         android:layout_width="401dp"
-        android:layout_height="512dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="55dp"
+        android:layout_marginBottom="10dp"
         app:layout_constraintBottom_toTopOf="@+id/edit_chat"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/scrollView4" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/barradenavegacao"

@@ -26,6 +26,7 @@ import com.jaeger.library.StatusBarUtil;
 import com.squareup.picasso.Picasso;
 import com.xwray.groupie.GroupAdapter;
 import com.xwray.groupie.Item;
+import com.xwray.groupie.OnItemClickListener;
 import com.xwray.groupie.ViewHolder;
 
 import org.jetbrains.annotations.NotNull;
@@ -42,14 +43,26 @@ public class ContatosActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.tela_lista_contatos);
         StatusBarUtil.setTransparent(this);
-        txtChat = findViewById(R.id.txt_chat);
+        txtChat = findViewById(R.id.txt_chatNome);
 
-
-        RecyclerView recycler = findViewById(R.id.recycle);
+        RecyclerView recycler = findViewById(R.id.recycler_contatos);
 
         adapter = new GroupAdapter();
         recycler.setAdapter(adapter);
         recycler.setLayoutManager(new LinearLayoutManager(this));
+
+        adapter.setOnItemClickListener(new OnItemClickListener() {
+            @Override
+            public void onItemClick(@NonNull @NotNull Item item, @NonNull @NotNull View view) {
+                Intent intent = new Intent (ContatosActivity.this, ChatActivity.class);
+
+                UserItem userItem = (UserItem) item;
+                intent.putExtra("usuario", userItem.usuario);
+
+                startActivity(intent);
+            }
+        });
+
         fetchUser();
 
         //Ir para tela Me Ajuda

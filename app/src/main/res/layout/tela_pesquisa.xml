@@ -90,6 +90,7 @@
                     android:ems="10"
                     android:hint="Pesquisar"
                     android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
                     android:inputType="textPersonName"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.502"
