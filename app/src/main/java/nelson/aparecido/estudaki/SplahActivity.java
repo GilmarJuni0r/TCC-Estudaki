@@ -11,9 +11,7 @@ import com.jaeger.library.StatusBarUtil;
 
 public class SplahActivity extends AppCompatActivity {
 
-
     int tempoDeEspera = 500 * 10;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,13 +21,10 @@ public class SplahActivity extends AppCompatActivity {
         StatusBarUtil.setTransparent(this); /*DEIXAR A TELA COM A PARTE DE CIMA TRANSPARENTE PRECISA ESTA ENM Telas*/
 
         trocarTela();
-
-
     }
 
     // fazer a troca de telas no inicio com um delay de 10s
     private void trocarTela(){
-
 
         new Handler().postDelayed(new Runnable() {
             @Override
@@ -38,14 +33,7 @@ public class SplahActivity extends AppCompatActivity {
                 Intent trocarDeTela = new Intent(SplahActivity.this, LoginActivity.class); /* teste muda aqui*/
                 startActivity(trocarDeTela);
                 finish();
-
-
             }
         },tempoDeEspera);
-
-
-
     }
-
-
 }

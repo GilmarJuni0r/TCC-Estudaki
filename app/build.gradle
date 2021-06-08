@@ -47,15 +47,15 @@ dependencies {
     implementation 'com.xwray:groupie:2.1.0'
     implementation 'com.squareup.picasso:picasso:2.71828'
 
-
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
 
-    implementation platform('com.google.firebase:firebase-bom:28.0.0') //Firebase
-    implementation 'com.google.firebase:firebase-analytics' //Firebase
-    implementation 'com.google.firebase:firebase-database' //Firebase
-    implementation 'com.google.firebase:firebase-storage' //Firebase
-    implementation 'com.google.firebase:firebase-auth' //Firebase
-    implementation 'com.google.firebase:firebase-firestore'//Firebase
+    //Firebase:
+    implementation platform('com.google.firebase:firebase-bom:28.0.0')
+    implementation 'com.google.firebase:firebase-analytics'
+    implementation 'com.google.firebase:firebase-database'
+    implementation 'com.google.firebase:firebase-storage'
+    implementation 'com.google.firebase:firebase-auth'
+    implementation 'com.google.firebase:firebase-firestore'
 }
 

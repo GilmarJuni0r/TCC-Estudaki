@@ -4,8 +4,8 @@ public class Mensagem {
 
     private String texto;
     private long timestamp;
-    private String fromId; //fonte
-    private String toId; //destino
+    private String fromId;
+    private String toId;
 
     public String getTexto() {
         return texto;

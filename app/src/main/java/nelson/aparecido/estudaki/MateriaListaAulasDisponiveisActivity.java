@@ -16,10 +16,17 @@ public class MateriaListaAulasDisponiveisActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.tela_lista_aulas_disponiveis);
-
         StatusBarUtil.setTransparent(this);
+        barraDeTarefas();
+    }
 
-        //Ir para tela Me Ajuda
+    private void barraDeTarefas() {
+        calendario = findViewById(R.id.view_calendario);
+        lupa = findViewById(R.id.view_lupa);
+        home = findViewById(R.id.view_home);
+        professor = findViewById(R.id.view_conversa_professor);
+        perfil = findViewById(R.id.view_perfil);
+
         btn_me_ajuda = (View) findViewById(R.id.view_me_ajuda_lista_aulas_disponiveis);
         btn_me_ajuda.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -28,16 +35,6 @@ public class MateriaListaAulasDisponiveisActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
-
-
-        /* BARRA DE TAREFA */
-        calendario = findViewById(R.id.view_calendario);
-        lupa = findViewById(R.id.view_lupa);
-        home = findViewById(R.id.view_home);
-        professor = findViewById(R.id.view_conversa_professor);
-        perfil = findViewById(R.id.view_perfil);
-
 
         perfil.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -79,11 +76,4 @@ public class MateriaListaAulasDisponiveisActivity extends AppCompatActivity {
             }
         });
     }
-
-    private void gotoURL(String s) {
-        Uri uri = Uri.parse(s);
-        startActivity(new Intent(Intent.ACTION_VIEW,uri));
-    }
-
-
 }

@@ -18,18 +18,8 @@ public class AulasActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.tela_aulas);
-
+        barraDeTarefas();
         StatusBarUtil.setTransparent(this);
-
-        //Ir para tela Me Ajuda
-        btn_me_ajuda = (View) findViewById(R.id.view_me_ajuda_aulas);
-        btn_me_ajuda.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), MeAjudaActivity.class);
-                startActivity(intent);
-            }
-        });
 
         aulas_matematica = findViewById(R.id.view_tela_aulas_matematica);
 
@@ -41,13 +31,24 @@ public class AulasActivity extends AppCompatActivity {
             }
         });
 
-         /* BARRA DE TAREFA */
+
+    }
+
+    private void barraDeTarefas() {
         calendario = findViewById(R.id.view_calendario);
         lupa = findViewById(R.id.view_lupa);
         home = findViewById(R.id.view_home);
         professor = findViewById(R.id.view_conversa_professor);
         perfil = findViewById(R.id.view_perfil);
 
+        btn_me_ajuda = (View) findViewById(R.id.view_me_ajuda_aulas);
+        btn_me_ajuda.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), MeAjudaActivity.class);
+                startActivity(intent);
+            }
+        });
 
         perfil.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -18,18 +18,8 @@ public class MateriasActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.tela_materias);
-
         StatusBarUtil.setTransparent(this);
-
-        //Ir para tela Me Ajuda
-        btn_me_ajuda = (View) findViewById(R.id.view_me_ajuda_materias);
-        btn_me_ajuda.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), MeAjudaActivity.class);
-                startActivity(intent);
-            }
-        });
+        barraDeTarefas();
 
         //Ir para o menu da materia matematica
         matematica = findViewById(R.id.constaint_matematica);
@@ -80,15 +70,24 @@ public class MateriasActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+    }
 
+    private void barraDeTarefas() {
 
-        /* BARRA DE TAREFA */
         calendario = findViewById(R.id.view_calendario);
         lupa = findViewById(R.id.view_lupa);
         home = findViewById(R.id.view_home);
         professor = findViewById(R.id.view_conversa_professor);
         perfil = findViewById(R.id.view_perfil);
 
+        btn_me_ajuda = (View) findViewById(R.id.view_me_ajuda_materias);
+        btn_me_ajuda.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), MeAjudaActivity.class);
+                startActivity(intent);
+            }
+        });
 
         perfil.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -129,11 +128,6 @@ public class MateriasActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
-
-
-
-
     }
 
 }

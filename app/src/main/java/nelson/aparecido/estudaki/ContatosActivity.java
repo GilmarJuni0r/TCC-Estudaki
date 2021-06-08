@@ -43,13 +43,14 @@ public class ContatosActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.tela_lista_contatos);
         StatusBarUtil.setTransparent(this);
+        barraDeTarefas();
         txtChat = findViewById(R.id.txt_chatNome);
 
         RecyclerView recycler = findViewById(R.id.recycler_contatos);
+        recycler.setLayoutManager(new LinearLayoutManager(this));
 
         adapter = new GroupAdapter();
         recycler.setAdapter(adapter);
-        recycler.setLayoutManager(new LinearLayoutManager(this));
 
         adapter.setOnItemClickListener(new OnItemClickListener() {
             @Override
@@ -64,8 +65,16 @@ public class ContatosActivity extends AppCompatActivity {
         });
 
         fetchUser();
+    }
 
-        //Ir para tela Me Ajuda
+    private void barraDeTarefas() {
+
+        calendario = findViewById(R.id.view_calendario);
+        lupa = findViewById(R.id.view_lupa);
+        home = findViewById(R.id.view_home);
+        professor = findViewById(R.id.view_conversa_professor);
+        perfil = findViewById(R.id.view_perfil);
+
         btn_me_ajuda = (View) findViewById(R.id.view_me_ajuda_batepapo);
         btn_me_ajuda.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -75,23 +84,12 @@ public class ContatosActivity extends AppCompatActivity {
             }
         });
 
-
-        /* BARRA DE TAREFA */
-        calendario = findViewById(R.id.view_calendario);
-        lupa = findViewById(R.id.view_lupa);
-        home = findViewById(R.id.view_home);
-        professor = findViewById(R.id.view_conversa_professor);
-        perfil = findViewById(R.id.view_perfil);
-
-
         perfil.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
                 Intent intent = new Intent(getApplicationContext(), PerfilActivity.class);
                 startActivity(intent);
-
-
             }
         });
 
@@ -101,8 +99,6 @@ public class ContatosActivity extends AppCompatActivity {
 
                 Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                 startActivity(intent);
-
-
             }
         });
 
@@ -112,8 +108,6 @@ public class ContatosActivity extends AppCompatActivity {
 
                 Intent intent = new Intent(getApplicationContext(), ContatosActivity.class);
                 startActivity(intent);
-
-
             }
         });
 
@@ -124,8 +118,6 @@ public class ContatosActivity extends AppCompatActivity {
 
                 Intent intent = new Intent(getApplicationContext(), CalendarioActivity.class);
                 startActivity(intent);
-
-
             }
         });
 
@@ -135,11 +127,8 @@ public class ContatosActivity extends AppCompatActivity {
 
                 Intent intent = new Intent(getApplicationContext(), PesquisaActivity.class);
                 startActivity(intent);
-
-
             }
         });
-        /*  FIM BARRA DE TAREFA */
     }
 
     private void fetchUser() {
@@ -196,7 +185,6 @@ public class ContatosActivity extends AppCompatActivity {
     private class UserItem extends Item<ViewHolder> {
 
         private final Usuario usuario;
-
 
         private UserItem(Usuario usuario){
             this.usuario = usuario;

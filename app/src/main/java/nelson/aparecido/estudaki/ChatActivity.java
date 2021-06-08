@@ -40,17 +40,18 @@ package nelson.aparecido.estudaki;
 
 public class ChatActivity extends AppCompatActivity {
 
-    View calendario, lupa, home, professor, perfil;
+    private View calendario, lupa, home, professor, perfil;
     private TextView nomeContato;
     private GroupAdapter adapter;
-    private Usuario usuario;
+    private Usuario usuario, aux;
     private EditText edtMensagem;
-    private Usuario aux;
+
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.tela_chat);
         StatusBarUtil.setTransparent(this);
+        barraDeTarefas();
 
         usuario = getIntent().getExtras().getParcelable("usuario");
         nomeContato = findViewById(R.id.txt_chatNome);
@@ -79,16 +80,119 @@ public class ChatActivity extends AppCompatActivity {
                 fetchMessages();
             }
         });
+    }
 
-        ////////////////////////////////////////////////////////////////////////////////////////////
+    private void fetchMessages() {
+        if(aux != null){
+            String fromId = aux.getUid();
+            String toId = usuario.getUid();
 
-        /* BARRA DE TAREFA */
+            FirebaseFirestore.getInstance().collection("Conversas")
+                    .document(fromId).collection(toId).orderBy("timestamp", Query.Direction.ASCENDING)
+                    .addSnapshotListener(new EventListener<QuerySnapshot>() {
+                        @Override
+                        public void onEvent(@Nullable @org.jetbrains.annotations.Nullable QuerySnapshot value, @Nullable @org.jetbrains.annotations.Nullable FirebaseFirestoreException error) {
+                            List<DocumentChange> documentChanges = value.getDocumentChanges();
+
+                            if(documentChanges != null){
+                                for (DocumentChange doc: documentChanges) {
+                                    if(doc.getType() == DocumentChange.Type.ADDED){
+                                        Mensagem mensagem = doc.getDocument().toObject(Mensagem.class);
+                                        adapter.add(new MessageItem(mensagem , mensagem.getFromId()));
+                                    }
+                                }
+                            }
+                        }
+                    });
+        }
+    }
+
+    private void enviarMensagem() {
+        String texto = edtMensagem.getText().toString();
+        edtMensagem.setText(null);
+
+        String fonteId = FirebaseAuth.getInstance().getUid();
+        String destinoId = usuario.getUid();
+        long timestamp = System.currentTimeMillis();
+
+        Mensagem mensagem = new Mensagem();
+        mensagem.setTexto(texto);
+        mensagem.setFromId(fonteId);
+        mensagem.setToId(destinoId);
+        mensagem.setTimestamp(timestamp);
+
+        if(!mensagem.getTexto().isEmpty()){
+            FirebaseFirestore.getInstance().collection("Conversas").document(fonteId).collection(destinoId)
+                    .add(mensagem).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+                @Override
+                public void onSuccess(DocumentReference documentReference) { }
+            });
+            FirebaseFirestore.getInstance().collection("Conversas").document(destinoId).collection(fonteId)
+                    .add(mensagem).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+                @Override
+                public void onSuccess(DocumentReference documentReference) { }
+            });
+        }
+    }
+
+    private class MessageItem extends Item<ViewHolder> {
+
+        private final Mensagem mensagem;
+        private String fromId;
+
+        private MessageItem(Mensagem mensagem,String Id) {
+            this.mensagem = mensagem;
+            this.fromId = Id;
+        }
+
+        public String getFromId() {
+            return fromId;
+        }
+
+        public void setFromId(String id) {
+            this.fromId = id;
+        }
+
+        @Override
+        public void bind(@NonNull @NotNull ViewHolder viewHolder, int position) {
+            TextView txtMensagem = viewHolder.itemView.findViewById(R.id.txt_mensagem);
+            ImageView imgMensagem = viewHolder.itemView.findViewById(R.id.img_mensagem);
+
+            txtMensagem.setText(mensagem.getTexto());
+            Picasso.get().load(usuario.getFotoPerfil()).into(imgMensagem);
+
+            DocumentReference docRef = FirebaseFirestore.getInstance().collection("Usuario").document(fromId);
+
+            docRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                @Override
+                public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                    if(task.isSuccessful()){
+                        DocumentSnapshot document = task.getResult();
+                        if (document.exists()){
+                            String profileUrl = document.get("fotoPerfil").toString();
+                            Picasso.get()
+                                    .load(profileUrl).fit().centerInside().into(imgMensagem);
+                        }
+                    }
+                }
+            });
+        }
+
+        @Override
+        public int getLayout() {
+
+            return mensagem.getFromId().equals( FirebaseAuth.getInstance().getUid())
+                    ? R.layout.item_to_message
+                    : R.layout.item_from_message;
+        }
+    }
+
+    private void barraDeTarefas() {
         calendario = findViewById(R.id.view_calendario);
         lupa = findViewById(R.id.view_lupa);
         home = findViewById(R.id.view_home);
         professor = findViewById(R.id.view_conversa_professor);
         perfil = findViewById(R.id.view_perfil);
-
 
         perfil.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -135,124 +239,5 @@ public class ChatActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-        /*  FIM BARRA DE TAREFA */
-    }
-
-    private void fetchMessages() {
-        if(aux != null){
-            String fromId = aux.getUid();
-            String toId = usuario.getUid();
-
-            FirebaseFirestore.getInstance().collection("Conversas")
-                    .document(fromId).collection(toId).orderBy("timestamp", Query.Direction.ASCENDING)
-                    .addSnapshotListener(new EventListener<QuerySnapshot>() {
-                        @Override
-                        public void onEvent(@Nullable @org.jetbrains.annotations.Nullable QuerySnapshot value, @Nullable @org.jetbrains.annotations.Nullable FirebaseFirestoreException error) {
-                            List<DocumentChange> documentChanges = value.getDocumentChanges();
-
-                            if(documentChanges != null){
-                                for (DocumentChange doc: documentChanges) {
-                                    if(doc.getType() == DocumentChange.Type.ADDED){
-                                        Mensagem mensagem = doc.getDocument().toObject(Mensagem.class);
-                                        adapter.add(new MessageItem(mensagem , mensagem.getFromId()));
-                                    }
-                                }
-                            }
-                        }
-                    });
-        }
-    }
-
-    private void enviarMensagem() {
-        String texto = edtMensagem.getText().toString();
-        edtMensagem.setText(null);
-
-        String fromId = FirebaseAuth.getInstance().getUid();
-        String toId = usuario.getUid();
-        long timestamp = System.currentTimeMillis();
-
-        Mensagem mensagem = new Mensagem();
-        mensagem.setTexto(texto);
-        mensagem.setFromId(fromId);
-        mensagem.setToId(toId);
-        mensagem.setTimestamp(timestamp);
-
-        if(!mensagem.getTexto().isEmpty()){
-            FirebaseFirestore.getInstance().collection("Conversas").document(fromId).collection(toId)
-                    .add(mensagem).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
-                @Override
-                public void onSuccess(DocumentReference documentReference) {
-
-                }
-            });
-            FirebaseFirestore.getInstance().collection("Conversas").document(toId).collection(fromId)
-                    .add(mensagem).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
-                @Override
-                public void onSuccess(DocumentReference documentReference) {
-
-                }
-            });
-        }
-    }
-
-    private class MessageItem extends Item<ViewHolder> {
-
-        private final Mensagem mensagem;
-        private String fromId;
-
-        private MessageItem(Mensagem mensagem,String Id) {
-            this.mensagem = mensagem;
-            this.fromId = Id;
-        }
-
-        public String getFromId() {
-            return fromId;
-        }
-
-        public void setFromId(String id) {
-            this.fromId = id;
-        }
-
-        @Override
-        public void bind(@NonNull @NotNull ViewHolder viewHolder, int position) {
-            TextView txtMensagem = viewHolder.itemView.findViewById(R.id.txt_mensagem);
-            ImageView imgMensagem = viewHolder.itemView.findViewById(R.id.img_mensagem);
-
-            txtMensagem.setText(mensagem.getTexto());
-            Picasso.get().load(usuario.getFotoPerfil()).into(imgMensagem);
-
-            // aqui eu baixo a foto da pessoa que enviou a mensagem e coloco no imageView pelo Picasso
-
-
-            DocumentReference docRef = FirebaseFirestore.getInstance()
-                    .collection("Usuario")
-                    .document(fromId);
-
-            docRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
-                @Override
-                public void onComplete(@NonNull Task<DocumentSnapshot> task) {
-                    if(task.isSuccessful()){
-                        DocumentSnapshot document = task.getResult();
-                        if (document.exists()){
-                            String profileUrl = document.get("fotoPerfil").toString();
-
-                            Picasso.get()
-                                    .load(profileUrl)
-                                    .fit().centerInside()
-                                    .into(imgMensagem);
-                        }
-                    }
-                }
-            });
-            //txtMsg.setText(message.getText());
-        }
-
-        @Override
-        public int getLayout() {
-
-            return mensagem.getFromId().equals( FirebaseAuth.getInstance().getUid())
-                    ? R.layout.item_to_message
-                    : R.layout.item_from_message;
-        }
     }
 }

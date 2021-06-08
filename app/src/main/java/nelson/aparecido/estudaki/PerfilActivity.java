@@ -58,9 +58,9 @@ public class PerfilActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.tela_perfil);
-
         StatusBarUtil.setTransparent(this);
         inicializarComponentes();
+        barraDeTarefas();
 
         btnFotoSelecionada.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -68,7 +68,9 @@ public class PerfilActivity extends AppCompatActivity {
                 selecionarFoto();
             }
         });
+    }
 
+    private void barraDeTarefas() {
         btnLogout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -118,11 +120,7 @@ public class PerfilActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
     }
-
-
-
 
     @Override
     protected void onStart() {
@@ -294,47 +292,9 @@ public class PerfilActivity extends AppCompatActivity {
                                 txtTurma.setText("Turma: "+documentSnapshotTurma.getString("sala"));
                         }
                     });
-
                 }
             }
         });
 
-
-    professor.setOnClickListener(new View.OnClickListener() {
-        @Override
-        public void onClick(View v) {
-
-            Intent intent = new Intent(getApplicationContext(), ContatosActivity.class);
-            startActivity(intent);
-
-
-        }
-    });
-
-
-        calendario.setOnClickListener(new View.OnClickListener() {
-        @Override
-        public void onClick(View v) {
-
-            Intent intent = new Intent(getApplicationContext(), CalendarioActivity.class);
-            startActivity(intent);
-
-
-        }
-    });
-
-        lupa.setOnClickListener(new View.OnClickListener() {
-        @Override
-        public void onClick(View v) {
-
-            Intent intent = new Intent(getApplicationContext(), PesquisaActivity.class);
-            startActivity(intent);
-
-
-        }
-    });
-    /*  FIM BARRA DE TAREFA */
-
     }
-
 }

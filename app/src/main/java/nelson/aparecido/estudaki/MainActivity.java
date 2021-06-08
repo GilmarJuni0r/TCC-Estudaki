@@ -30,8 +30,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
         StatusBarUtil.setTransparent(this);
+        barraDeTarefas();
 
         txtNome = findViewById(R.id.txt_nome_principal);
         materias = findViewById(R.id.img_materias_telaprincipal);
@@ -39,17 +39,6 @@ public class MainActivity extends AppCompatActivity {
         notas = findViewById(R.id.img_notas_telaprincipal);
         playlist = findViewById(R.id.playlist_telainicial);
         playlist_historia = findViewById(R.id.playlist_filmes_telainicial);
-
-        //Ir para tela Me Ajuda
-        btn_me_ajuda = (View) findViewById(R.id.view_me_ajuda_main);
-        btn_me_ajuda.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), MeAjudaActivity.class);
-                startActivity(intent);
-            }
-        });
-
 
         playlist.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -101,16 +90,25 @@ public class MainActivity extends AppCompatActivity {
               startActivity(intent);
            }
        });
+    }
 
-            /* BARRA DE TAREFA */
-            calendario = findViewById(R.id.view_calendario);
-            lupa = findViewById(R.id.view_lupa);
-            home = findViewById(R.id.view_home);
-            professor = findViewById(R.id.view_conversa_professor);
-            perfil = findViewById(R.id.view_perfil);
+    private void barraDeTarefas() {
+        calendario = findViewById(R.id.view_calendario);
+        lupa = findViewById(R.id.view_lupa);
+        home = findViewById(R.id.view_home);
+        professor = findViewById(R.id.view_conversa_professor);
+        perfil = findViewById(R.id.view_perfil);
 
+        btn_me_ajuda = (View) findViewById(R.id.view_me_ajuda_main);
+        btn_me_ajuda.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), MeAjudaActivity.class);
+                startActivity(intent);
+            }
+        });
 
-           perfil.setOnClickListener(new View.OnClickListener() {
+        perfil.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), PerfilActivity.class);
@@ -149,8 +147,8 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
     }
+
     @Override
     protected void onStart() {
         super.onStart();
