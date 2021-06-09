@@ -183,7 +183,6 @@ public class PerfilActivity extends AppCompatActivity {
                 });
     }
 
-
     protected void inicializarComponentes(){
 
         //Compenentes da tela

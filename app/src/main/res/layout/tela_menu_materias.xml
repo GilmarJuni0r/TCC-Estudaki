@@ -103,7 +103,7 @@
                         app:srcCompat="@drawable/logo_matematica" />
 
                     <TextView
-                        android:id="@+id/text_matematica"
+                        android:id="@+id/txt_nome_materia_menu_materia"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="16dp"

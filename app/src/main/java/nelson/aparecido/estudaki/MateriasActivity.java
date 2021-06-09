@@ -1,31 +1,51 @@
 package nelson.aparecido.estudaki;
 
 import android.content.Intent;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageView;
+import android.widget.TextView;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.EventListener;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.FirebaseFirestoreException;
+import com.google.firebase.storage.StorageReference;
 import com.jaeger.library.StatusBarUtil;
 
 public class MateriasActivity extends AppCompatActivity {
 
     ConstraintLayout matematica, portugues, ciencias, geografia, historia;
-
     private View calendario, lupa, home, professor, perfil, btn_me_ajuda;
+    private FirebaseFirestore db = FirebaseFirestore.getInstance();
+    private String usuarioID;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.tela_materias);
+        setContentView(R.layout.tela_menu_materias);
         StatusBarUtil.setTransparent(this);
         barraDeTarefas();
+        selecionaMateria();
+
+
+    }
+
+    private void selecionaMateria() {
+        usuarioID = FirebaseAuth.getInstance().getCurrentUser().getUid();
 
         //Ir para o menu da materia matematica
         matematica = findViewById(R.id.constaint_matematica);
         matematica.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                db.collection("Usuario").document(usuarioID).update("materiaAtual", "Matemática");
                 Intent intent = new Intent(getApplicationContext(), MateriaMenuActivity.class);
                 startActivity(intent);
             }
@@ -36,6 +56,7 @@ public class MateriasActivity extends AppCompatActivity {
         portugues.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                db.collection("Usuario").document(usuarioID).update("materiaAtual", "Português");
                 Intent intent = new Intent(getApplicationContext(), MateriaMenuActivity.class);
                 startActivity(intent);
             }
@@ -46,6 +67,7 @@ public class MateriasActivity extends AppCompatActivity {
         ciencias.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                db.collection("Usuario").document(usuarioID).update("materiaAtual", "Ciências");
                 Intent intent = new Intent(getApplicationContext(), MateriaMenuActivity.class);
                 startActivity(intent);
             }
@@ -56,6 +78,7 @@ public class MateriasActivity extends AppCompatActivity {
         geografia.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                db.collection("Usuario").document(usuarioID).update("materiaAtual", "Geografia");
                 Intent intent = new Intent(getApplicationContext(), MateriaMenuActivity.class);
                 startActivity(intent);
             }
@@ -66,6 +89,7 @@ public class MateriasActivity extends AppCompatActivity {
         historia.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                db.collection("Usuario").document(usuarioID).update("materiaAtual", "História");
                 Intent intent = new Intent(getApplicationContext(), MateriaMenuActivity.class);
                 startActivity(intent);
             }
@@ -129,5 +153,4 @@ public class MateriasActivity extends AppCompatActivity {
             }
         });
     }
-
 }
