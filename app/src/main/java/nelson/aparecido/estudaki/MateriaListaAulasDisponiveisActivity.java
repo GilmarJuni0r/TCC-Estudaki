@@ -25,7 +25,7 @@ public class MateriaListaAulasDisponiveisActivity extends AppCompatActivity {
     private TextView nomeMateria;
     private ImageView iconMateria;
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
-    private String usuarioID, materiaAtual;
+    private String usuarioID;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
