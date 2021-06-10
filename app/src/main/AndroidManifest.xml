@@ -15,6 +15,7 @@
         <activity android:name="nelson.aparecido.estudaki.UpdateAtividades"> </activity>
         <activity android:name="nelson.aparecido.estudaki.NotasActivity"> </activity>
         <activity android:name="nelson.aparecido.estudaki.ChatActivity"> </activity>
+        <activity android:name="nelson.aparecido.estudaki.DescricaoAtividadeActivity"> </activity>
         <activity android:name="nelson.aparecido.estudaki.MateriaAtividadeAulaActivity"> </activity>
         <activity android:name="nelson.aparecido.estudaki.MateriaMaterialAulaActivity"> </activity>
         <activity android:name="nelson.aparecido.estudaki.MateriaProvaActivity"> </activity>

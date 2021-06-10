@@ -8,48 +8,30 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.jaeger.library.StatusBarUtil;
 
-public class MateriaAtividadeAulaActivity extends AppCompatActivity {
+public class DescricaoAtividadeActivity extends AppCompatActivity {
 
-    private View calendario, lupa, home, professor, perfil, btn_me_ajuda, atv1, atv2;
+
+    private View calendario, lupa, home, professor, perfil, btn_me_ajuda;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.tela_atividades);
+        setContentView(R.layout.tela_descricao_atividade);
+
         StatusBarUtil.setTransparent(this);
         barraDeTarefas();
-        atv1();
-        atv2();
     }
 
-    private void atv1(){
-        atv1 = (View) findViewById(R.id.view_como_fazer_soma);
-        atv1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), DescricaoAtividadeActivity.class);
-                startActivity(intent);
-            }
-        });
-    }
-    private void atv2(){
-        atv2 = (View) findViewById(R.id.view_como_fazer_divisao);
-        atv2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), DescricaoAtividadeActivity.class);
-                startActivity(intent);
-            }
-        });
-    }
+
 
     private void barraDeTarefas() {
+
         calendario = findViewById(R.id.view_calendario);
         lupa = findViewById(R.id.view_lupa);
         home = findViewById(R.id.view_home);
         professor = findViewById(R.id.view_conversa_professor);
         perfil = findViewById(R.id.view_perfil);
 
-        btn_me_ajuda = (View) findViewById(R.id.view_me_ajuda_atividades);
+        btn_me_ajuda = (View) findViewById(R.id.view_me_ajuda_descricao_atividades);
         btn_me_ajuda.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

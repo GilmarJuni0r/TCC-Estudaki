@@ -44,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                gotoURL("https://youtube.com/playlist?list=PLVkT5_GzN_AL0Vuaz1PTK-wuWTU6AIGKL");
+                gotoURL("https://youtube.com/playlist?list=PLIS3CIRFjxJ-KSFAf9wlSdratWSMQbOil");
 
 
             }
@@ -54,7 +54,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                gotoURL("https://youtube.com/playlist?list=PLVkT5_GzN_ALcVpcTap1r8AK4VfJCLmED");
+                gotoURL("https://www.efeitoinclusaoescolar.com/post/10-filmes-educativos-para-crian%C3%A7as");
 
 
             }
