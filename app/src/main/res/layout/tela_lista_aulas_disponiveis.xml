@@ -48,14 +48,15 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <ImageView
-                    android:id="@+id/img_icon_materia_aulas_disponiveis"
+                    android:id="@+id/img_icon_materia"
                     android:layout_width="62dp"
                     android:layout_height="62dp"
                     android:layout_marginStart="60dp"
                     android:layout_marginLeft="60dp"
                     android:layout_marginTop="32dp"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/img_matematica" />
 
                 <TextView
                     android:id="@+id/txt_nome_materia_menu_aulas_disponiveis"
@@ -65,9 +66,10 @@
                     android:layout_marginLeft="72dp"
                     android:layout_marginTop="48dp"
                     android:fontFamily="@font/comfortaa"
+                    android:text="MATEMÁTICA"
                     android:textColor="#000000"
                     android:textSize="24sp"
-                    app:layout_constraintStart_toEndOf="@+id/img_icon_materia_aulas_disponiveis"
+                    app:layout_constraintStart_toEndOf="@+id/img_icon_materia"
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <View

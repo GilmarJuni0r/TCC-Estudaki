@@ -54,7 +54,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="44dp"
                     android:fontFamily="@font/comfortaa"
-                    android:text="CADASTRO DE LINK"
+                    android:text="EDITAR LINK DA"
                     android:textColor="#000000"
                     android:textSize="24sp"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -68,7 +68,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="80dp"
                     android:fontFamily="@font/comfortaa"
-                    android:text="AULA ONLINE"
+                    android:text="AULA AO VIVO"
                     android:textColor="#000000"
                     android:textSize="24sp"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -102,18 +102,18 @@
                     app:layout_constraintTop_toBottomOf="@+id/divider" />
 
                 <ImageView
-                    android:id="@+id/img_update_aula"
+                    android:id="@+id/btn_atualiza_link"
                     android:layout_width="67dp"
                     android:layout_height="76dp"
-                    android:layout_marginTop="376dp"
+                    android:layout_marginTop="36dp"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.854"
+                    app:layout_constraintHorizontal_bias="0.501"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName"
+                    app:layout_constraintTop_toBottomOf="@+id/edit_link_aula"
                     app:srcCompat="@drawable/img_update_arquivos" />
 
                 <EditText
-                    android:id="@+id/editTextTextPersonName"
+                    android:id="@+id/edit_link_aula"
                     android:layout_width="339dp"
                     android:layout_height="45dp"
                     android:layout_marginTop="16dp"

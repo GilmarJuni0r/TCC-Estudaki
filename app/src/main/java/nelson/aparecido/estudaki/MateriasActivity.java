@@ -33,8 +33,6 @@ public class MateriasActivity extends AppCompatActivity {
         StatusBarUtil.setTransparent(this);
         barraDeTarefas();
         selecionaMateria();
-
-
     }
 
     private void selecionaMateria() {
