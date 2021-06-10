@@ -49,7 +49,7 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <ImageView
-                    android:id="@+id/img_icon_materia"
+                    android:id="@+id/img_icon_materia_aulas_disponiveis"
                     android:layout_width="62dp"
                     android:layout_height="62dp"
                     android:layout_marginStart="60dp"
@@ -68,7 +68,7 @@
                     android:fontFamily="@font/comfortaa"
                     android:textColor="#000000"
                     android:textSize="24sp"
-                    app:layout_constraintStart_toEndOf="@+id/img_icon_materia"
+                    app:layout_constraintStart_toEndOf="@+id/img_icon_materia_aulas_disponiveis"
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <View
