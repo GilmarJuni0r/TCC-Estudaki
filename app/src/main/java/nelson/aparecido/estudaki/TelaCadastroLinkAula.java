@@ -1,22 +1,23 @@
 package nelson.aparecido.estudaki;
 
-import android.content.Intent;
-import android.os.Bundle;
-import android.view.View;
+        import android.content.Intent;
+        import android.os.Bundle;
+        import android.view.View;
 
-import androidx.appcompat.app.AppCompatActivity;
+        import androidx.appcompat.app.AppCompatActivity;
 
-import com.jaeger.library.StatusBarUtil;
+        import com.jaeger.library.StatusBarUtil;
 
-public class MateriaListaAulasDisponiveisActivity extends AppCompatActivity {
+public class TelaCadastroLinkAula extends AppCompatActivity {
 
     private View calendario, lupa, home, professor, perfil, btn_me_ajuda;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.tela_lista_aulas_disponiveis);
-        StatusBarUtil.setTransparent(this);
+        setContentView(R.layout.tela_cadastro_link_aula);
+
         barraDeTarefas();
+        StatusBarUtil.setTransparent(this);
     }
 
     private void barraDeTarefas() {
@@ -26,7 +27,7 @@ public class MateriaListaAulasDisponiveisActivity extends AppCompatActivity {
         professor = findViewById(R.id.view_conversa_professor);
         perfil = findViewById(R.id.view_perfil);
 
-        btn_me_ajuda = (View) findViewById(R.id.view_me_ajuda_lista_aulas_disponiveis);
+        btn_me_ajuda = (View) findViewById(R.id.view_me_ajuda_calendario);
         btn_me_ajuda.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -38,6 +39,7 @@ public class MateriaListaAulasDisponiveisActivity extends AppCompatActivity {
         perfil.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 Intent intent = new Intent(getApplicationContext(), PerfilActivity.class);
                 startActivity(intent);
             }
@@ -46,6 +48,7 @@ public class MateriaListaAulasDisponiveisActivity extends AppCompatActivity {
         home.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                 startActivity(intent);
             }
@@ -54,14 +57,17 @@ public class MateriaListaAulasDisponiveisActivity extends AppCompatActivity {
         professor.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 Intent intent = new Intent(getApplicationContext(), ContatosActivity.class);
                 startActivity(intent);
             }
         });
 
+
         calendario.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 Intent intent = new Intent(getApplicationContext(), CalendarioActivity.class);
                 startActivity(intent);
             }
@@ -70,9 +76,12 @@ public class MateriaListaAulasDisponiveisActivity extends AppCompatActivity {
         lupa.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 Intent intent = new Intent(getApplicationContext(), PesquisaActivity.class);
                 startActivity(intent);
             }
         });
     }
 }
+
+
