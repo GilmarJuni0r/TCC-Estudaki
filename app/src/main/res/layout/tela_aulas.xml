@@ -81,6 +81,7 @@
                 android:layout_height="wrap_content" />
 
             <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/constaint_aulas_matematica"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
@@ -136,6 +137,7 @@
                 android:layout_height="30dp" />
 
             <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/constaint_aulas_portugues"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
@@ -179,6 +181,7 @@
                 android:layout_height="wrap_content" />
 
             <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/constaint_aulas_ciencias"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
@@ -220,6 +223,7 @@
                 android:layout_height="wrap_content" />
 
             <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/constaint_aulas_geografia"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
@@ -262,6 +266,7 @@
                 android:layout_height="wrap_content" />
 
             <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/constaint_aulas_historia"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
