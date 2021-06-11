@@ -51,7 +51,7 @@
                     app:srcCompat="@drawable/icon_meajuda" />
 
                 <View
-                    android:id="@+id/view_me_ajuda_materia_material_de_aulas"
+                    android:id="@+id/view_me_ajuda_upload_materiais"
                     android:layout_width="42dp"
                     android:layout_height="46dp"
                     android:layout_marginTop="5dp"
@@ -61,28 +61,26 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <ImageView
-                    android:id="@+id/img_icon_materia"
+                    android:id="@+id/img_icon_materia_upload_material"
                     android:layout_width="62dp"
                     android:layout_height="62dp"
                     android:layout_marginStart="60dp"
                     android:layout_marginLeft="60dp"
                     android:layout_marginTop="32dp"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:srcCompat="@drawable/img_matematica" />
+                    app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
-                    android:id="@+id/txt_nome_materia_material_de_aula"
+                    android:id="@+id/txt_nome_materia_upload_material"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="72dp"
                     android:layout_marginLeft="72dp"
                     android:layout_marginTop="48dp"
                     android:fontFamily="@font/comfortaa"
-                    android:text="MATEMÁTICA"
                     android:textColor="#000000"
                     android:textSize="24sp"
-                    app:layout_constraintStart_toEndOf="@+id/img_icon_materia"
+                    app:layout_constraintStart_toEndOf="@+id/img_icon_materia_upload_material"
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
@@ -93,12 +91,12 @@
                     android:layout_marginEnd="60dp"
                     android:layout_marginRight="60dp"
                     android:fontFamily="@font/comfortaa"
-                    android:text="UPDATE ATIVIDADES"
+                    android:text="Upload de material"
                     android:textColor="#050505"
                     android:textSize="14sp"
                     android:textStyle="bold"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/txt_nome_materia_material_de_aula" />
+                    app:layout_constraintTop_toBottomOf="@+id/txt_nome_materia_upload_material" />
 
                 <View
                     android:id="@+id/divider"
@@ -109,7 +107,7 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.521"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/txt_nome_materia_material_de_aula" />
+                    app:layout_constraintTop_toBottomOf="@+id/txt_nome_materia_upload_material" />
 
                 <TextView
                     android:id="@+id/txt_titulo_update"
@@ -125,7 +123,7 @@
                     app:layout_constraintTop_toBottomOf="@+id/divider" />
 
                 <EditText
-                    android:id="@+id/txt_update_titulo"
+                    android:id="@+id/edit_titulo_arquivo_upload_material"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="20dp"
@@ -185,7 +183,7 @@
                     app:layout_constraintTop_toBottomOf="@+id/divider7" />
 
                 <EditText
-                    android:id="@+id/txt_update_descricao"
+                    android:id="@+id/edit_descricao_arquivo_upload_material"
                     android:layout_width="262dp"
                     android:layout_height="52dp"
                     android:layout_marginTop="20dp"
@@ -221,15 +219,26 @@
                     app:layout_constraintTop_toBottomOf="@+id/divider8" />
 
                 <ImageView
-                    android:id="@+id/img_update_material"
+                    android:id="@+id/btn_upload_novo_material"
                     android:layout_width="65dp"
                     android:layout_height="87dp"
                     android:layout_marginStart="212dp"
                     android:layout_marginLeft="212dp"
-                    android:layout_marginTop="36dp"
+                    android:layout_marginTop="50dp"
                     app:layout_constraintStart_toEndOf="@+id/txt_descricao_update4"
                     app:layout_constraintTop_toBottomOf="@+id/divider8"
                     app:srcCompat="@drawable/img_update_arquivos" />
+
+                <ImageView
+                    android:id="@+id/btn_seleciona_novo_material"
+                    android:layout_width="75dp"
+                    android:layout_height="75dp"
+                    android:layout_marginStart="50dp"
+                    android:layout_marginLeft="50dp"
+                    app:layout_constraintEnd_toEndOf="@+id/txt_descricao_update4"
+                    app:layout_constraintStart_toStartOf="@+id/txt_descricao_update4"
+                    app:layout_constraintTop_toTopOf="@+id/btn_upload_novo_material"
+                    app:srcCompat="@android:drawable/ic_menu_search" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -356,4 +365,5 @@
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/bdenavecagao_perfil" />
     </androidx.constraintlayout.widget.ConstraintLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

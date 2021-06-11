@@ -8,13 +8,13 @@ package nelson.aparecido.estudaki;
 
         import com.jaeger.library.StatusBarUtil;
 
-public class UpdateMaterial extends AppCompatActivity {
+public class UploadAtividades extends AppCompatActivity {
 
     private View calendario, lupa, home, professor, perfil, btn_me_ajuda;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.upload_material);
+        setContentView(R.layout.upload_atividades);
 
         barraDeTarefas();
         StatusBarUtil.setTransparent(this);

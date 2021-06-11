@@ -43,15 +43,16 @@ public class TelaCadastroLinkAula extends AppCompatActivity {
                 documentReference.addSnapshotListener(new EventListener<DocumentSnapshot>() {
                     @Override
                     public void onEvent(@Nullable @org.jetbrains.annotations.Nullable DocumentSnapshot value, @Nullable @org.jetbrains.annotations.Nullable FirebaseFirestoreException error) {
-                        String link = editLink.getText().toString();
 
-                        if (!link.isEmpty()) {
-                            db.collection("Turma").document(value.getString("turma")).update("linkAula", link);
+                        if (!(editLink.getText().toString()).isEmpty()) {
+                            db.collection("Turma").document(value.getString("turma")).update("linkAula", editLink.getText());
+                            Toast.makeText(getApplicationContext(), "Link de aula ao vivo cadastrado com sucesso!", Toast.LENGTH_LONG).show();
                         }else{
                             Toast.makeText(getApplicationContext(), "Insira um link para ser cadastrado", Toast.LENGTH_LONG).show();
                         }
                     }
                 });
+            finish();
             }
         });
     }

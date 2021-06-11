@@ -33,12 +33,24 @@ public class MateriaListaAulasDisponiveisActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.tela_lista_aulas_disponiveis);
         StatusBarUtil.setTransparent(this);
+        usuarioID = FirebaseAuth.getInstance().getCurrentUser().getUid();
         cabecalho();
         barraDeTarefas();
+        aulasAoVivo();
 
-        usuarioID = FirebaseAuth.getInstance().getCurrentUser().getUid();
+        btnUploadAula = findViewById(R.id.btn_upload_nova_aula);
+        btnUploadAula.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), UploadMaterial.class);
+                startActivity(intent);
+            }
+        });
+
+    }
+
+    private void aulasAoVivo() {
         btnAulaAoVivo = findViewById(R.id.view_aulas_ao_vivo);
-        btnUploadAula = findViewById(R.id.btn_upload_aula);
         btnEditaLink = findViewById(R.id.btn_edit_link);
 
         DocumentReference refUser = db.collection("Usuario").document(usuarioID);

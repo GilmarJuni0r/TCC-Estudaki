@@ -11,8 +11,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppMinhaIdeia">
         <activity android:name="nelson.aparecido.estudaki.TelaCadastroLinkAula"> </activity>
-        <activity android:name="nelson.aparecido.estudaki.UpdateMaterial"> </activity>
-        <activity android:name="nelson.aparecido.estudaki.UpdateAtividades"> </activity>
+        <activity android:name="nelson.aparecido.estudaki.UploadMaterial"> </activity>
+        <activity android:name="nelson.aparecido.estudaki.UploadAtividades"> </activity>
         <activity android:name="nelson.aparecido.estudaki.NotasActivity"> </activity>
         <activity android:name="nelson.aparecido.estudaki.ChatActivity"> </activity>
         <activity android:name="nelson.aparecido.estudaki.DescricaoAtividadeActivity"> </activity>

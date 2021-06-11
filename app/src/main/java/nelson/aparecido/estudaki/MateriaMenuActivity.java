@@ -84,6 +84,7 @@ public class MateriaMenuActivity extends AppCompatActivity {
         aulas.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                db.collection("Usuario").document(usuarioID).update("tipoArquivoAtual", "aulas");
                 Intent intent = new Intent(getApplicationContext(), MateriaListaAulasDisponiveisActivity.class);
                 startActivity(intent);
             }
@@ -92,6 +93,7 @@ public class MateriaMenuActivity extends AppCompatActivity {
         material_aula.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                db.collection("Usuario").document(usuarioID).update("tipoArquivoAtual", "material");
                 Intent intent = new Intent(getApplicationContext(), MateriaMaterialAulaActivity.class);
                 startActivity(intent);
             }
@@ -100,6 +102,7 @@ public class MateriaMenuActivity extends AppCompatActivity {
         atividades.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                db.collection("Usuario").document(usuarioID).update("tipoArquivoAtual", "atividade");
                 Intent intent = new Intent(getApplicationContext(), MateriaAtividadeAulaActivity.class);
                 startActivity(intent);
             }
@@ -108,6 +111,7 @@ public class MateriaMenuActivity extends AppCompatActivity {
         provas.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                db.collection("Usuario").document(usuarioID).update("tipoArquivoAtual", "provas");
                 Intent intent = new Intent(getApplicationContext(), MateriaProvaActivity.class);
                 startActivity(intent);
             }

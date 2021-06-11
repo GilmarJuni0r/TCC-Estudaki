@@ -137,7 +137,7 @@
                     app:layout_constraintTop_toBottomOf="@+id/divider2" />
 
                 <ImageView
-                    android:id="@+id/btn_upload_aula"
+                    android:id="@+id/btn_upload_nova_aula"
                     android:layout_width="67dp"
                     android:layout_height="76dp"
                     app:layout_constraintEnd_toEndOf="parent"
