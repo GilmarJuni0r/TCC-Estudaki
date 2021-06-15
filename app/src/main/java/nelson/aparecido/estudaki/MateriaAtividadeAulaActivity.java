@@ -31,8 +31,6 @@ public class MateriaAtividadeAulaActivity extends AppCompatActivity {
         setContentView(R.layout.tela_atividades);
         StatusBarUtil.setTransparent(this);
         barraDeTarefas();
-        atv1();
-        atv2();
         cabecalho();
     }
 
@@ -70,27 +68,6 @@ public class MateriaAtividadeAulaActivity extends AppCompatActivity {
                     Drawable drawable= getResources().getDrawable(R.drawable.logo_historia);
                     iconMateria.setImageDrawable(drawable);
                 }
-            }
-        });
-    }
-
-    private void atv1(){
-        atv1 = (View) findViewById(R.id.view_como_fazer_soma);
-        atv1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), DescricaoAtividadeActivity.class);
-                startActivity(intent);
-            }
-        });
-    }
-    private void atv2(){
-        atv2 = (View) findViewById(R.id.view_como_fazer_divisao);
-        atv2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), DescricaoAtividadeActivity.class);
-                startActivity(intent);
             }
         });
     }

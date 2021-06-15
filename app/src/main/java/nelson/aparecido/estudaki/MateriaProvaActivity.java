@@ -33,8 +33,6 @@ public class MateriaProvaActivity extends AppCompatActivity {
         StatusBarUtil.setTransparent(this);
         barraDeTarefas();
         cabecalho();
-        atv1();
-        atv2();
     }
 
     private void cabecalho() {
@@ -75,26 +73,6 @@ public class MateriaProvaActivity extends AppCompatActivity {
         });
     }
 
-    private void atv1(){
-        atv1 = (View) findViewById(R.id.view_prova_corrigida);
-        atv1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), DescricaoAtividadeActivity.class);
-                startActivity(intent);
-            }
-        });
-    }
-    private void atv2(){
-        atv2 = (View) findViewById(R.id.view_prova_nao_corrigida);
-        atv2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), DescricaoAtividadeActivity.class);
-                startActivity(intent);
-            }
-        });
-    }
 
     private void barraDeTarefas() {
 
