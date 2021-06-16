@@ -189,7 +189,10 @@
                                 android:layout_marginStart="15dp"
                                 android:layout_marginLeft="15dp"
                                 android:layout_marginTop="15dp"
+                                android:layout_marginEnd="15dp"
+                                android:layout_marginRight="15dp"
                                 android:contentDescription="@string/content_descr_telaincial_colorir"
+                                app:layout_constraintEnd_toEndOf="parent"
                                 app:layout_constraintStart_toEndOf="@+id/playlist_telainicial"
                                 app:layout_constraintTop_toTopOf="parent"
                                 app:srcCompat="@drawable/img_filmes_estudar" />
@@ -239,10 +242,10 @@
                     android:layout_marginStart="12dp"
                     android:layout_marginLeft="12dp"
                     android:layout_marginTop="12dp"
-                    android:fontFamily="@font/roboto_bold"
+                    android:fontFamily="@font/luckiest_guy"
                     android:text="AULAS"
                     android:textColor="#050505"
-                    android:textSize="13sp"
+                    android:textSize="24sp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
@@ -263,10 +266,10 @@
                     android:layout_marginStart="12dp"
                     android:layout_marginLeft="12dp"
                     android:layout_marginTop="16dp"
-                    android:fontFamily="@font/roboto_bold"
+                    android:fontFamily="@font/luckiest_guy"
                     android:text="MATÉRIAS"
                     android:textColor="#050505"
-                    android:textSize="13sp"
+                    android:textSize="24sp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/img_aulas_telaprincipal" />
 
@@ -291,10 +294,10 @@
                     android:layout_marginStart="12dp"
                     android:layout_marginLeft="12dp"
                     android:layout_marginTop="16dp"
-                    android:fontFamily="@font/roboto_bold"
+                    android:fontFamily="@font/luckiest_guy"
                     android:text="NOTAS"
                     android:textColor="#050505"
-                    android:textSize="13sp"
+                    android:textSize="24sp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/img_materias_telaprincipal" />
 
