@@ -131,14 +131,13 @@ public class ContatosActivity extends AppCompatActivity {
         });
     }
 
-    private void fetchUser() {
+    private void fetchUser() { //Busca usuários no Firebase
 
         FirebaseFirestore.getInstance().collection("Usuario")
                 .addSnapshotListener(new EventListener<QuerySnapshot>() {
                     @Override
                     public void onEvent(@Nullable @org.jetbrains.annotations.Nullable QuerySnapshot queryDocumentsSnapshots, @Nullable @org.jetbrains.annotations.Nullable FirebaseFirestoreException e) {
                            if(e != null){
-                               Log.e("teste", e.getMessage(), e);
                                return;
                            }
                         FirebaseFirestore db = FirebaseFirestore.getInstance();

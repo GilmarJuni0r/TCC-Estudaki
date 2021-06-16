@@ -6,12 +6,15 @@ import com.google.android.gms.tasks.Task;
 
 public class MaterialAula {
 
-    private final String  tipoArquivo;
-    private final String materia;
-    private final String turma;
-    private final String titulo;
-    private final String descricao;
-    private final String url;
+    private String  tipoArquivo;
+    private String materia;
+    private String turma;
+    private String titulo;
+    private String descricao;
+    private String url;
+
+    public MaterialAula() {
+    }
 
     public MaterialAula(String tipoArquivo, String materia, String turma, String titulo, String descricao, String url) {
         this.tipoArquivo = tipoArquivo;

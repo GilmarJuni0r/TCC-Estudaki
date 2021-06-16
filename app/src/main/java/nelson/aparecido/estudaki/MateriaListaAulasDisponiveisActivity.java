@@ -9,8 +9,11 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentReference;
@@ -18,7 +21,16 @@ import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
+import com.google.firebase.firestore.QuerySnapshot;
 import com.jaeger.library.StatusBarUtil;
+import com.xwray.groupie.GroupAdapter;
+import com.xwray.groupie.Item;
+import com.xwray.groupie.OnItemClickListener;
+import com.xwray.groupie.ViewHolder;
+
+import org.jetbrains.annotations.NotNull;
+
+import java.util.List;
 
 public class MateriaListaAulasDisponiveisActivity extends AppCompatActivity {
 
@@ -28,6 +40,7 @@ public class MateriaListaAulasDisponiveisActivity extends AppCompatActivity {
     private ImageView iconMateria;
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
     private String usuarioID;
+    private GroupAdapter adapterAulas;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,15 +51,47 @@ public class MateriaListaAulasDisponiveisActivity extends AppCompatActivity {
         barraDeTarefas();
         aulasAoVivo();
 
-        btnUploadAula = findViewById(R.id.btn_upload_nova_aula);
-        btnUploadAula.setOnClickListener(new View.OnClickListener() {
+
+        RecyclerView recyclerAulas = findViewById(R.id.recyclerAulasDisponiveis);
+        recyclerAulas.setLayoutManager(new LinearLayoutManager(this));
+        adapterAulas = new GroupAdapter();
+        recyclerAulas.setAdapter(adapterAulas);
+
+        adapterAulas.setOnItemClickListener(new OnItemClickListener() {
             @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), UploadMaterial.class);
-                startActivity(intent);
+            public void onItemClick(@NonNull @NotNull Item item, @NonNull @NotNull View view) {
+
             }
         });
 
+        fetchClasses();
+    }
+
+    private void fetchClasses() {//Busca aulas no Firebase
+        FirebaseFirestore.getInstance().collection("Arquivos")
+                .addSnapshotListener(new EventListener<QuerySnapshot>() {
+                    @Override
+                    public void onEvent(@Nullable @org.jetbrains.annotations.Nullable QuerySnapshot value, @Nullable @org.jetbrains.annotations.Nullable FirebaseFirestoreException error) {
+                        FirebaseFirestore db = FirebaseFirestore.getInstance();
+                        String usuarioID = FirebaseAuth.getInstance().getCurrentUser().getUid();
+                        DocumentReference documentReference = db.collection("Usuario").document(usuarioID);
+                        documentReference.addSnapshotListener(new EventListener<DocumentSnapshot>() {
+                            @Override
+                            public void onEvent(@Nullable @org.jetbrains.annotations.Nullable DocumentSnapshot user, @Nullable @org.jetbrains.annotations.Nullable FirebaseFirestoreException error) {
+                                List<DocumentSnapshot> docs = value.getDocuments();
+                                for (DocumentSnapshot doc : docs) {
+                                    MaterialAula materialAula = doc.toObject(MaterialAula.class);
+                                    if(materialAula.getTipoArquivo().equalsIgnoreCase("aula"))
+                                        if(materialAula.getTurma().equalsIgnoreCase(user.getString("turma")))
+                                            if(materialAula.getMateria().equalsIgnoreCase(user.getString("materiaAtual")))
+                                                adapterAulas.add(new classItem(materialAula));
+
+                                }
+                            }
+                        });
+
+                    }
+                });
     }
 
     private void aulasAoVivo() {
@@ -103,6 +148,15 @@ public class MateriaListaAulasDisponiveisActivity extends AppCompatActivity {
         home = findViewById(R.id.view_home);
         professor = findViewById(R.id.view_conversa_professor);
         perfil = findViewById(R.id.view_perfil);
+
+        btnUploadAula = findViewById(R.id.btn_upload_nova_aula);
+        btnUploadAula.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), UploadMaterial.class);
+                startActivity(intent);
+            }
+        });
 
         btn_me_ajuda = (View) findViewById(R.id.view_me_ajuda_lista_aulas_disponiveis);
         btn_me_ajuda.setOnClickListener(new View.OnClickListener() {
@@ -196,6 +250,34 @@ public class MateriaListaAulasDisponiveisActivity extends AppCompatActivity {
 
         Uri uri = Uri.parse(s);
         startActivity(new Intent(Intent.ACTION_VIEW,uri));
+    }
+
+    private class classItem extends Item<ViewHolder>{
+
+        private final MaterialAula materialAula;
+
+        private classItem(MaterialAula materialAula) {
+            this.materialAula = materialAula;
+        }
+
+        @Override
+        public void bind(@NonNull @NotNull ViewHolder viewHolder, int position) {
+            TextView txtTitulo = viewHolder.itemView.findViewById(R.id.txt_titulo_aula);
+            ImageView ivIcon = viewHolder.itemView.findViewById(R.id.iv_icon_aulas_item);
+            ImageView ivDownload = viewHolder.itemView.findViewById(R.id.btn_download_aulas_item);
+
+            txtTitulo.setText(materialAula.getTitulo());
+            if(materialAula.getTipoArquivo().equalsIgnoreCase("aula")) {
+                Drawable drawable = getResources().getDrawable(R.drawable.aula_online);
+                ivIcon.setImageDrawable(drawable);
+            }
+            
+        }
+
+        @Override
+        public int getLayout() {
+            return R.layout.item_materiais_aulas;
+        }
     }
 }
 

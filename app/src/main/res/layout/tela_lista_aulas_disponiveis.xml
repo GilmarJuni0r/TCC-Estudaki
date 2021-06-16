@@ -84,11 +84,11 @@
 
                 <ImageView
                     android:id="@+id/img_aulaonline"
-                    android:layout_width="73dp"
-                    android:layout_height="73dp"
-                    android:layout_marginStart="28dp"
-                    android:layout_marginLeft="28dp"
-                    android:layout_marginTop="12dp"
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginTop="16dp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/divider"
                     app:srcCompat="@drawable/img_aulaonline" />
@@ -97,14 +97,16 @@
                     android:id="@+id/txt_chatNome"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="36dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginLeft="16dp"
                     android:fontFamily="@font/roboto_bold"
-                    android:text="AULAS AO VIVO"
+                    android:text="Aulas ao vivo"
+                    android:textAllCaps="true"
                     android:textColor="#000000"
                     android:textSize="14dp"
-                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintBottom_toBottomOf="@+id/img_aulaonline"
                     app:layout_constraintStart_toEndOf="@+id/img_aulaonline"
-                    app:layout_constraintTop_toBottomOf="@+id/divider" />
+                    app:layout_constraintTop_toTopOf="@+id/img_aulaonline" />
 
                 <View
                     android:id="@+id/divider2"
@@ -124,7 +126,7 @@
                     app:layout_constraintTop_toBottomOf="@+id/divider" />
 
                 <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/recyclerView"
+                    android:id="@+id/recyclerAulasDisponiveis"
                     android:layout_width="410dp"
                     android:layout_height="434dp"
                     android:layout_marginStart="1dp"
@@ -143,7 +145,7 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.501"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/recyclerView"
+                    app:layout_constraintTop_toBottomOf="@+id/recyclerAulasDisponiveis"
                     app:srcCompat="@drawable/img_update_arquivos" />
 
                 <ImageView
@@ -151,10 +153,11 @@
                     android:layout_width="70dp"
                     android:layout_height="70dp"
                     android:layout_marginTop="40dp"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginRight="16dp"
                     android:layout_marginBottom="40dp"
                     app:layout_constraintBottom_toBottomOf="@+id/view_aulas_ao_vivo"
                     app:layout_constraintEnd_toEndOf="@+id/view_aulas_ao_vivo"
-                    app:layout_constraintStart_toEndOf="@+id/txt_chatNome"
                     app:layout_constraintTop_toTopOf="@+id/divider"
                     app:srcCompat="@android:drawable/ic_menu_edit" />
 
