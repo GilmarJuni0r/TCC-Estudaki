@@ -199,26 +199,6 @@
             app:layout_constraintStart_toStartOf="@+id/img_upload_descricao_atividade"
             app:layout_constraintTop_toBottomOf="@+id/img_upload_descricao_atividade" />
 
-        <ImageView
-            android:id="@+id/img_play_descricao_atividade"
-            android:layout_width="74dp"
-            android:layout_height="74dp"
-            app:layout_constraintBottom_toBottomOf="@+id/img_download_descricao_atividade"
-            app:layout_constraintEnd_toStartOf="@+id/img_upload_descricao_atividade"
-            app:layout_constraintStart_toEndOf="@+id/img_download_descricao_atividade"
-            app:layout_constraintTop_toTopOf="@+id/img_download_descricao_atividade"
-            app:srcCompat="@android:drawable/ic_media_play" />
-
-        <TextView
-            android:id="@+id/txt_play_descricao_atividade"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:text="PLAY"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="@+id/img_play_descricao_atividade"
-            app:layout_constraintStart_toStartOf="@+id/img_play_descricao_atividade"
-            app:layout_constraintTop_toBottomOf="@+id/img_play_descricao_atividade" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

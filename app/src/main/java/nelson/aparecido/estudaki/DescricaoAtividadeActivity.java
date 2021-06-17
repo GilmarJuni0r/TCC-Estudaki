@@ -2,10 +2,12 @@ package nelson.aparecido.estudaki;
 
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.VideoView;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -22,10 +24,11 @@ public class DescricaoAtividadeActivity extends AppCompatActivity {
 
 
     private View calendario, lupa, home, professor, perfil, btn_me_ajuda;
-    private TextView nomeMateria, tipoArquivo, tituloAtividade,descricaoConteudo, dataEntrega, txtUpload, txtPlay;
-    private ImageView iconMateria, btnPlay, btnUpload;
+    private TextView nomeMateria, tipoArquivo, tituloAtividade,descricaoConteudo, dataEntrega, txtUpload;
+    private ImageView iconMateria, btnUpload;
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
     private String usuarioID;
+    private VideoView video;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -48,12 +51,6 @@ public class DescricaoAtividadeActivity extends AppCompatActivity {
                     dataEntrega.setVisibility(View.INVISIBLE);
                     btnUpload.setVisibility(View.INVISIBLE);
                     txtUpload.setVisibility(View.INVISIBLE);
-
-                    if(value.getString("tipoArquivoAtual").equalsIgnoreCase("material")){
-                        btnPlay.setVisibility(View.INVISIBLE);
-                        txtPlay.setVisibility(View.INVISIBLE);
-                    }
-
                 }
             }
         });
@@ -61,9 +58,7 @@ public class DescricaoAtividadeActivity extends AppCompatActivity {
 
     private void cabecalho() {
         txtUpload = findViewById(R.id.txt_upload_descricao_atividade);
-        txtPlay = findViewById(R.id.txt_play_descricao_atividade);
         btnUpload = findViewById(R.id.img_upload_descricao_atividade);
-        btnPlay= findViewById(R.id.img_play_descricao_atividade);
         tipoArquivo = findViewById(R.id.txt_tipo_arquivo_descricao);
         tituloAtividade = findViewById(R.id.txt_nome_conteudo);
         descricaoConteudo = findViewById(R.id.txt_descricao_conteudo);
