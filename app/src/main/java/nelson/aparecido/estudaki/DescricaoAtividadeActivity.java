@@ -22,8 +22,8 @@ public class DescricaoAtividadeActivity extends AppCompatActivity {
 
 
     private View calendario, lupa, home, professor, perfil, btn_me_ajuda;
-    private TextView nomeMateria, tipoArquivo, tituloAtividade,descricaoConteudo, dataEntrega;
-    private ImageView iconMateria;
+    private TextView nomeMateria, tipoArquivo, tituloAtividade,descricaoConteudo, dataEntrega, txtUpload, txtPlay;
+    private ImageView iconMateria, btnPlay, btnUpload;
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
     private String usuarioID;
 
@@ -33,11 +33,6 @@ public class DescricaoAtividadeActivity extends AppCompatActivity {
         StatusBarUtil.setTransparent(this);
         barraDeTarefas();
         cabecalho();
-
-        tipoArquivo = findViewById(R.id.txt_tipo_arquivo_descricao);
-        tituloAtividade = findViewById(R.id.txt_nome_conteudo);
-        descricaoConteudo = findViewById(R.id.txt_descricao_conteudo);
-        dataEntrega = findViewById(R.id.txt_data_entrega_conteudo);
 
         MaterialAula materialAula = getIntent().getExtras().getParcelable("arquivo"); // <- Objeto contendo o conteúdo selecionado
 
@@ -51,12 +46,29 @@ public class DescricaoAtividadeActivity extends AppCompatActivity {
                     tituloAtividade.setText(materialAula.getTitulo());
                     descricaoConteudo.setText(materialAula.getDescricao());
                     dataEntrega.setVisibility(View.INVISIBLE);
+                    btnUpload.setVisibility(View.INVISIBLE);
+                    txtUpload.setVisibility(View.INVISIBLE);
+
+                    if(value.getString("tipoArquivoAtual").equalsIgnoreCase("material")){
+                        btnPlay.setVisibility(View.INVISIBLE);
+                        txtPlay.setVisibility(View.INVISIBLE);
+                    }
+
                 }
             }
         });
     }
 
     private void cabecalho() {
+        txtUpload = findViewById(R.id.txt_upload_descricao_atividade);
+        txtPlay = findViewById(R.id.txt_play_descricao_atividade);
+        btnUpload = findViewById(R.id.img_upload_descricao_atividade);
+        btnPlay= findViewById(R.id.img_play_descricao_atividade);
+        tipoArquivo = findViewById(R.id.txt_tipo_arquivo_descricao);
+        tituloAtividade = findViewById(R.id.txt_nome_conteudo);
+        descricaoConteudo = findViewById(R.id.txt_descricao_conteudo);
+        dataEntrega = findViewById(R.id.txt_data_entrega_conteudo);
+
         nomeMateria = findViewById(R.id.text_nome_descricao_atividade);
         iconMateria = findViewById(R.id.img_descricao_atividade);
 
