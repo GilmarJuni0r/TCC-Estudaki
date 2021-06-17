@@ -100,7 +100,7 @@
                     android:layout_marginStart="16dp"
                     android:layout_marginLeft="16dp"
                     android:fontFamily="@font/roboto_bold"
-                    android:text="Aulas ao vivo"
+                    android:text="Aula ao vivo"
                     android:textAllCaps="true"
                     android:textColor="#000000"
                     android:textSize="14dp"

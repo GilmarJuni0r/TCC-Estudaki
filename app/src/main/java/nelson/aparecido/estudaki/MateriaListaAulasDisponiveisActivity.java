@@ -21,6 +21,7 @@ import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
+import com.google.firebase.firestore.Query;
 import com.google.firebase.firestore.QuerySnapshot;
 import com.jaeger.library.StatusBarUtil;
 import com.xwray.groupie.GroupAdapter;
@@ -51,7 +52,6 @@ public class MateriaListaAulasDisponiveisActivity extends AppCompatActivity {
         barraDeTarefas();
         aulasAoVivo();
 
-
         RecyclerView recyclerAulas = findViewById(R.id.recyclerAulasDisponiveis);
         recyclerAulas.setLayoutManager(new LinearLayoutManager(this));
         adapterAulas = new GroupAdapter();
@@ -68,7 +68,7 @@ public class MateriaListaAulasDisponiveisActivity extends AppCompatActivity {
     }
 
     private void fetchClasses() {//Busca aulas no Firebase
-        FirebaseFirestore.getInstance().collection("Arquivos")
+        FirebaseFirestore.getInstance().collection("Arquivos").orderBy("timestamp", Query.Direction.ASCENDING)
                 .addSnapshotListener(new EventListener<QuerySnapshot>() {
                     @Override
                     public void onEvent(@Nullable @org.jetbrains.annotations.Nullable QuerySnapshot value, @Nullable @org.jetbrains.annotations.Nullable FirebaseFirestoreException error) {
@@ -80,11 +80,11 @@ public class MateriaListaAulasDisponiveisActivity extends AppCompatActivity {
                             public void onEvent(@Nullable @org.jetbrains.annotations.Nullable DocumentSnapshot user, @Nullable @org.jetbrains.annotations.Nullable FirebaseFirestoreException error) {
                                 List<DocumentSnapshot> docs = value.getDocuments();
                                 for (DocumentSnapshot doc : docs) {
-                                    MaterialAula materialAula = doc.toObject(MaterialAula.class);
-                                    if(materialAula.getTipoArquivo().equalsIgnoreCase("aula"))
-                                        if(materialAula.getTurma().equalsIgnoreCase(user.getString("turma")))
-                                            if(materialAula.getMateria().equalsIgnoreCase(user.getString("materiaAtual")))
-                                                adapterAulas.add(new classItem(materialAula));
+                                    MaterialAula aula = doc.toObject(MaterialAula.class);
+                                    if(aula.getTipoArquivo().equalsIgnoreCase("aula"))
+                                        if(aula.getTurma().equalsIgnoreCase(user.getString("turma")))
+                                            if(aula.getMateria().equalsIgnoreCase(user.getString("materiaAtual")))
+                                                adapterAulas.add(new classItem(aula));
 
                                 }
                             }

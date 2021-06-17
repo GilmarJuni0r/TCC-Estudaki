@@ -97,6 +97,7 @@ public class UploadMaterial extends AppCompatActivity {
                         if (!(editTitulo.getText().toString().isEmpty()) || !(editDescricao.getText().toString().isEmpty())) {
                             String titulo = editTitulo.getText().toString();
                             String descricao = editDescricao.getText().toString();
+                            long timestamp = System.currentTimeMillis();
 
                             if (diretorio != null) {
                                 String filename = UUID.randomUUID().toString();
@@ -116,7 +117,7 @@ public class UploadMaterial extends AppCompatActivity {
                                                         value.getString("turma"),
                                                         titulo,
                                                         descricao,
-                                                        uri.toString());
+                                                        uri.toString(),timestamp);
 
                                                 FirebaseFirestore.getInstance().collection("Arquivos").add(aula).
                                                         addOnSuccessListener(new OnSuccessListener<DocumentReference>() {

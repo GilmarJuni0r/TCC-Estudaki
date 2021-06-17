@@ -100,7 +100,7 @@
                     app:layout_constraintTop_toBottomOf="@+id/txt_nome_materia_material_de_aula" />
 
                 <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/recyclerView2"
+                    android:id="@+id/recycler_Materiais_Disponiveis"
                     android:layout_width="408dp"
                     android:layout_height="600dp"
                     android:layout_marginStart="2dp"
@@ -110,12 +110,12 @@
                     app:layout_constraintTop_toBottomOf="@+id/divider" />
 
                 <ImageView
-                    android:id="@+id/imageView11"
+                    android:id="@+id/btn_upload_material_de_aula"
                     android:layout_width="77dp"
                     android:layout_height="85dp"
                     android:layout_marginBottom="12dp"
-                    app:layout_constraintBottom_toBottomOf="@+id/recyclerView2"
-                    app:layout_constraintEnd_toEndOf="@+id/recyclerView2"
+                    app:layout_constraintBottom_toBottomOf="@+id/recycler_Materiais_Disponiveis"
+                    app:layout_constraintEnd_toEndOf="@+id/recycler_Materiais_Disponiveis"
                     app:layout_constraintHorizontal_bias="0.501"
                     app:layout_constraintStart_toStartOf="parent"
                     app:srcCompat="@drawable/img_update_arquivos" />
