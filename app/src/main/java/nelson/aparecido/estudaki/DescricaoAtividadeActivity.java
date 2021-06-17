@@ -22,7 +22,7 @@ public class DescricaoAtividadeActivity extends AppCompatActivity {
 
 
     private View calendario, lupa, home, professor, perfil, btn_me_ajuda;
-    private TextView nomeMateria;
+    private TextView nomeMateria, tipoArquivo, tituloAtividade,descricaoConteudo, dataEntrega;
     private ImageView iconMateria;
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
     private String usuarioID;
@@ -30,10 +30,30 @@ public class DescricaoAtividadeActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.tela_descricao_atividade);
-
         StatusBarUtil.setTransparent(this);
         barraDeTarefas();
         cabecalho();
+
+        tipoArquivo = findViewById(R.id.txt_tipo_arquivo_descricao);
+        tituloAtividade = findViewById(R.id.txt_nome_conteudo);
+        descricaoConteudo = findViewById(R.id.txt_descricao_conteudo);
+        dataEntrega = findViewById(R.id.txt_data_entrega_conteudo);
+
+        MaterialAula materialAula = getIntent().getExtras().getParcelable("arquivo"); // <- Objeto contendo o conteúdo selecionado
+
+        DocumentReference documentReference = db.collection("Usuario").document(usuarioID);
+        documentReference.addSnapshotListener(new EventListener<DocumentSnapshot>() {
+            @Override
+            public void onEvent(@Nullable @org.jetbrains.annotations.Nullable DocumentSnapshot value, @Nullable @org.jetbrains.annotations.Nullable FirebaseFirestoreException error) {
+                tipoArquivo.setText(value.getString("tipoArquivoAtual"));
+                if(value.getString("tipoArquivoAtual").equalsIgnoreCase("aula") ||
+                        value.getString("tipoArquivoAtual").equalsIgnoreCase("material") ){
+                    tituloAtividade.setText(materialAula.getTitulo());
+                    descricaoConteudo.setText(materialAula.getDescricao());
+                    dataEntrega.setVisibility(View.INVISIBLE);
+                }
+            }
+        });
     }
 
     private void cabecalho() {

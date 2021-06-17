@@ -3,6 +3,7 @@ package nelson.aparecido.estudaki;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -56,7 +57,12 @@ public class MateriaMaterialAulaActivity extends AppCompatActivity {
         adapterMateriais.setOnItemClickListener(new OnItemClickListener() {
             @Override
             public void onItemClick(@NonNull @NotNull Item item, @NonNull @NotNull View view) {
+                Intent intent = new Intent(MateriaMaterialAulaActivity.this, DescricaoAtividadeActivity.class);
 
+                MaterialItem materialItem = (MaterialItem) item;
+                intent.putExtra("arquivo", materialItem.materialAula);
+
+                startActivity(intent);
             }
         });
 
@@ -80,7 +86,7 @@ public class MateriaMaterialAulaActivity extends AppCompatActivity {
                                     if(material.getTipoArquivo().equalsIgnoreCase("material"))
                                         if(material.getTurma().equalsIgnoreCase(user.getString("turma")))
                                             if(material.getMateria().equalsIgnoreCase(user.getString("materiaAtual")))
-                                                adapterMateriais.add(new materialItem(material));
+                                                adapterMateriais.add(new MaterialItem(material));
 
                                 }
                             }
@@ -193,11 +199,11 @@ public class MateriaMaterialAulaActivity extends AppCompatActivity {
         });
     }
 
-    private class materialItem extends Item<ViewHolder>{
+    private class MaterialItem extends Item<ViewHolder>{
 
         private final MaterialAula materialAula;
 
-        private materialItem(MaterialAula materialAula) {
+        private MaterialItem(MaterialAula materialAula) {
             this.materialAula = materialAula;
         }
 

@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -60,7 +61,12 @@ public class MateriaListaAulasDisponiveisActivity extends AppCompatActivity {
         adapterAulas.setOnItemClickListener(new OnItemClickListener() {
             @Override
             public void onItemClick(@NonNull @NotNull Item item, @NonNull @NotNull View view) {
+                Intent intent = new Intent(MateriaListaAulasDisponiveisActivity.this, DescricaoAtividadeActivity.class);
 
+                ClassItem classItem = (ClassItem) item;
+                intent.putExtra("arquivo", classItem.materialAula);
+
+                startActivity(intent);
             }
         });
 
@@ -84,7 +90,7 @@ public class MateriaListaAulasDisponiveisActivity extends AppCompatActivity {
                                     if(aula.getTipoArquivo().equalsIgnoreCase("aula"))
                                         if(aula.getTurma().equalsIgnoreCase(user.getString("turma")))
                                             if(aula.getMateria().equalsIgnoreCase(user.getString("materiaAtual")))
-                                                adapterAulas.add(new classItem(aula));
+                                                adapterAulas.add(new ClassItem(aula));
 
                                 }
                             }
@@ -252,11 +258,11 @@ public class MateriaListaAulasDisponiveisActivity extends AppCompatActivity {
         startActivity(new Intent(Intent.ACTION_VIEW,uri));
     }
 
-    private class classItem extends Item<ViewHolder>{
+    private class ClassItem extends Item<ViewHolder>{
 
         private final MaterialAula materialAula;
 
-        private classItem(MaterialAula materialAula) {
+        private ClassItem(MaterialAula materialAula) {
             this.materialAula = materialAula;
         }
 

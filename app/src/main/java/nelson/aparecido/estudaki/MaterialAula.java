@@ -1,6 +1,9 @@
 package nelson.aparecido.estudaki;
 
-public class MaterialAula {
+import android.os.Parcel;
+import android.os.Parcelable;
+
+public class MaterialAula implements Parcelable {
 
     private String  tipoArquivo;
     private String materia;
@@ -22,6 +25,28 @@ public class MaterialAula {
         this.url = url;
         this.timestamp = timestamp;
     }
+
+    protected MaterialAula(Parcel in) {
+        tipoArquivo = in.readString();
+        materia = in.readString();
+        turma = in.readString();
+        titulo = in.readString();
+        descricao = in.readString();
+        url = in.readString();
+        timestamp = in.readLong();
+    }
+
+    public static final Creator<MaterialAula> CREATOR = new Creator<MaterialAula>() {
+        @Override
+        public MaterialAula createFromParcel(Parcel in) {
+            return new MaterialAula(in);
+        }
+
+        @Override
+        public MaterialAula[] newArray(int size) {
+            return new MaterialAula[size];
+        }
+    };
 
     public String getTipoArquivo() {
         return tipoArquivo;
@@ -77,5 +102,21 @@ public class MaterialAula {
 
     public void setTimestamp(long timestamp) {
         this.timestamp = timestamp;
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(tipoArquivo);
+        dest.writeString(materia);
+        dest.writeString(turma);
+        dest.writeString(titulo);
+        dest.writeString(descricao);
+        dest.writeString(url);
+        dest.writeLong(timestamp);
     }
 }
