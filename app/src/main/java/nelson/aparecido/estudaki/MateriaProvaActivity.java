@@ -20,7 +20,7 @@ import com.jaeger.library.StatusBarUtil;
 
 public class MateriaProvaActivity extends AppCompatActivity {
 
-    private View calendario, lupa, home, professor, perfil, btn_me_ajuda, atv1, atv2;
+    private View calendario, lupa, home, professor, perfil, btn_me_ajuda;
     private TextView nomeMateria;
     private ImageView iconMateria;
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
@@ -72,7 +72,6 @@ public class MateriaProvaActivity extends AppCompatActivity {
             }
         });
     }
-
 
     private void barraDeTarefas() {
 

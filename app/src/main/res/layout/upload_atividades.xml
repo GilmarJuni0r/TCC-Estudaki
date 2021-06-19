@@ -52,7 +52,7 @@
                     app:srcCompat="@drawable/icon_meajuda" />
 
                 <View
-                    android:id="@+id/view_me_ajuda_materia_material_de_aulas"
+                    android:id="@+id/view_me_ajuda_upload_atividade"
                     android:layout_width="42dp"
                     android:layout_height="46dp"
                     android:layout_marginTop="5dp"
@@ -62,44 +62,41 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <ImageView
-                    android:id="@+id/img_icon_materia"
+                    android:id="@+id/img_icon_materia_upload_atividades"
                     android:layout_width="62dp"
                     android:layout_height="62dp"
                     android:layout_marginStart="60dp"
                     android:layout_marginLeft="60dp"
                     android:layout_marginTop="32dp"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:srcCompat="@drawable/img_matematica" />
+                    app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
-                    android:id="@+id/txt_nome_materia_material_de_aula"
+                    android:id="@+id/txt_nome_materia_upload_atividades"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="72dp"
                     android:layout_marginLeft="72dp"
                     android:layout_marginTop="48dp"
                     android:fontFamily="@font/comfortaa"
-                    android:text="MATEMÁTICA"
                     android:textColor="#000000"
                     android:textSize="24sp"
-                    app:layout_constraintStart_toEndOf="@+id/img_icon_materia"
+                    app:layout_constraintStart_toEndOf="@+id/img_icon_materia_upload_atividades"
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
-                    android:id="@+id/textView8"
+                    android:id="@+id/txt_funcao_upload_atividades"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
                     android:layout_marginEnd="60dp"
                     android:layout_marginRight="60dp"
                     android:fontFamily="@font/comfortaa"
-                    android:text="UPDATE ATIVIDADES"
                     android:textColor="#050505"
                     android:textSize="14sp"
                     android:textStyle="bold"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/txt_nome_materia_material_de_aula" />
+                    app:layout_constraintTop_toBottomOf="@+id/txt_nome_materia_upload_atividades" />
 
                 <View
                     android:id="@+id/divider"
@@ -110,7 +107,7 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.521"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/txt_nome_materia_material_de_aula" />
+                    app:layout_constraintTop_toBottomOf="@+id/txt_nome_materia_upload_atividades" />
 
                 <TextView
                     android:id="@+id/txt_titulo_update"
@@ -119,21 +116,21 @@
                     android:layout_marginStart="40dp"
                     android:layout_marginLeft="40dp"
                     android:layout_marginTop="48dp"
-                    android:text="TITULO"
+                    android:text="TITULO:"
                     android:textColor="#000000"
                     android:textSize="14sp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/divider" />
 
                 <EditText
-                    android:id="@+id/txt_update_titulo"
+                    android:id="@+id/edit_titulo_arquivo_upload_atividades"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="108dp"
                     android:layout_marginLeft="108dp"
                     android:layout_marginTop="8dp"
                     android:ems="10"
-                    android:hint="Titulo do Arquivo"
+                    android:hint="Digite o título "
                     android:inputType="textPersonName"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/txt_titulo_update" />
@@ -145,7 +142,7 @@
                     android:layout_marginStart="40dp"
                     android:layout_marginLeft="40dp"
                     android:layout_marginTop="24dp"
-                    android:text="DESCRIÇÃO"
+                    android:text="DESCRIÇÃO:"
                     android:textColor="#000000"
                     android:textSize="14sp"
                     app:layout_constraintStart_toStartOf="parent"
@@ -163,17 +160,31 @@
                     app:layout_constraintTop_toBottomOf="@+id/divider" />
 
                 <EditText
-                    android:id="@+id/txt_update_descricao"
+                    android:id="@+id/edit_descricao_arquivo_upload_atividades"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="108dp"
                     android:layout_marginLeft="108dp"
-                    android:layout_marginTop="4dp"
+                    android:layout_marginTop="8dp"
                     android:ems="10"
-                    android:hint="Descrição do Arquivo"
+                    android:hint="Digite a descrição"
                     android:inputType="textPersonName"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/txt_descricao_update" />
+
+                <EditText
+                    android:id="@+id/edit_datamax_upload_atividades"
+                    android:layout_width="141dp"
+                    android:layout_height="44dp"
+                    android:layout_marginStart="100dp"
+                    android:layout_marginLeft="100dp"
+                    android:layout_marginTop="8dp"
+                    android:digits="0123456789/"
+                    android:ems="10"
+                    android:hint="dd/mm/aaaa"
+                    android:inputType="text|date"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/txt_maxdata" />
 
                 <View
                     android:id="@+id/divider8"
@@ -187,30 +198,19 @@
                     app:layout_constraintTop_toBottomOf="@+id/divider" />
 
                 <TextView
-                    android:id="@+id/txt_descricao_update3"
+                    android:id="@+id/txt_maxdata"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="40dp"
                     android:layout_marginLeft="40dp"
                     android:layout_marginTop="16dp"
-                    android:text="DATA MAXIMA"
+                    android:text="DATA MAXIMA:"
                     android:textColor="#000000"
                     android:textSize="14sp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/divider8" />
 
-                <EditText
-                    android:id="@+id/txt_update_datamax"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="108dp"
-                    android:layout_marginLeft="108dp"
-                    android:layout_marginTop="8dp"
-                    android:ems="10"
-                    android:hint="Data Maxima do Arquivo"
-                    android:inputType="textPersonName"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/txt_descricao_update3" />
+                <!--app:layout_constraintTop_toBottomOf="@+id/txt_descricao_update3"-->
 
                 <View
                     android:id="@+id/divider10"
@@ -237,15 +237,26 @@
                     app:layout_constraintTop_toBottomOf="@+id/divider10" />
 
                 <ImageView
-                    android:id="@+id/img_update_atividades"
+                    android:id="@+id/btn_upload_nova_atividade"
                     android:layout_width="65dp"
                     android:layout_height="87dp"
                     android:layout_marginStart="176dp"
                     android:layout_marginLeft="176dp"
-                    android:layout_marginTop="24dp"
+                    android:layout_marginTop="50dp"
                     app:layout_constraintStart_toEndOf="@+id/txt_descricao_update4"
                     app:layout_constraintTop_toBottomOf="@+id/divider10"
                     app:srcCompat="@drawable/img_update_arquivos" />
+
+                <ImageView
+                    android:id="@+id/btn_seleciona_nova_atividade"
+                    android:layout_width="75dp"
+                    android:layout_height="75dp"
+                    android:layout_marginStart="50dp"
+                    android:layout_marginLeft="50dp"
+                    app:layout_constraintEnd_toEndOf="@+id/txt_descricao_update4"
+                    app:layout_constraintStart_toStartOf="@+id/txt_descricao_update4"
+                    app:layout_constraintTop_toTopOf="@+id/btn_upload_nova_atividade"
+                    app:srcCompat="@android:drawable/ic_menu_search" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 

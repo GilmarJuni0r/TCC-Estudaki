@@ -4,8 +4,6 @@ buildscript {
         google()
         jcenter()
 
-        // implementacao nelson
-
         maven{url "https://jitpack.io"}
 
     }
@@ -23,8 +21,6 @@ allprojects {
     repositories {
         google()
         jcenter()
-
-        //nelson
 
         maven{url "https://jitpack.io"}
     }

@@ -87,11 +87,9 @@ public class MateriaMaterialAulaActivity extends AppCompatActivity {
                                         if(material.getTurma().equalsIgnoreCase(user.getString("turma")))
                                             if(material.getMateria().equalsIgnoreCase(user.getString("materiaAtual")))
                                                 adapterMateriais.add(new MaterialItem(material));
-
                                 }
                             }
                         });
-
                     }
                 });
     }
@@ -211,7 +209,6 @@ public class MateriaMaterialAulaActivity extends AppCompatActivity {
         public void bind(@NonNull @NotNull ViewHolder viewHolder, int position) {
             TextView txtTitulo = viewHolder.itemView.findViewById(R.id.txt_titulo_aula);
             ImageView ivIcon = viewHolder.itemView.findViewById(R.id.iv_icon_aulas_item);
-            ImageView ivDownload = viewHolder.itemView.findViewById(R.id.btn_download_aulas_item);
 
             txtTitulo.setText(materialAula.getTitulo());
             if(materialAula.getTipoArquivo().equalsIgnoreCase("material")) {

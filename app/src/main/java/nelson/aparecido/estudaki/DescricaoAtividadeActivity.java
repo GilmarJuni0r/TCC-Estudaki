@@ -38,12 +38,14 @@ public class DescricaoAtividadeActivity extends AppCompatActivity {
         cabecalho();
 
         MaterialAula materialAula = getIntent().getExtras().getParcelable("arquivo"); // <- Objeto contendo o conteúdo selecionado
+        AtividadeProva atividadeProva = getIntent().getExtras().getParcelable("atividade"); // <- Objeto contendo o conteúdo selecionado
 
         DocumentReference documentReference = db.collection("Usuario").document(usuarioID);
         documentReference.addSnapshotListener(new EventListener<DocumentSnapshot>() {
             @Override
             public void onEvent(@Nullable @org.jetbrains.annotations.Nullable DocumentSnapshot value, @Nullable @org.jetbrains.annotations.Nullable FirebaseFirestoreException error) {
                 tipoArquivo.setText(value.getString("tipoArquivoAtual"));
+
                 if(value.getString("tipoArquivoAtual").equalsIgnoreCase("aula") ||
                         value.getString("tipoArquivoAtual").equalsIgnoreCase("material") ){
                     tituloAtividade.setText(materialAula.getTitulo());
@@ -51,6 +53,16 @@ public class DescricaoAtividadeActivity extends AppCompatActivity {
                     dataEntrega.setVisibility(View.INVISIBLE);
                     btnUpload.setVisibility(View.INVISIBLE);
                     txtUpload.setVisibility(View.INVISIBLE);
+
+                }else{
+                    if(value.getString("ocupacao").equalsIgnoreCase("professor") || value.getString("ocupacao").equalsIgnoreCase("professora") ){
+                        btnUpload.setVisibility(View.INVISIBLE);
+                        txtUpload.setVisibility(View.INVISIBLE);
+                    }
+                    tituloAtividade.setText(atividadeProva.getTitulo());
+                    descricaoConteudo.setText(atividadeProva.getDescricao());
+                    dataEntrega.setText("Data para entrega:"+atividadeProva.getDataMax());
+
                 }
             }
         });

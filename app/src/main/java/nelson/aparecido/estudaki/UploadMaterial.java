@@ -45,7 +45,7 @@ public class UploadMaterial extends AppCompatActivity {
     private String usuarioID;
     private EditText editTitulo, editDescricao;
     private Uri diretorio;
-    ProgressDialog progressDialog;
+    private ProgressDialog progressDialog;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
