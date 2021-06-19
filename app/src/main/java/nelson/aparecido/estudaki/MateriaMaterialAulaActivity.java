@@ -83,9 +83,9 @@ public class MateriaMaterialAulaActivity extends AppCompatActivity {
                                 List<DocumentSnapshot> docs = value.getDocuments();
                                 for (DocumentSnapshot doc : docs) {
                                     MaterialAula material = doc.toObject(MaterialAula.class);
-                                    if(material.getTipoArquivo().equalsIgnoreCase("material"))
-                                        if(material.getTurma().equalsIgnoreCase(user.getString("turma")))
-                                            if(material.getMateria().equalsIgnoreCase(user.getString("materiaAtual")))
+                                    if (material.getTipoArquivo().equalsIgnoreCase("material"))
+                                        if (material.getTurma().equalsIgnoreCase(user.getString("turma")))
+                                            if (material.getMateria().equalsIgnoreCase(user.getString("materiaAtual")))
                                                 adapterMateriais.add(new MaterialItem(material));
                                 }
                             }
@@ -97,37 +97,48 @@ public class MateriaMaterialAulaActivity extends AppCompatActivity {
     private void cabecalho() {
         nomeMateria = findViewById(R.id.txt_nome_materia_material_de_aula);
         iconMateria = findViewById(R.id.img_icon_materia_material_de_aula);
-
+        btnUploadMaterial = findViewById(R.id.btn_upload_material_de_aula);
 
         DocumentReference documentReference = db.collection("Usuario").document(usuarioID);
         documentReference.addSnapshotListener(new EventListener<DocumentSnapshot>() {
             @Override
             public void onEvent(@Nullable @org.jetbrains.annotations.Nullable DocumentSnapshot value, @Nullable @org.jetbrains.annotations.Nullable FirebaseFirestoreException error) {
-                if(value.getString("materiaAtual").equalsIgnoreCase("Matemática")){
+                if (value.getString("materiaAtual").equalsIgnoreCase("Matemática")) {
                     nomeMateria.setText(value.getString("materiaAtual"));
-                    Drawable drawable= getResources().getDrawable(R.drawable.logo_matematica);
+                    Drawable drawable = getResources().getDrawable(R.drawable.logo_matematica);
                     iconMateria.setImageDrawable(drawable);
 
-                }else if(value.getString("materiaAtual").equalsIgnoreCase("Português")){
+                } else if (value.getString("materiaAtual").equalsIgnoreCase("Português")) {
                     nomeMateria.setText(value.getString("materiaAtual"));
-                    Drawable drawable= getResources().getDrawable(R.drawable.logo_portugues);
+                    Drawable drawable = getResources().getDrawable(R.drawable.logo_portugues);
                     iconMateria.setImageDrawable(drawable);
 
-                }else if(value.getString("materiaAtual").equalsIgnoreCase("Ciências")){
+                } else if (value.getString("materiaAtual").equalsIgnoreCase("Ciências")) {
                     nomeMateria.setText(value.getString("materiaAtual"));
-                    Drawable drawable= getResources().getDrawable(R.drawable.logo_ciencia);
+                    Drawable drawable = getResources().getDrawable(R.drawable.logo_ciencia);
                     iconMateria.setImageDrawable(drawable);
 
-                }else if(value.getString("materiaAtual").equalsIgnoreCase("Geografia")){
+                } else if (value.getString("materiaAtual").equalsIgnoreCase("Geografia")) {
                     nomeMateria.setText(value.getString("materiaAtual"));
-                    Drawable drawable= getResources().getDrawable(R.drawable.logo_geografia);
+                    Drawable drawable = getResources().getDrawable(R.drawable.logo_geografia);
                     iconMateria.setImageDrawable(drawable);
 
-                }else{
+                } else {
                     nomeMateria.setText(value.getString("materiaAtual"));
-                    Drawable drawable= getResources().getDrawable(R.drawable.logo_historia);
+                    Drawable drawable = getResources().getDrawable(R.drawable.logo_historia);
                     iconMateria.setImageDrawable(drawable);
                 }
+                if (!(value.getString("ocupacao").equalsIgnoreCase("professor")
+                        || value.getString("ocupacao").equalsIgnoreCase("professora")))
+                    btnUploadMaterial.setVisibility(View.INVISIBLE);
+            }
+        });
+
+        btnUploadMaterial.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), UploadMaterial.class);
+                startActivity(intent);
             }
         });
     }
@@ -139,14 +150,6 @@ public class MateriaMaterialAulaActivity extends AppCompatActivity {
         professor = findViewById(R.id.view_conversa_professor);
         perfil = findViewById(R.id.view_perfil);
 
-        btnUploadMaterial = findViewById(R.id.btn_upload_material_de_aula);
-        btnUploadMaterial.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), UploadMaterial.class);
-                startActivity(intent);
-            }
-        });
         btn_me_ajuda = (View) findViewById(R.id.view_me_ajuda_materia_material_de_aulas);
         btn_me_ajuda.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -197,7 +200,7 @@ public class MateriaMaterialAulaActivity extends AppCompatActivity {
         });
     }
 
-    private class MaterialItem extends Item<ViewHolder>{
+    private class MaterialItem extends Item<ViewHolder> {
 
         private final MaterialAula materialAula;
 
@@ -211,7 +214,7 @@ public class MateriaMaterialAulaActivity extends AppCompatActivity {
             ImageView ivIcon = viewHolder.itemView.findViewById(R.id.iv_icon_aulas_item);
 
             txtTitulo.setText(materialAula.getTitulo());
-            if(materialAula.getTipoArquivo().equalsIgnoreCase("material")) {
+            if (materialAula.getTipoArquivo().equalsIgnoreCase("material")) {
                 Drawable drawable = getResources().getDrawable(R.drawable.img_materias_aulas);
                 ivIcon.setImageDrawable(drawable);
             }
