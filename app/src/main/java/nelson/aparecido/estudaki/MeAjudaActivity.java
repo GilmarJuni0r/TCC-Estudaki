@@ -83,7 +83,7 @@ public class MeAjudaActivity extends AppCompatActivity {
                     "\n" +
                     "MATÉRIAS > PORTUGUÊS, MATEMÁTICA...\n" +
                     "\n" +
-                    "CASO SUA MATÉRIA NÃO ESTEJA LÁ, CONTATE A SECRETARIA OU O PROFESSOR DA MATÉRIA ESPECIFICA.");
+                    "CASO SUA MATÉRIA NÃO ESTEJA LÁ, CONTATE A SECRETARIA OU O SEU PROFESSOR.");
             msgBox.show();
         }else if(orientacao == "Per2WithLogin") {
             msgBox.setTitle("ONDE VEJO MINHA NOTA?");
@@ -91,7 +91,7 @@ public class MeAjudaActivity extends AppCompatActivity {
                     "\n" +
                     "NOTAS > PORTUGUÊS, MATEMÁTICA...\n" +
                     "\n" +
-                    "CASO SUA NOTA NÃO ESTEJA LÁ, CONTATE O PROFESSOR DA MATÉRIA ESPECIFICA.");
+                    "CASO SUA NOTA NÃO ESTEJA LÁ, CONTATE O SEU PROFESSOR.");
             msgBox.show();
         }
     }

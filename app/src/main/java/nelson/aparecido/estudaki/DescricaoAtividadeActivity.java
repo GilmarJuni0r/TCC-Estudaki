@@ -25,10 +25,9 @@ public class DescricaoAtividadeActivity extends AppCompatActivity {
 
     private View calendario, lupa, home, professor, perfil, btn_me_ajuda;
     private TextView nomeMateria, tipoArquivo, tituloAtividade,descricaoConteudo, dataEntrega, txtUpload;
-    private ImageView iconMateria, btnUpload;
+    private ImageView iconMateria, btnUpload, btnDownload;
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
     private String usuarioID;
-    private VideoView video;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -66,6 +65,30 @@ public class DescricaoAtividadeActivity extends AppCompatActivity {
                 }
             }
         });
+
+        btnDownload = findViewById(R.id.img_download_descricao_atividade);
+        btnDownload.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                documentReference.addSnapshotListener(new EventListener<DocumentSnapshot>() {
+                    @Override
+                    public void onEvent(@Nullable @org.jetbrains.annotations.Nullable DocumentSnapshot aux, @Nullable @org.jetbrains.annotations.Nullable FirebaseFirestoreException error) {
+                        if((aux.getString("tipoArquivoAtual").equalsIgnoreCase("aula")) ||
+                                (aux.getString("tipoArquivoAtual").equalsIgnoreCase("material"))){
+                            gotoURL(materialAula.getUrl());
+                        }else{
+                            gotoURL(atividadeProva.getUrl());
+                        }
+                    }
+                });
+            }
+        });
+    }
+
+    private void gotoURL(String s) {
+
+        Uri uri = Uri.parse(s);
+        startActivity(new Intent(Intent.ACTION_VIEW,uri));
     }
 
     private void cabecalho() {
