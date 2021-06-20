@@ -59,7 +59,7 @@ public class MateriaAtividadeAulaActivity extends AppCompatActivity {
                 Intent intent = new Intent(MateriaAtividadeAulaActivity.this, DescricaoAtividadeActivity.class);
 
                 MateriaAtividadeAulaActivity.AtividadeItem atividadeItem = (MateriaAtividadeAulaActivity.AtividadeItem) item;
-                intent.putExtra("atividade", atividadeItem.atividadeProva);
+                intent.putExtra("atividadeProva", atividadeItem.atividadeProva);
 
                 startActivity(intent);
             }

@@ -54,39 +54,20 @@ public class DescricaoAtividadeActivity extends AppCompatActivity {
         storageReference = FirebaseStorage.getInstance().getReference();
         progressDialog = new ProgressDialog(this);
 
-        MaterialAula materialAula = getIntent().getExtras().getParcelable("arquivo"); // <- Objeto contendo o conteúdo selecionado
-        AtividadeProva atividadeProva = getIntent().getExtras().getParcelable("atividade"); // <- Objeto contendo o conteúdo selecionado
+        AtividadeProva atividadeProva = getIntent().getExtras().getParcelable("atividadeProva"); // <- Objeto contendo o conteúdo selecionado
+        tituloAtividade.setText(atividadeProva.getTitulo());
+        descricaoConteudo.setText(atividadeProva.getDescricao());
 
         DocumentReference documentReference = db.collection("Usuario").document(usuarioID);
         documentReference.addSnapshotListener(new EventListener<DocumentSnapshot>() {
             @Override
             public void onEvent(@Nullable @org.jetbrains.annotations.Nullable DocumentSnapshot value, @Nullable @org.jetbrains.annotations.Nullable FirebaseFirestoreException error) {
-                //tipoArquivo.setText(value.getString("tipoArquivoAtual"));
-
-                if(value.getString("ocupacao").equalsIgnoreCase("professor") || value.getString("ocupacao").equalsIgnoreCase("professora") ){
+                if(value.getString("ocupacao").equalsIgnoreCase("professor")
+                        || value.getString("ocupacao").equalsIgnoreCase("professora") ){
                     btnUpload.setVisibility(View.INVISIBLE);
                     txtUpload.setVisibility(View.INVISIBLE);
                     btnSeleciona.setVisibility(View.INVISIBLE);
                     txtSeleciona.setVisibility(View.INVISIBLE);
-                }
-
-                if(value.getString("tipoArquivoAtual").equalsIgnoreCase("aula") ||
-                        value.getString("tipoArquivoAtual").equalsIgnoreCase("material") ){
-                    tituloAtividade.setText(materialAula.getTitulo());
-                    descricaoConteudo.setText(materialAula.getDescricao());
-                    dataEntrega.setVisibility(View.INVISIBLE);
-                    btnUpload.setVisibility(View.INVISIBLE);
-                    txtUpload.setVisibility(View.INVISIBLE);
-
-                }if(value.getString("tipoArquivoAtual").equalsIgnoreCase("atividade") ||
-                        value.getString("tipoArquivoAtual").equalsIgnoreCase("prova") ){
-                    tituloAtividade.setText(atividadeProva.getTitulo());
-                    descricaoConteudo.setText(atividadeProva.getDescricao());
-                    dataEntrega.setText("Data para entrega: "+atividadeProva.getDataMax());
-
-                }else{
-                    Intent intent = new Intent(getApplicationContext(), MateriasActivity.class);
-                    startActivity(intent);
                 }
             }
         });
@@ -95,20 +76,14 @@ public class DescricaoAtividadeActivity extends AppCompatActivity {
         btnDownload.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                documentReference.addSnapshotListener(new EventListener<DocumentSnapshot>() {
-                    @Override
-                    public void onEvent(@Nullable @org.jetbrains.annotations.Nullable DocumentSnapshot aux, @Nullable @org.jetbrains.annotations.Nullable FirebaseFirestoreException error) {
-                        if((aux.getString("tipoArquivoAtual").equalsIgnoreCase("aula")) ||
-                                (aux.getString("tipoArquivoAtual").equalsIgnoreCase("material"))){
-                            gotoURL(materialAula.getUrl());
-                        }else{
-                            gotoURL(atividadeProva.getUrl());
-                        }
-                    }
-                });
+                gotoURL(atividadeProva.getUrl());
             }
         });
 
+        uploadRespostas(atividadeProva);
+    }
+
+    private void uploadRespostas(AtividadeProva atividadeProva) {
         btnSeleciona = findViewById(R.id.img_seleciona_resposta);
         btnSeleciona.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -117,10 +92,6 @@ public class DescricaoAtividadeActivity extends AppCompatActivity {
             }
         });
 
-        uploadRespostas(atividadeProva);
-    }
-
-    private void uploadRespostas(AtividadeProva atividadeProva) {
         btnUpload.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

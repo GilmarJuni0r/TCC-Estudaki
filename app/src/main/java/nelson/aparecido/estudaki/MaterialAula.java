@@ -5,11 +5,13 @@ import android.os.Parcelable;
 
 public class MaterialAula implements Parcelable {
 
+    private String codigo;
     private String  tipoArquivo;
     private String materia;
     private String turma;
     private String titulo;
     private String descricao;
+    private String dataMax;
     private String url;
     private long timestamp;
 
@@ -26,12 +28,26 @@ public class MaterialAula implements Parcelable {
         this.timestamp = timestamp;
     }
 
+    public MaterialAula(String codigo, String tipoArquivo, String materia, String turma, String titulo, String descricao, String dataMax, String url, long timestamp) {
+        this.codigo = codigo;
+        this.tipoArquivo = tipoArquivo;
+        this.materia = materia;
+        this.turma = turma;
+        this.titulo = titulo;
+        this.descricao = descricao;
+        this.dataMax = dataMax;
+        this.url = url;
+        this.timestamp = timestamp;
+    }
+
     protected MaterialAula(Parcel in) {
+        codigo = in.readString();
         tipoArquivo = in.readString();
         materia = in.readString();
         turma = in.readString();
         titulo = in.readString();
         descricao = in.readString();
+        dataMax = in.readString();
         url = in.readString();
         timestamp = in.readLong();
     }
@@ -47,6 +63,14 @@ public class MaterialAula implements Parcelable {
             return new MaterialAula[size];
         }
     };
+
+    public String getCodigo() {
+        return codigo;
+    }
+
+    public void setCodigo(String codigo) {
+        this.codigo = codigo;
+    }
 
     public String getTipoArquivo() {
         return tipoArquivo;
@@ -88,6 +112,14 @@ public class MaterialAula implements Parcelable {
         this.descricao = descricao;
     }
 
+    public String getDataMax() {
+        return dataMax;
+    }
+
+    public void setDataMax(String dataMax) {
+        this.dataMax = dataMax;
+    }
+
     public String getUrl() {
         return url;
     }
@@ -111,11 +143,13 @@ public class MaterialAula implements Parcelable {
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(codigo);
         dest.writeString(tipoArquivo);
         dest.writeString(materia);
         dest.writeString(turma);
         dest.writeString(titulo);
         dest.writeString(descricao);
+        dest.writeString(dataMax);
         dest.writeString(url);
         dest.writeLong(timestamp);
     }

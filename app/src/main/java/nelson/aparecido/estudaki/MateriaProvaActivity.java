@@ -59,7 +59,7 @@ public class MateriaProvaActivity extends AppCompatActivity {
                 Intent intent = new Intent(MateriaProvaActivity.this, DescricaoAtividadeActivity.class);
 
                 MateriaProvaActivity.ProvaItem provaItem = (MateriaProvaActivity.ProvaItem) item;
-                intent.putExtra("atividade", provaItem.atividadeProva);
+                intent.putExtra("atividadeProva", provaItem.atividadeProva);
 
                 startActivity(intent);
             }

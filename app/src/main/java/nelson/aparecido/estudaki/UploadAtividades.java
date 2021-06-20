@@ -112,7 +112,7 @@ public class UploadAtividades extends AppCompatActivity {
                                         atividadeProvaRef.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
                                             @Override
                                             public void onSuccess(Uri uri) {
-                                                AtividadeProva atividadeProva = new AtividadeProva(
+                                                MaterialAula atividadeProva = new MaterialAula(
                                                         codigo,
                                                         value.getString("tipoArquivoAtual"),
                                                         value.getString("materiaAtual"),

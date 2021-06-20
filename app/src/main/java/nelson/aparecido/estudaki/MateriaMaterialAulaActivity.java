@@ -57,10 +57,10 @@ public class MateriaMaterialAulaActivity extends AppCompatActivity {
         adapterMateriais.setOnItemClickListener(new OnItemClickListener() {
             @Override
             public void onItemClick(@NonNull @NotNull Item item, @NonNull @NotNull View view) {
-                Intent intent = new Intent(MateriaMaterialAulaActivity.this, DescricaoAtividadeActivity.class);
+                Intent intent = new Intent(MateriaMaterialAulaActivity.this, DescricaoMaterialActivity.class);
 
                 MaterialItem materialItem = (MaterialItem) item;
-                intent.putExtra("arquivo", materialItem.materialAula);
+                intent.putExtra("materialAula", materialItem.materialAula);
 
                 startActivity(intent);
             }

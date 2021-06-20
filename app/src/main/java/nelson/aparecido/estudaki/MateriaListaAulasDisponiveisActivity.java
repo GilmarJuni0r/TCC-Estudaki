@@ -61,10 +61,10 @@ public class MateriaListaAulasDisponiveisActivity extends AppCompatActivity {
         adapterAulas.setOnItemClickListener(new OnItemClickListener() {
             @Override
             public void onItemClick(@NonNull @NotNull Item item, @NonNull @NotNull View view) {
-                Intent intent = new Intent(MateriaListaAulasDisponiveisActivity.this, DescricaoAtividadeActivity.class);
+                Intent intent = new Intent(MateriaListaAulasDisponiveisActivity.this, DescricaoMaterialActivity.class);
 
                 ClassItem classItem = (ClassItem) item;
-                intent.putExtra("arquivo", classItem.materialAula);
+                intent.putExtra("materialAula", classItem.materialAula);
 
                 startActivity(intent);
             }
