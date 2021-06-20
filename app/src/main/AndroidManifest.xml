@@ -10,6 +10,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppMinhaIdeia">
+        <activity android:name="nelson.aparecido.estudaki.AtribuirNota"> </activity>
         <activity android:name="nelson.aparecido.estudaki.TelaCadastroLinkAula"> </activity>
         <activity android:name="nelson.aparecido.estudaki.UploadMaterial"> </activity>
         <activity android:name="nelson.aparecido.estudaki.UploadAtividades"> </activity>
