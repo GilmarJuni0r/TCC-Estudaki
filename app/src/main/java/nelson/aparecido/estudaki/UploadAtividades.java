@@ -101,6 +101,7 @@ public class UploadAtividades extends AppCompatActivity {
 
                             if (diretorio != null) {
                                 String filename = UUID.randomUUID().toString();
+                                String codigo = UUID.randomUUID().toString();
                                 progressDialog.setTitle("Realizando upload...");
                                 progressDialog.show();
                                 StorageReference atividadeProvaRef = storageReference.child(value.getString("tipoArquivoAtual")+"/" + filename);
@@ -112,6 +113,7 @@ public class UploadAtividades extends AppCompatActivity {
                                             @Override
                                             public void onSuccess(Uri uri) {
                                                 AtividadeProva atividadeProva = new AtividadeProva(
+                                                        codigo,
                                                         value.getString("tipoArquivoAtual"),
                                                         value.getString("materiaAtual"),
                                                         value.getString("turma"),

@@ -5,6 +5,7 @@ import android.os.Parcelable;
 
 public class AtividadeProva implements Parcelable {
 
+    private String codigo;
     private String  tipoArquivo;
     private String materia;
     private String turma;
@@ -17,7 +18,8 @@ public class AtividadeProva implements Parcelable {
     public AtividadeProva() {
     }
 
-    public AtividadeProva(String tipoArquivo, String materia, String turma, String titulo, String descricao, String dataMax, String url, long timestamp) {
+    public AtividadeProva(String codigo, String tipoArquivo, String materia, String turma, String titulo, String descricao, String dataMax, String url, long timestamp) {
+        this.codigo = codigo;
         this.tipoArquivo = tipoArquivo;
         this.materia = materia;
         this.turma = turma;
@@ -29,6 +31,7 @@ public class AtividadeProva implements Parcelable {
     }
 
     protected AtividadeProva(Parcel in) {
+        codigo = in.readString();
         tipoArquivo = in.readString();
         materia = in.readString();
         turma = in.readString();
@@ -50,6 +53,14 @@ public class AtividadeProva implements Parcelable {
             return new AtividadeProva[size];
         }
     };
+
+    public String getCodigo() {
+        return codigo;
+    }
+
+    public void setCodigo(String codigo) {
+        this.codigo = codigo;
+    }
 
     public String getTipoArquivo() {
         return tipoArquivo;
@@ -122,6 +133,7 @@ public class AtividadeProva implements Parcelable {
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(codigo);
         dest.writeString(tipoArquivo);
         dest.writeString(materia);
         dest.writeString(turma);
