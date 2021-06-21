@@ -20,7 +20,7 @@ import com.jaeger.library.StatusBarUtil;
 
 public class MainActivity extends AppCompatActivity {
 
-    private ImageView materias, aulas, notas, playlist,playlist_historia;
+    private ImageView materias, aulas, playlist,playlist_historia;
     private View calendario, nota, home, professor, perfil, btn_me_ajuda;
     private TextView txtNome;
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
@@ -36,7 +36,6 @@ public class MainActivity extends AppCompatActivity {
         txtNome = findViewById(R.id.txt_nome_principal);
         materias = findViewById(R.id.img_materias_telaprincipal);
         aulas = findViewById(R.id.img_aulas_telaprincipal);
-        notas = findViewById(R.id.img_notas_telaprincipal);
         playlist = findViewById(R.id.playlist_telainicial);
         playlist_historia = findViewById(R.id.playlist_filmes_telainicial);
 
@@ -81,15 +80,6 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
-
-        notas.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-               Intent intent = new Intent(getApplicationContext(), NotasActivity.class);
-              startActivity(intent);
-           }
-       });
     }
 
     private void barraDeTarefas() {
