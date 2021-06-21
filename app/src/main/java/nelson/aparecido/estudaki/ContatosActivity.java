@@ -3,7 +3,6 @@ package nelson.aparecido.estudaki;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -35,7 +34,7 @@ import java.util.List;
 
 public class ContatosActivity extends AppCompatActivity {
 
-    View calendario, lupa, home, professor, perfil, btn_me_ajuda;
+    View calendario, nota, home, professor, perfil, btn_me_ajuda;
     private TextView txtChat;
     private GroupAdapter adapter;
 
@@ -70,7 +69,7 @@ public class ContatosActivity extends AppCompatActivity {
     private void barraDeTarefas() {
 
         calendario = findViewById(R.id.view_calendario);
-        lupa = findViewById(R.id.view_lupa);
+        nota = findViewById(R.id.view_notas);
         home = findViewById(R.id.view_home);
         professor = findViewById(R.id.view_conversa_professor);
         perfil = findViewById(R.id.view_perfil);
@@ -121,11 +120,11 @@ public class ContatosActivity extends AppCompatActivity {
             }
         });
 
-        lupa.setOnClickListener(new View.OnClickListener() {
+        nota.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                Intent intent = new Intent(getApplicationContext(), PesquisaActivity.class);
+                Intent intent = new Intent(getApplicationContext(), NotasActivity.class);
                 startActivity(intent);
             }
         });

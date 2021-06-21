@@ -154,7 +154,7 @@
             app:srcCompat="@drawable/bdenavecagao_calendario" />
 
         <View
-            android:id="@+id/view_lupa"
+            android:id="@+id/view_notas"
             android:layout_width="55dp"
             android:layout_height="40dp"
             android:layout_marginStart="35dp"
@@ -164,7 +164,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
-            android:id="@+id/barra_de_navecagao_lupa"
+            android:id="@+id/icon_menu_materias_notas"
             android:layout_width="50dp"
             android:layout_height="35dp"
             android:layout_marginStart="32dp"
@@ -173,7 +173,7 @@
             android:contentDescription="@string/content_descri_barra_de_navecagao_lupa"
             app:layout_constraintStart_toEndOf="@+id/barra_de_navecagao_calenderio"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/bdenavecagao_pesquisa" />
+            app:srcCompat="@drawable/icon_notas" />
 
         <View
             android:id="@+id/view_home"
@@ -182,7 +182,7 @@
             android:layout_marginStart="39dp"
             android:layout_marginLeft="39dp"
             android:layout_marginTop="4dp"
-            app:layout_constraintStart_toEndOf="@+id/barra_de_navecagao_lupa"
+            app:layout_constraintStart_toEndOf="@+id/icon_menu_materias_notas"
             app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
@@ -195,7 +195,7 @@
             android:layout_marginBottom="4dp"
             android:contentDescription="@string/content_descri_barra_de_navecagao_home"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/barra_de_navecagao_lupa"
+            app:layout_constraintStart_toEndOf="@+id/icon_menu_materias_notas"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.0"
             app:srcCompat="@drawable/bdenavecagao_home" />

@@ -31,9 +31,6 @@ import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 import com.jaeger.library.StatusBarUtil;
-import com.squareup.picasso.Picasso;
-import com.xwray.groupie.Item;
-import com.xwray.groupie.ViewHolder;
 
 import org.jetbrains.annotations.NotNull;
 
@@ -42,11 +39,10 @@ import java.io.IOException;
 import java.time.LocalDate;
 import java.time.Period;
 import java.time.format.DateTimeFormatter;
-import java.util.UUID;
 
 public class PerfilActivity extends AppCompatActivity {
 
-    private View calendario, lupa, home, professor, perfil, btnLogout;
+    private View calendario, nota, home, professor, perfil, btnLogout;
     private TextView txtNome, txtOcupacao, txtTurma, txtIdade, txtRaCpf, txtNomeProfessor, txtEscola, txtEmail;
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
     StorageReference foto;
@@ -113,10 +109,10 @@ public class PerfilActivity extends AppCompatActivity {
             }
         });
 
-        lupa.setOnClickListener(new View.OnClickListener() {
+        nota.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), PesquisaActivity.class);
+                Intent intent = new Intent(getApplicationContext(), NotasActivity.class);
                 startActivity(intent);
             }
         });
@@ -203,7 +199,7 @@ public class PerfilActivity extends AppCompatActivity {
 
         //Barra de tarefa
         calendario = findViewById(R.id.view_calendario);
-        lupa = findViewById(R.id.view_lupa);
+        nota = findViewById(R.id.view_notas);
         home = findViewById(R.id.view_home);
         professor = findViewById(R.id.view_conversa_professor);
         perfil = findViewById(R.id.view_perfil);

@@ -21,7 +21,6 @@
         <activity android:name="nelson.aparecido.estudaki.MateriaAtividadeAulaActivity"> </activity>
         <activity android:name="nelson.aparecido.estudaki.MateriaMaterialAulaActivity"> </activity>
         <activity android:name="nelson.aparecido.estudaki.MateriaProvaActivity"> </activity>
-        <activity android:name="nelson.aparecido.estudaki.PesquisaActivity"> </activity>
         <activity android:name="nelson.aparecido.estudaki.CalendarioActivity"> </activity>
         <activity android:name="nelson.aparecido.estudaki.ContatosActivity"></activity>
         <activity android:name="nelson.aparecido.estudaki.PerfilActivity"> </activity>

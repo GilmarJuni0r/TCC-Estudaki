@@ -1,15 +1,11 @@
 package nelson.aparecido.estudaki;
 
-        import android.app.DatePickerDialog;
         import android.app.ProgressDialog;
         import android.content.Intent;
-        import android.graphics.Color;
-        import android.graphics.drawable.ColorDrawable;
         import android.graphics.drawable.Drawable;
         import android.net.Uri;
         import android.os.Bundle;
         import android.view.View;
-        import android.widget.DatePicker;
         import android.widget.EditText;
         import android.widget.ImageView;
         import android.widget.TextView;
@@ -35,13 +31,12 @@ package nelson.aparecido.estudaki;
 
         import org.jetbrains.annotations.NotNull;
 
-        import java.util.Calendar;
         import java.util.UUID;
 
 public class UploadAtividades extends AppCompatActivity {
 
     private static final int PICK_FILE_REQUEST = 3;
-    private View calendario, lupa, home, professor, perfil, btn_me_ajuda;
+    private View calendario, nota, home, professor, perfil, btn_me_ajuda;
     private ImageView iconMateria, btnSelecionaAtividade, btnUploadNovaAtividade;
     private EditText tituloAtividade, descricaoAtividade, dataMaxAtividade;
     private TextView nomeMateria, tipoArquivo;
@@ -233,7 +228,7 @@ public class UploadAtividades extends AppCompatActivity {
 
     private void barraDeTarefas() {
         calendario = findViewById(R.id.view_calendario);
-        lupa = findViewById(R.id.view_lupa);
+        nota = findViewById(R.id.view_notas);
         home = findViewById(R.id.view_home);
         professor = findViewById(R.id.view_conversa_professor);
         perfil = findViewById(R.id.view_perfil);
@@ -284,11 +279,11 @@ public class UploadAtividades extends AppCompatActivity {
             }
         });
 
-        lupa.setOnClickListener(new View.OnClickListener() {
+        nota.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                Intent intent = new Intent(getApplicationContext(), PesquisaActivity.class);
+                Intent intent = new Intent(getApplicationContext(), NotasActivity.class);
                 startActivity(intent);
             }
         });

@@ -6,7 +6,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -22,7 +21,7 @@ import com.jaeger.library.StatusBarUtil;
 public class MateriaMenuActivity extends AppCompatActivity {
 
     private View aulas, material_aula, atividades, provas, btn_me_ajuda;
-    private View calendario, lupa, home, professor, perfil;
+    private View calendario, nota, home, professor, perfil;
     private TextView nomeMateria;
     private ImageView iconMateria;
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
@@ -120,7 +119,7 @@ public class MateriaMenuActivity extends AppCompatActivity {
 
     private void barraDeTarefas() {
         calendario = findViewById(R.id.view_calendario);
-        lupa = findViewById(R.id.view_lupa);
+        nota = findViewById(R.id.view_notas);
         home = findViewById(R.id.view_home);
         professor = findViewById(R.id.view_conversa_professor);
         perfil = findViewById(R.id.view_perfil);
@@ -167,10 +166,10 @@ public class MateriaMenuActivity extends AppCompatActivity {
             }
         });
 
-        lupa.setOnClickListener(new View.OnClickListener() {
+        nota.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), PesquisaActivity.class);
+                Intent intent = new Intent(getApplicationContext(), NotasActivity.class);
                 startActivity(intent);
             }
         });

@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
-import android.os.Parcelable;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -36,7 +35,7 @@ import java.util.List;
 
 public class MateriaListaAulasDisponiveisActivity extends AppCompatActivity {
 
-    private View calendario, lupa, home, professor, perfil, btn_me_ajuda, btnAulaAoVivo;
+    private View calendario, nota, home, professor, perfil, btn_me_ajuda, btnAulaAoVivo;
     private ImageView btnUploadAula, btnEditaLink;
     private TextView nomeMateria;
     private ImageView iconMateria;
@@ -150,7 +149,7 @@ public class MateriaListaAulasDisponiveisActivity extends AppCompatActivity {
 
     private void barraDeTarefas() {
         calendario = findViewById(R.id.view_calendario);
-        lupa = findViewById(R.id.view_lupa);
+        nota = findViewById(R.id.view_notas);
         home = findViewById(R.id.view_home);
         professor = findViewById(R.id.view_conversa_professor);
         perfil = findViewById(R.id.view_perfil);
@@ -205,10 +204,10 @@ public class MateriaListaAulasDisponiveisActivity extends AppCompatActivity {
             }
         });
 
-        lupa.setOnClickListener(new View.OnClickListener() {
+        nota.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), PesquisaActivity.class);
+                Intent intent = new Intent(getApplicationContext(), NotasActivity.class);
                 startActivity(intent);
             }
         });

@@ -37,7 +37,7 @@ public class UploadMaterial extends AppCompatActivity {
 
     private static final int PICK_VIDEO_REQUEST = 1;
     private static final int PICK_FILE_REQUEST = 2;
-    private View calendario, lupa, home, professor, perfil, btn_me_ajuda;
+    private View calendario, nota, home, professor, perfil, btn_me_ajuda;
     private TextView nomeMateria, tipoArquivo;
     private ImageView iconMateria, btnSelecionaMaterial, btnUploadMaterial;
     private final FirebaseFirestore db = FirebaseFirestore.getInstance();
@@ -226,7 +226,7 @@ public class UploadMaterial extends AppCompatActivity {
 
     private void barraDeTarefas() {
         calendario = findViewById(R.id.view_calendario);
-        lupa = findViewById(R.id.view_lupa);
+        nota = findViewById(R.id.view_notas);
         home = findViewById(R.id.view_home);
         professor = findViewById(R.id.view_conversa_professor);
         perfil = findViewById(R.id.view_perfil);
@@ -277,11 +277,11 @@ public class UploadMaterial extends AppCompatActivity {
             }
         });
 
-        lupa.setOnClickListener(new View.OnClickListener() {
+        nota.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                Intent intent = new Intent(getApplicationContext(), PesquisaActivity.class);
+                Intent intent = new Intent(getApplicationContext(), NotasActivity.class);
                 startActivity(intent);
             }
         });

@@ -35,7 +35,7 @@ import java.util.UUID;
 public class DescricaoAtividadeActivity extends AppCompatActivity {
 
     private static final int PICK_FILE_REQUEST = 4;
-    private View calendario, lupa, home, professor, perfil, btn_me_ajuda;
+    private View calendario, nota, home, professor, perfil, btn_me_ajuda;
     private TextView nomeMateria, tipoArquivo, tituloAtividade,descricaoConteudo, dataEntrega, txtUpload, txtSeleciona;
     private ImageView iconMateria, btnUpload, btnDownload, btnSeleciona;
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
@@ -225,7 +225,7 @@ public class DescricaoAtividadeActivity extends AppCompatActivity {
     private void barraDeTarefas() {
 
         calendario = findViewById(R.id.view_calendario);
-        lupa = findViewById(R.id.view_lupa);
+        nota = findViewById(R.id.view_notas);
         home = findViewById(R.id.view_home);
         professor = findViewById(R.id.view_conversa_professor);
         perfil = findViewById(R.id.view_perfil);
@@ -271,10 +271,10 @@ public class DescricaoAtividadeActivity extends AppCompatActivity {
             }
         });
 
-        lupa.setOnClickListener(new View.OnClickListener() {
+        nota.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), PesquisaActivity.class);
+                Intent intent = new Intent(getApplicationContext(), NotasActivity.class);
                 startActivity(intent);
             }
         });

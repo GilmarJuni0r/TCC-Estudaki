@@ -1,29 +1,20 @@
 package nelson.aparecido.estudaki;
 
 import android.content.Intent;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.ImageView;
-import android.widget.TextView;
 
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.firestore.DocumentReference;
-import com.google.firebase.firestore.DocumentSnapshot;
-import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.FirebaseFirestoreException;
-import com.google.firebase.storage.StorageReference;
 import com.jaeger.library.StatusBarUtil;
 
 public class MateriasActivity extends AppCompatActivity {
 
     ConstraintLayout matematica, portugues, ciencias, geografia, historia;
-    private View calendario, lupa, home, professor, perfil, btn_me_ajuda;
+    private View calendario, nota, home, professor, perfil, btn_me_ajuda;
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
     private String usuarioID;
 
@@ -97,7 +88,7 @@ public class MateriasActivity extends AppCompatActivity {
     private void barraDeTarefas() {
 
         calendario = findViewById(R.id.view_calendario);
-        lupa = findViewById(R.id.view_lupa);
+        nota = findViewById(R.id.view_notas);
         home = findViewById(R.id.view_home);
         professor = findViewById(R.id.view_conversa_professor);
         perfil = findViewById(R.id.view_perfil);
@@ -143,10 +134,10 @@ public class MateriasActivity extends AppCompatActivity {
             }
         });
 
-        lupa.setOnClickListener(new View.OnClickListener() {
+        nota.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), PesquisaActivity.class);
+                Intent intent = new Intent(getApplicationContext(), NotasActivity.class);
                 startActivity(intent);
             }
         });
