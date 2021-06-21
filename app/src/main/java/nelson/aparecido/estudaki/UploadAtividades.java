@@ -135,6 +135,7 @@ public class UploadAtividades extends AppCompatActivity {
                                             }
                                         });
                                         progressDialog.dismiss();
+                                        finish();
                                     }
                                 }).addOnFailureListener(new OnFailureListener() {
                                     @Override

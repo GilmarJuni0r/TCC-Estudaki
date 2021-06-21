@@ -120,7 +120,7 @@ public class DescricaoAtividadeActivity extends AppCompatActivity {
                                                     uri.toString(),
                                                     timestamp,
                                                     "-",
-                                                    atividadeProva.getCodigo());
+                                                    atividadeProva.getTitulo());
                                             FirebaseFirestore.getInstance().collection("Respostas").add(respostas).
                                                     addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
                                                         @Override

@@ -136,6 +136,7 @@ public class UploadMaterial extends AppCompatActivity {
                                             }
                                         });
                                         progressDialog.dismiss();
+                                        finish();
                                     }
                                 }).addOnFailureListener(new OnFailureListener() {
                                     @Override

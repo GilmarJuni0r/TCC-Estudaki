@@ -84,6 +84,7 @@
                 android:layout_height="381dp">
 
                 <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recyclerNotas"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent" />
 

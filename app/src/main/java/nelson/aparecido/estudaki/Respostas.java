@@ -12,12 +12,12 @@ public class Respostas implements Parcelable {
     private String url;
     private long timestamp;
     private String nota;
-    private String codigoProvaAtividade;
+    private String tituloProvaAtividade;
 
     public Respostas() {
     }
 
-    public Respostas(String tipo, String materia, String turma, String alunoID, String url, long timestamp, String nota, String codigoProvaAtividade) {
+    public Respostas(String tipo, String materia, String turma, String alunoID, String url, long timestamp, String nota, String tituloProvaAtividade) {
         this.tipo = tipo;
         this.materia = materia;
         this.turma = turma;
@@ -25,7 +25,7 @@ public class Respostas implements Parcelable {
         this.url = url;
         this.timestamp = timestamp;
         this.nota = nota;
-        this.codigoProvaAtividade = codigoProvaAtividade;
+        this.tituloProvaAtividade = tituloProvaAtividade;
     }
 
     protected Respostas(Parcel in) {
@@ -36,7 +36,7 @@ public class Respostas implements Parcelable {
         url = in.readString();
         timestamp = in.readLong();
         nota = in.readString();
-        codigoProvaAtividade = in.readString();
+        tituloProvaAtividade = in.readString();
     }
 
     public static final Creator<Respostas> CREATOR = new Creator<Respostas>() {
@@ -107,12 +107,12 @@ public class Respostas implements Parcelable {
         this.nota = nota;
     }
 
-    public String getCodigoProvaAtividade() {
-        return codigoProvaAtividade;
+    public String getTituloProvaAtividade() {
+        return tituloProvaAtividade;
     }
 
-    public void setCodigoProvaAtividade(String codigoProvaAtividade) {
-        this.codigoProvaAtividade = codigoProvaAtividade;
+    public void setTituloProvaAtividade(String tituloProvaAtividade) {
+        this.tituloProvaAtividade = tituloProvaAtividade;
     }
 
     @Override
@@ -129,6 +129,6 @@ public class Respostas implements Parcelable {
         dest.writeString(url);
         dest.writeLong(timestamp);
         dest.writeString(nota);
-        dest.writeString(codigoProvaAtividade);
+        dest.writeString(tituloProvaAtividade);
     }
 }

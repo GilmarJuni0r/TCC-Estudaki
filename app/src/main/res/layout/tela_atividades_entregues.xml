@@ -68,7 +68,7 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <View
-                    android:id="@+id/view_me_ajuda_batepapo"
+                    android:id="@+id/view_me_ajuda_atividadesEntregues"
                     android:layout_width="42dp"
                     android:layout_height="46dp"
                     android:layout_marginTop="4dp"
