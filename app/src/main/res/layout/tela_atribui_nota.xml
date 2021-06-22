@@ -7,8 +7,8 @@
 
     <ImageView
         android:id="@+id/img_backgound_tela_aulas13"
-        android:layout_width="400dp"
-        android:layout_height="969dp"
+        android:layout_width="369dp"
+        android:layout_height="814dp"
         android:contentDescription="@string/img_backgound_tela_aulas"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -17,7 +17,7 @@
     <ScrollView
         android:id="@+id/scrollView4"
         android:layout_width="411dp"
-        android:layout_height="752dp"
+        android:layout_height="788dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
@@ -165,9 +165,9 @@
                 android:background="@color/common_google_signin_btn_text_dark_default"
                 android:ems="10"
                 android:gravity="start|top"
+                android:inputType="textMultiLine"
                 android:paddingLeft="10dp"
                 android:paddingRight="10dp"
-                android:inputType="textMultiLine"
                 app:layout_constraintEnd_toEndOf="@+id/imageView11"
                 app:layout_constraintStart_toStartOf="@+id/imageView11"
                 app:layout_constraintTop_toBottomOf="@+id/textView5" />
@@ -177,8 +177,8 @@
                 android:layout_width="125dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                android:text="Baixar atividade entregue"
                 android:gravity="center"
+                android:text="Baixar atividade entregue"
                 app:layout_constraintEnd_toEndOf="@+id/img_download_atividade_enviada"
                 app:layout_constraintStart_toStartOf="@+id/img_download_atividade_enviada"
                 app:layout_constraintTop_toBottomOf="@+id/img_download_atividade_enviada" />
@@ -197,9 +197,9 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="410dp"
         android:layout_height="44dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/scrollView2">
+        app:layout_constraintTop_toBottomOf="@+id/scrollView4">
 
         <View
             android:id="@+id/view_calendario"
@@ -265,7 +265,6 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toEndOf="@+id/icon_menu_materias_notas"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.0"
             app:srcCompat="@drawable/bdenavecagao_home" />
 
         <View
