@@ -7,9 +7,12 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
@@ -17,6 +20,8 @@ import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.jaeger.library.StatusBarUtil;
+
+import org.jetbrains.annotations.NotNull;
 
 public class MateriaMenuActivity extends AppCompatActivity {
 
@@ -42,32 +47,34 @@ public class MateriaMenuActivity extends AppCompatActivity {
 
         usuarioID = FirebaseAuth.getInstance().getCurrentUser().getUid();
         DocumentReference documentReference = db.collection("Usuario").document(usuarioID);
-        documentReference.addSnapshotListener(new EventListener<DocumentSnapshot>() {
+        documentReference.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
             @Override
-            public void onEvent(@Nullable @org.jetbrains.annotations.Nullable DocumentSnapshot value, @Nullable @org.jetbrains.annotations.Nullable FirebaseFirestoreException error) {
-                if(value.getString("materiaAtual").equalsIgnoreCase("Matemática")){
+            public void onComplete(@NonNull @NotNull Task<DocumentSnapshot> task) {
+                DocumentSnapshot value = task.getResult();
+
+                if (value.getString("materiaAtual").equalsIgnoreCase("Matemática")) {
                     nomeMateria.setText(value.getString("materiaAtual"));
-                    Drawable drawable= getResources().getDrawable(R.drawable.logo_matematica);
+                    Drawable drawable = getResources().getDrawable(R.drawable.logo_matematica);
                     iconMateria.setImageDrawable(drawable);
 
-                }else if(value.getString("materiaAtual").equalsIgnoreCase("Português")){
+                } else if (value.getString("materiaAtual").equalsIgnoreCase("Português")) {
                     nomeMateria.setText(value.getString("materiaAtual"));
-                    Drawable drawable= getResources().getDrawable(R.drawable.logo_portugues);
+                    Drawable drawable = getResources().getDrawable(R.drawable.logo_portugues);
                     iconMateria.setImageDrawable(drawable);
 
-                }else if(value.getString("materiaAtual").equalsIgnoreCase("Ciências")){
+                } else if (value.getString("materiaAtual").equalsIgnoreCase("Ciências")) {
                     nomeMateria.setText(value.getString("materiaAtual"));
-                    Drawable drawable= getResources().getDrawable(R.drawable.logo_ciencia);
+                    Drawable drawable = getResources().getDrawable(R.drawable.logo_ciencia);
                     iconMateria.setImageDrawable(drawable);
 
-                }else if(value.getString("materiaAtual").equalsIgnoreCase("Geografia")){
+                } else if (value.getString("materiaAtual").equalsIgnoreCase("Geografia")) {
                     nomeMateria.setText(value.getString("materiaAtual"));
-                    Drawable drawable= getResources().getDrawable(R.drawable.logo_geografia);
+                    Drawable drawable = getResources().getDrawable(R.drawable.logo_geografia);
                     iconMateria.setImageDrawable(drawable);
 
-                }else{
+                } else {
                     nomeMateria.setText(value.getString("materiaAtual"));
-                    Drawable drawable= getResources().getDrawable(R.drawable.logo_historia);
+                    Drawable drawable = getResources().getDrawable(R.drawable.logo_historia);
                     iconMateria.setImageDrawable(drawable);
                 }
             }

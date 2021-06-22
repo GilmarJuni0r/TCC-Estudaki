@@ -1,37 +1,39 @@
 package nelson.aparecido.estudaki;
 
-        import android.app.ProgressDialog;
-        import android.content.Intent;
-        import android.graphics.drawable.Drawable;
-        import android.net.Uri;
-        import android.os.Bundle;
-        import android.view.View;
-        import android.widget.EditText;
-        import android.widget.ImageView;
-        import android.widget.TextView;
-        import android.widget.Toast;
+import android.app.ProgressDialog;
+import android.content.Intent;
+import android.graphics.drawable.Drawable;
+import android.net.Uri;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.TextView;
+import android.widget.Toast;
 
-        import androidx.annotation.NonNull;
-        import androidx.annotation.Nullable;
-        import androidx.appcompat.app.AppCompatActivity;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 
-        import com.google.android.gms.tasks.OnFailureListener;
-        import com.google.android.gms.tasks.OnSuccessListener;
-        import com.google.firebase.auth.FirebaseAuth;
-        import com.google.firebase.firestore.DocumentReference;
-        import com.google.firebase.firestore.DocumentSnapshot;
-        import com.google.firebase.firestore.EventListener;
-        import com.google.firebase.firestore.FirebaseFirestore;
-        import com.google.firebase.firestore.FirebaseFirestoreException;
-        import com.google.firebase.storage.FirebaseStorage;
-        import com.google.firebase.storage.OnProgressListener;
-        import com.google.firebase.storage.StorageReference;
-        import com.google.firebase.storage.UploadTask;
-        import com.jaeger.library.StatusBarUtil;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.EventListener;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.FirebaseFirestoreException;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.OnProgressListener;
+import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.UploadTask;
+import com.jaeger.library.StatusBarUtil;
 
-        import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.NotNull;
 
-        import java.util.UUID;
+import java.util.UUID;
 
 public class UploadAtividades extends AppCompatActivity {
 
@@ -69,13 +71,7 @@ public class UploadAtividades extends AppCompatActivity {
         btnSelecionaAtividade.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                DocumentReference documentReference = db.collection("Usuario").document(usuarioID);
-                documentReference.addSnapshotListener(new EventListener<DocumentSnapshot>() {
-                    @Override
-                    public void onEvent(@Nullable @org.jetbrains.annotations.Nullable DocumentSnapshot value, @Nullable @org.jetbrains.annotations.Nullable FirebaseFirestoreException error) {
-                        selecionaArquivo();
-                    }
-                });
+                selecionaArquivo();
             }
         });
 
@@ -83,9 +79,10 @@ public class UploadAtividades extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 DocumentReference documentReference = db.collection("Usuario").document(usuarioID);
-                documentReference.addSnapshotListener(new EventListener<DocumentSnapshot>() {
+                documentReference.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
                     @Override
-                    public void onEvent(@Nullable @org.jetbrains.annotations.Nullable DocumentSnapshot value, @Nullable @org.jetbrains.annotations.Nullable FirebaseFirestoreException error) {
+                    public void onComplete(@NonNull @NotNull Task<DocumentSnapshot> task) {
+                        DocumentSnapshot value = task.getResult();
 
                         if (!(tituloAtividade.getText().toString().isEmpty()) || !(descricaoAtividade.getText().toString().isEmpty())
                                 || !(dataMaxAtividade.getText().toString().isEmpty())) {
@@ -99,7 +96,7 @@ public class UploadAtividades extends AppCompatActivity {
                                 String codigo = UUID.randomUUID().toString();
                                 progressDialog.setTitle("Realizando upload...");
                                 progressDialog.show();
-                                StorageReference atividadeProvaRef = storageReference.child(value.getString("tipoArquivoAtual")+"/" + filename);
+                                StorageReference atividadeProvaRef = storageReference.child(value.getString("tipoArquivoAtual") + "/" + filename);
 
                                 atividadeProvaRef.putFile(diretorio).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                                     @Override
@@ -115,13 +112,13 @@ public class UploadAtividades extends AppCompatActivity {
                                                         titulo,
                                                         descricao,
                                                         dataMaxima,
-                                                        uri.toString(),timestamp);
+                                                        uri.toString(), timestamp);
 
                                                 FirebaseFirestore.getInstance().collection("Arquivos").add(atividadeProva).
                                                         addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
                                                             @Override
                                                             public void onSuccess(DocumentReference documentReference) {
-                                                                if(value.getString("tipoArquivoAtual").equalsIgnoreCase("atividade"))
+                                                                if (value.getString("tipoArquivoAtual").equalsIgnoreCase("atividade"))
                                                                     Toast.makeText(getApplicationContext(), "Atividade cadastrada com sucesso!", Toast.LENGTH_LONG).show();
                                                                 else
                                                                     Toast.makeText(getApplicationContext(), "Prova cadastrado com sucesso!", Toast.LENGTH_LONG).show();
@@ -129,7 +126,7 @@ public class UploadAtividades extends AppCompatActivity {
                                                                 tituloAtividade.setText("");
                                                                 descricaoAtividade.setText("");
                                                                 dataMaxAtividade.setText("");
-                                                                diretorio=null;
+                                                                diretorio = null;
                                                             }
                                                         });
                                             }
@@ -149,14 +146,14 @@ public class UploadAtividades extends AppCompatActivity {
                                         progressDialog.setMessage(((int) progresso) + "% Carregado");
                                     }
                                 });
-                            }else{
-                                if(value.getString("tipoArquivoAtual").equalsIgnoreCase("atividade"))
+                            } else {
+                                if (value.getString("tipoArquivoAtual").equalsIgnoreCase("atividade"))
                                     Toast.makeText(getApplicationContext(), "Selecione uma atividade para realizar o upload", Toast.LENGTH_LONG).show();
                                 else
                                     Toast.makeText(getApplicationContext(), "Selecione uma prova para realizar o upload", Toast.LENGTH_LONG).show();
                             }
                         } else {
-                            if(value.getString("tipoArquivoAtual").equalsIgnoreCase("atividade"))
+                            if (value.getString("tipoArquivoAtual").equalsIgnoreCase("atividade"))
                                 Toast.makeText(getApplicationContext(), "Preencha os campos de título, descrição e data máxima para cadastrar uma nova atividade", Toast.LENGTH_LONG).show();
                             else
                                 Toast.makeText(getApplicationContext(), "Preencha os campos de título, descrição e data máxima para cadastrar uma nova prova", Toast.LENGTH_LONG).show();
@@ -193,29 +190,29 @@ public class UploadAtividades extends AppCompatActivity {
         documentReference.addSnapshotListener(new EventListener<DocumentSnapshot>() {
             @Override
             public void onEvent(@Nullable @org.jetbrains.annotations.Nullable DocumentSnapshot value, @Nullable @org.jetbrains.annotations.Nullable FirebaseFirestoreException error) {
-                if(value.getString("materiaAtual").equalsIgnoreCase("Matemática")){
+                if (value.getString("materiaAtual").equalsIgnoreCase("Matemática")) {
                     nomeMateria.setText(value.getString("materiaAtual"));
-                    Drawable drawable= getResources().getDrawable(R.drawable.logo_matematica);
+                    Drawable drawable = getResources().getDrawable(R.drawable.logo_matematica);
                     iconMateria.setImageDrawable(drawable);
 
-                }else if(value.getString("materiaAtual").equalsIgnoreCase("Português")){
+                } else if (value.getString("materiaAtual").equalsIgnoreCase("Português")) {
                     nomeMateria.setText(value.getString("materiaAtual"));
-                    Drawable drawable= getResources().getDrawable(R.drawable.logo_portugues);
+                    Drawable drawable = getResources().getDrawable(R.drawable.logo_portugues);
                     iconMateria.setImageDrawable(drawable);
 
-                }else if(value.getString("materiaAtual").equalsIgnoreCase("Ciências")){
+                } else if (value.getString("materiaAtual").equalsIgnoreCase("Ciências")) {
                     nomeMateria.setText(value.getString("materiaAtual"));
-                    Drawable drawable= getResources().getDrawable(R.drawable.logo_ciencia);
+                    Drawable drawable = getResources().getDrawable(R.drawable.logo_ciencia);
                     iconMateria.setImageDrawable(drawable);
 
-                }else if(value.getString("materiaAtual").equalsIgnoreCase("Geografia")){
+                } else if (value.getString("materiaAtual").equalsIgnoreCase("Geografia")) {
                     nomeMateria.setText(value.getString("materiaAtual"));
-                    Drawable drawable= getResources().getDrawable(R.drawable.logo_geografia);
+                    Drawable drawable = getResources().getDrawable(R.drawable.logo_geografia);
                     iconMateria.setImageDrawable(drawable);
 
-                }else{
+                } else {
                     nomeMateria.setText(value.getString("materiaAtual"));
-                    Drawable drawable= getResources().getDrawable(R.drawable.logo_historia);
+                    Drawable drawable = getResources().getDrawable(R.drawable.logo_historia);
                     iconMateria.setImageDrawable(drawable);
                 }
                 if (value.getString("tipoArquivoAtual").equalsIgnoreCase("atividade")) {

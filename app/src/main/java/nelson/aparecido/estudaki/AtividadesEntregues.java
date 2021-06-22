@@ -1,38 +1,36 @@
 
 package nelson.aparecido.estudaki;
 
-        import android.content.Intent;
-        import android.graphics.drawable.Drawable;
-        import android.os.Bundle;
-        import android.view.View;
-        import android.widget.ImageView;
-        import android.widget.TextView;
+import android.content.Intent;
+import android.graphics.drawable.Drawable;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.TextView;
 
-        import androidx.annotation.NonNull;
-        import androidx.annotation.Nullable;
-        import androidx.appcompat.app.AppCompatActivity;
-        import androidx.recyclerview.widget.LinearLayoutManager;
-        import androidx.recyclerview.widget.RecyclerView;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
-        import com.google.android.gms.tasks.OnCompleteListener;
-        import com.google.android.gms.tasks.Task;
-        import com.google.firebase.auth.FirebaseAuth;
-        import com.google.firebase.firestore.DocumentReference;
-        import com.google.firebase.firestore.DocumentSnapshot;
-        import com.google.firebase.firestore.EventListener;
-        import com.google.firebase.firestore.FirebaseFirestore;
-        import com.google.firebase.firestore.FirebaseFirestoreException;
-        import com.google.firebase.firestore.Query;
-        import com.google.firebase.firestore.QuerySnapshot;
-        import com.jaeger.library.StatusBarUtil;
-        import com.xwray.groupie.GroupAdapter;
-        import com.xwray.groupie.Item;
-        import com.xwray.groupie.OnItemClickListener;
-        import com.xwray.groupie.ViewHolder;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.EventListener;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.FirebaseFirestoreException;
+import com.google.firebase.firestore.Query;
+import com.google.firebase.firestore.QuerySnapshot;
+import com.jaeger.library.StatusBarUtil;
+import com.xwray.groupie.GroupAdapter;
+import com.xwray.groupie.Item;
+import com.xwray.groupie.OnItemClickListener;
+import com.xwray.groupie.ViewHolder;
 
-        import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.NotNull;
 
-        import java.util.List;
+import java.util.List;
 
 public class AtividadesEntregues extends AppCompatActivity {
 
@@ -85,16 +83,16 @@ public class AtividadesEntregues extends AppCompatActivity {
                                 List<DocumentSnapshot> docs = value.getDocuments();
                                 for (DocumentSnapshot doc : docs) {
                                     Respostas atividadeEntregue = doc.toObject(Respostas.class);
-                                    if(user.getString("ocupacao").equalsIgnoreCase("professor") || user.getString("ocupacao").equalsIgnoreCase("professora")){
+                                    if (user.getString("ocupacao").equalsIgnoreCase("professor") || user.getString("ocupacao").equalsIgnoreCase("professora")) {
                                         usuario = getIntent().getExtras().getParcelable("usuario");
-                                        if(atividadeEntregue.getAlunoID().equalsIgnoreCase(usuario.getUid())){
+                                        if (atividadeEntregue.getAlunoID().equalsIgnoreCase(usuario.getUid())) {
                                             nomeAluno.setText(usuario.getNome());
                                             adapterAtividadesEntregues.add(new AtividadesEntregues.AtividadesEntItem(atividadeEntregue));
                                         }
                                     } else {
                                         if (atividadeEntregue.getAlunoID().equalsIgnoreCase(usuarioID))
                                             nomeAluno.setText(user.getString("nome"));
-                                            adapterAtividadesEntregues.add(new AtividadesEntregues.AtividadesEntItem(atividadeEntregue));
+                                        adapterAtividadesEntregues.add(new AtividadesEntregues.AtividadesEntItem(atividadeEntregue));
                                     }
                                 }
                             }
@@ -166,7 +164,7 @@ public class AtividadesEntregues extends AppCompatActivity {
         });
     }
 
-    private class AtividadesEntItem extends Item<ViewHolder>{
+    private class AtividadesEntItem extends Item<ViewHolder> {
 
         private final Respostas atividadeEntregue;
 
@@ -182,17 +180,17 @@ public class AtividadesEntregues extends AppCompatActivity {
 
             txtTitulo.setText(atividadeEntregue.getMateria() + " - " + atividadeEntregue.getTituloProvaAtividade());
 
-            if(atividadeEntregue.getNota().equalsIgnoreCase("")){
+            if (atividadeEntregue.getNota().equalsIgnoreCase("")) {
                 txtNota.setText("-");
-            }else{
-                txtNota.setText("Nota:\n"+atividadeEntregue.getNota());
+            } else {
+                txtNota.setText("Nota:\n" + atividadeEntregue.getNota());
             }
 
 
             if (atividadeEntregue.getTipo().equalsIgnoreCase("atividade")) {
                 Drawable drawable = getResources().getDrawable(R.drawable.img_correcao_atividades);
                 ivIcon.setImageDrawable(drawable);
-            }else{
+            } else {
                 Drawable drawable = getResources().getDrawable(R.drawable.img_provas_atividades);
                 ivIcon.setImageDrawable(drawable);
             }

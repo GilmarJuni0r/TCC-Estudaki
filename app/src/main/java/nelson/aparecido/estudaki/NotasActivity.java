@@ -1,38 +1,38 @@
 package nelson.aparecido.estudaki;
 
-        import android.content.Intent;
-        import android.os.Build;
-        import android.os.Bundle;
-        import android.view.View;
-        import android.widget.ImageView;
-        import android.widget.TextView;
+import android.content.Intent;
+import android.os.Build;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.TextView;
 
-        import androidx.annotation.NonNull;
-        import androidx.annotation.Nullable;
-        import androidx.annotation.RequiresApi;
-        import androidx.appcompat.app.AppCompatActivity;
-        import androidx.recyclerview.widget.LinearLayoutManager;
-        import androidx.recyclerview.widget.RecyclerView;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
-        import com.google.android.gms.tasks.OnCompleteListener;
-        import com.google.android.gms.tasks.Task;
-        import com.google.firebase.auth.FirebaseAuth;
-        import com.google.firebase.firestore.DocumentReference;
-        import com.google.firebase.firestore.DocumentSnapshot;
-        import com.google.firebase.firestore.EventListener;
-        import com.google.firebase.firestore.FirebaseFirestore;
-        import com.google.firebase.firestore.FirebaseFirestoreException;
-        import com.google.firebase.firestore.QuerySnapshot;
-        import com.jaeger.library.StatusBarUtil;
-        import com.squareup.picasso.Picasso;
-        import com.xwray.groupie.GroupAdapter;
-        import com.xwray.groupie.Item;
-        import com.xwray.groupie.OnItemClickListener;
-        import com.xwray.groupie.ViewHolder;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.EventListener;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.FirebaseFirestoreException;
+import com.google.firebase.firestore.QuerySnapshot;
+import com.jaeger.library.StatusBarUtil;
+import com.squareup.picasso.Picasso;
+import com.xwray.groupie.GroupAdapter;
+import com.xwray.groupie.Item;
+import com.xwray.groupie.OnItemClickListener;
+import com.xwray.groupie.ViewHolder;
 
-        import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.NotNull;
 
-        import java.util.List;
+import java.util.List;
 
 public class NotasActivity extends AppCompatActivity {
 
@@ -52,13 +52,13 @@ public class NotasActivity extends AppCompatActivity {
         documentReference.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
             @Override
             public void onComplete(@NonNull @NotNull Task<DocumentSnapshot> task) {
-                if(task.isSuccessful()){
+                if (task.isSuccessful()) {
                     DocumentSnapshot documentSnapshot = task.getResult();
 
-                    if(documentSnapshot.exists()){
+                    if (documentSnapshot.exists()) {
                         String ocupacao = documentSnapshot.getData().get("ocupacao").toString();
 
-                        if (ocupacao.equalsIgnoreCase("estudante")){
+                        if (ocupacao.equalsIgnoreCase("estudante")) {
                             Intent intent = new Intent(NotasActivity.this, AtividadesEntregues.class);
                             startActivity(intent);
                             finish();
@@ -110,22 +110,15 @@ public class NotasActivity extends AppCompatActivity {
 
                                 List<DocumentSnapshot> docs = queryDocumentsSnapshots.getDocuments();
 
-                                for(DocumentSnapshot doc:docs){
+                                for (DocumentSnapshot doc : docs) {
                                     Usuario aux = doc.toObject(Usuario.class);
-                                    if(((aux.getTurma()).equals(usuarioAtual[0].getTurma()))) {
-                                        if(usuarioAtual[0].getOcupacao().equalsIgnoreCase("professor") || usuarioAtual[0].getOcupacao().equalsIgnoreCase("professora")) {
-                                            if(aux.getOcupacao().equalsIgnoreCase("estudante")) {
+                                    if (((aux.getTurma()).equals(usuarioAtual[0].getTurma()))) {
+                                        if (usuarioAtual[0].getOcupacao().equalsIgnoreCase("professor") || usuarioAtual[0].getOcupacao().equalsIgnoreCase("professora")) {
+                                            if (aux.getOcupacao().equalsIgnoreCase("estudante")) {
                                                 Usuario usuario = doc.toObject(Usuario.class);
                                                 adapter.add(new NotasActivity.UserItem(usuario));
                                             }
                                         }
-//                                        }else{
-//                                            if(aux.getOcupacao().equalsIgnoreCase("professor") || aux.getOcupacao().equalsIgnoreCase("professora")){
-//                                                Usuario usuario = doc.toObject(Usuario.class);
-//                                                adapter.add(new NotasActivity.UserItem(usuario));
-//                                            }
-//                                        }
-
                                     }
                                 }
                             }
@@ -201,14 +194,14 @@ public class NotasActivity extends AppCompatActivity {
 
         private final Usuario usuario;
 
-        private UserItem(Usuario usuario){
+        private UserItem(Usuario usuario) {
             this.usuario = usuario;
         }
 
         @Override
         public void bind(@NonNull @NotNull ViewHolder viewHolder, int position) {
             TextView txtNome = viewHolder.itemView.findViewById(R.id.txtNomeContato);
-            ImageView imgFoto  = viewHolder.itemView.findViewById(R.id.ivFotoContato);
+            ImageView imgFoto = viewHolder.itemView.findViewById(R.id.ivFotoContato);
 
             txtNome.setText(usuario.getNome());
             Picasso.get().load(usuario.getFotoPerfil()).into(imgFoto);

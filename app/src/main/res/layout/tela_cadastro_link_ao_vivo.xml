@@ -40,7 +40,7 @@
                     app:srcCompat="@drawable/icon_meajuda" />
 
                 <View
-                    android:id="@+id/view_me_ajuda_lista_aulas_disponiveis"
+                    android:id="@+id/view_me_ajuda_tela_cadastro_link"
                     android:layout_width="42dp"
                     android:layout_height="46dp"
                     android:layout_marginEnd="8dp"

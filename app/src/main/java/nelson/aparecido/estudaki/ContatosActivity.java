@@ -54,7 +54,7 @@ public class ContatosActivity extends AppCompatActivity {
         adapter.setOnItemClickListener(new OnItemClickListener() {
             @Override
             public void onItemClick(@NonNull @NotNull Item item, @NonNull @NotNull View view) {
-                Intent intent = new Intent (ContatosActivity.this, ChatActivity.class);
+                Intent intent = new Intent(ContatosActivity.this, ChatActivity.class);
 
                 UserItem userItem = (UserItem) item;
                 intent.putExtra("usuario", userItem.usuario);
@@ -136,9 +136,9 @@ public class ContatosActivity extends AppCompatActivity {
                 .addSnapshotListener(new EventListener<QuerySnapshot>() {
                     @Override
                     public void onEvent(@Nullable @org.jetbrains.annotations.Nullable QuerySnapshot queryDocumentsSnapshots, @Nullable @org.jetbrains.annotations.Nullable FirebaseFirestoreException e) {
-                           if(e != null){
-                               return;
-                           }
+                        if (e != null) {
+                            return;
+                        }
                         FirebaseFirestore db = FirebaseFirestore.getInstance();
                         String usuarioID = FirebaseAuth.getInstance().getCurrentUser().getUid();
                         DocumentReference documentReference = db.collection("Usuario").document(usuarioID);
@@ -150,24 +150,24 @@ public class ContatosActivity extends AppCompatActivity {
                             @Override
                             public void onEvent(@Nullable @org.jetbrains.annotations.Nullable DocumentSnapshot refAtual, @Nullable @org.jetbrains.annotations.Nullable FirebaseFirestoreException error) {
 
-                                    usuarioAtual[0] = refAtual.toObject(Usuario.class);
+                                usuarioAtual[0] = refAtual.toObject(Usuario.class);
 
-                                    List<DocumentSnapshot> docs = queryDocumentsSnapshots.getDocuments();
+                                List<DocumentSnapshot> docs = queryDocumentsSnapshots.getDocuments();
 
-                                for(DocumentSnapshot doc:docs){
+                                for (DocumentSnapshot doc : docs) {
                                     Usuario aux = doc.toObject(Usuario.class);
-                                    if(((aux.getTurma()).equals(usuarioAtual[0].getTurma()))) {
-                                        if(usuarioAtual[0].getOcupacao().equalsIgnoreCase("professor") || usuarioAtual[0].getOcupacao().equalsIgnoreCase("professora")) {
+                                    if (((aux.getTurma()).equals(usuarioAtual[0].getTurma()))) {
+                                        if (usuarioAtual[0].getOcupacao().equalsIgnoreCase("professor") || usuarioAtual[0].getOcupacao().equalsIgnoreCase("professora")) {
                                             txtChat.setText("Chat com alunos");
-                                            if(aux.getOcupacao().equalsIgnoreCase("estudante")) {
+                                            if (aux.getOcupacao().equalsIgnoreCase("estudante")) {
                                                 Usuario usuario = doc.toObject(Usuario.class);
                                                 adapter.add(new UserItem(usuario));
                                             }
-                                        }else{
+                                        } else {
                                             txtChat.setText("Chat com o professor");
-                                            if(aux.getOcupacao().equalsIgnoreCase("professor") || aux.getOcupacao().equalsIgnoreCase("professora")){
-                                            Usuario usuario = doc.toObject(Usuario.class);
-                                            adapter.add(new UserItem(usuario));
+                                            if (aux.getOcupacao().equalsIgnoreCase("professor") || aux.getOcupacao().equalsIgnoreCase("professora")) {
+                                                Usuario usuario = doc.toObject(Usuario.class);
+                                                adapter.add(new UserItem(usuario));
                                             }
                                         }
 
@@ -184,14 +184,14 @@ public class ContatosActivity extends AppCompatActivity {
 
         private final Usuario usuario;
 
-        private UserItem(Usuario usuario){
+        private UserItem(Usuario usuario) {
             this.usuario = usuario;
         }
 
         @Override
         public void bind(@NonNull @NotNull ViewHolder viewHolder, int position) {
             TextView txtNome = viewHolder.itemView.findViewById(R.id.txtNomeContato);
-            ImageView imgFoto  = viewHolder.itemView.findViewById(R.id.ivFotoContato);
+            ImageView imgFoto = viewHolder.itemView.findViewById(R.id.ivFotoContato);
 
             txtNome.setText(usuario.getNome());
             Picasso.get().load(usuario.getFotoPerfil()).into(imgFoto);

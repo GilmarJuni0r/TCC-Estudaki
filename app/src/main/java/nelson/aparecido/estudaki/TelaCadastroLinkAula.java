@@ -1,22 +1,22 @@
 package nelson.aparecido.estudaki;
 
-        import android.content.Intent;
-        import android.os.Bundle;
-        import android.view.View;
-        import android.widget.EditText;
-        import android.widget.ImageView;
-        import android.widget.Toast;
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.Toast;
 
-        import androidx.annotation.Nullable;
-        import androidx.appcompat.app.AppCompatActivity;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 
-        import com.google.firebase.auth.FirebaseAuth;
-        import com.google.firebase.firestore.DocumentReference;
-        import com.google.firebase.firestore.DocumentSnapshot;
-        import com.google.firebase.firestore.EventListener;
-        import com.google.firebase.firestore.FirebaseFirestore;
-        import com.google.firebase.firestore.FirebaseFirestoreException;
-        import com.jaeger.library.StatusBarUtil;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.EventListener;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.FirebaseFirestoreException;
+import com.jaeger.library.StatusBarUtil;
 
 public class TelaCadastroLinkAula extends AppCompatActivity {
 
@@ -47,12 +47,12 @@ public class TelaCadastroLinkAula extends AppCompatActivity {
                         if (!(editLink.getText().toString()).isEmpty()) {
                             db.collection("Turma").document(value.getString("turma")).update("linkAula", editLink.getText());
                             Toast.makeText(getApplicationContext(), "Link de aula ao vivo cadastrado com sucesso!", Toast.LENGTH_LONG).show();
-                        }else{
+                        } else {
                             Toast.makeText(getApplicationContext(), "Insira um link para ser cadastrado", Toast.LENGTH_LONG).show();
                         }
                     }
                 });
-            finish();
+                finish();
             }
         });
     }
@@ -64,14 +64,14 @@ public class TelaCadastroLinkAula extends AppCompatActivity {
         professor = findViewById(R.id.view_conversa_professor);
         perfil = findViewById(R.id.view_perfil);
 
-//        btn_me_ajuda = (View) findViewById(R.id.view_me_ajuda_calendario);
-//        btn_me_ajuda.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Intent intent = new Intent(getApplicationContext(), MeAjudaActivity.class);
-//                startActivity(intent);
-//            }
-//        });
+        btn_me_ajuda = (View) findViewById(R.id.view_me_ajuda_tela_cadastro_link);
+        btn_me_ajuda.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), MeAjudaActivity.class);
+                startActivity(intent);
+            }
+        });
 
         perfil.setOnClickListener(new View.OnClickListener() {
             @Override

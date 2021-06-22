@@ -15,6 +15,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
@@ -86,9 +88,9 @@ public class MateriaListaAulasDisponiveisActivity extends AppCompatActivity {
                                 List<DocumentSnapshot> docs = value.getDocuments();
                                 for (DocumentSnapshot doc : docs) {
                                     MaterialAula aula = doc.toObject(MaterialAula.class);
-                                    if(aula.getTipoArquivo().equalsIgnoreCase("aula"))
-                                        if(aula.getTurma().equalsIgnoreCase(user.getString("turma")))
-                                            if(aula.getMateria().equalsIgnoreCase(user.getString("materiaAtual")))
+                                    if (aula.getTipoArquivo().equalsIgnoreCase("aula"))
+                                        if (aula.getTurma().equalsIgnoreCase(user.getString("turma")))
+                                            if (aula.getMateria().equalsIgnoreCase(user.getString("materiaAtual")))
                                                 adapterAulas.add(new ClassItem(aula));
 
                                 }
@@ -104,10 +106,12 @@ public class MateriaListaAulasDisponiveisActivity extends AppCompatActivity {
         btnEditaLink = findViewById(R.id.btn_edit_link);
 
         DocumentReference refUser = db.collection("Usuario").document(usuarioID);
-        refUser.addSnapshotListener(new EventListener<DocumentSnapshot>() {
+        refUser.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
             @Override
-            public void onEvent(@Nullable @org.jetbrains.annotations.Nullable DocumentSnapshot value, @Nullable @org.jetbrains.annotations.Nullable FirebaseFirestoreException error) {
-                if(!(value.getString("ocupacao").equalsIgnoreCase("professor") || value.getString("ocupacao").equalsIgnoreCase("professora"))){
+            public void onComplete(@NonNull @NotNull Task<DocumentSnapshot> task) {
+                DocumentSnapshot value = task.getResult();
+
+                if (!(value.getString("ocupacao").equalsIgnoreCase("professor") || value.getString("ocupacao").equalsIgnoreCase("professora"))) {
                     btnEditaLink.setVisibility(View.INVISIBLE);
                     btnUploadAula.setVisibility(View.INVISIBLE);
                 }
@@ -118,17 +122,21 @@ public class MateriaListaAulasDisponiveisActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 DocumentReference documentReference = db.collection("Usuario").document(usuarioID);
-                documentReference.addSnapshotListener(new EventListener<DocumentSnapshot>() {
+                documentReference.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
                     @Override
-                    public void onEvent(@Nullable @org.jetbrains.annotations.Nullable DocumentSnapshot value, @Nullable @org.jetbrains.annotations.Nullable FirebaseFirestoreException error) {
+                    public void onComplete(@NonNull @NotNull Task<DocumentSnapshot> task) {
+                        DocumentSnapshot value = task.getResult();
+
                         DocumentReference refAux = db.collection("Turma").document(value.getString("turma"));
-                        refAux.addSnapshotListener(new EventListener<DocumentSnapshot>() {
+                        refAux.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
                             @Override
-                            public void onEvent(@Nullable @org.jetbrains.annotations.Nullable DocumentSnapshot docref, @Nullable @org.jetbrains.annotations.Nullable FirebaseFirestoreException error) {
+                            public void onComplete(@NonNull @NotNull Task<DocumentSnapshot> task) {
+                                DocumentSnapshot docref = task.getResult();
+
                                 String link = docref.getString("linkAula");
-                                if(!link.equalsIgnoreCase("")){
+                                if (!link.equalsIgnoreCase("")) {
                                     gotoURL(link);
-                                }else{
+                                } else {
                                     Toast.makeText(getApplicationContext(), "Nenhum link para aulas ao vivo foi cadastrado", Toast.LENGTH_LONG).show();
                                 }
                             }
@@ -219,32 +227,34 @@ public class MateriaListaAulasDisponiveisActivity extends AppCompatActivity {
 
         usuarioID = FirebaseAuth.getInstance().getCurrentUser().getUid();
         DocumentReference documentReference = db.collection("Usuario").document(usuarioID);
-        documentReference.addSnapshotListener(new EventListener<DocumentSnapshot>() {
+        documentReference.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
             @Override
-            public void onEvent(@Nullable @org.jetbrains.annotations.Nullable DocumentSnapshot value, @Nullable @org.jetbrains.annotations.Nullable FirebaseFirestoreException error) {
-                if(value.getString("materiaAtual").equalsIgnoreCase("Matemática")){
+            public void onComplete(@NonNull @NotNull Task<DocumentSnapshot> task) {
+                DocumentSnapshot value = task.getResult();
+
+                if (value.getString("materiaAtual").equalsIgnoreCase("Matemática")) {
                     nomeMateria.setText(value.getString("materiaAtual"));
-                    Drawable drawable= getResources().getDrawable(R.drawable.logo_matematica);
+                    Drawable drawable = getResources().getDrawable(R.drawable.logo_matematica);
                     iconMateria.setImageDrawable(drawable);
 
-                }else if(value.getString("materiaAtual").equalsIgnoreCase("Português")){
+                } else if (value.getString("materiaAtual").equalsIgnoreCase("Português")) {
                     nomeMateria.setText(value.getString("materiaAtual"));
-                    Drawable drawable= getResources().getDrawable(R.drawable.logo_portugues);
+                    Drawable drawable = getResources().getDrawable(R.drawable.logo_portugues);
                     iconMateria.setImageDrawable(drawable);
 
-                }else if(value.getString("materiaAtual").equalsIgnoreCase("Ciências")){
+                } else if (value.getString("materiaAtual").equalsIgnoreCase("Ciências")) {
                     nomeMateria.setText(value.getString("materiaAtual"));
-                    Drawable drawable= getResources().getDrawable(R.drawable.logo_ciencia);
+                    Drawable drawable = getResources().getDrawable(R.drawable.logo_ciencia);
                     iconMateria.setImageDrawable(drawable);
 
-                }else if(value.getString("materiaAtual").equalsIgnoreCase("Geografia")){
+                } else if (value.getString("materiaAtual").equalsIgnoreCase("Geografia")) {
                     nomeMateria.setText(value.getString("materiaAtual"));
-                    Drawable drawable= getResources().getDrawable(R.drawable.logo_geografia);
+                    Drawable drawable = getResources().getDrawable(R.drawable.logo_geografia);
                     iconMateria.setImageDrawable(drawable);
 
-                }else{
+                } else {
                     nomeMateria.setText(value.getString("materiaAtual"));
-                    Drawable drawable= getResources().getDrawable(R.drawable.logo_historia);
+                    Drawable drawable = getResources().getDrawable(R.drawable.logo_historia);
                     iconMateria.setImageDrawable(drawable);
                 }
             }
@@ -254,10 +264,10 @@ public class MateriaListaAulasDisponiveisActivity extends AppCompatActivity {
     private void gotoURL(String s) {
 
         Uri uri = Uri.parse(s);
-        startActivity(new Intent(Intent.ACTION_VIEW,uri));
+        startActivity(new Intent(Intent.ACTION_VIEW, uri));
     }
 
-    private class ClassItem extends Item<ViewHolder>{
+    private class ClassItem extends Item<ViewHolder> {
 
         private final MaterialAula materialAula;
 
@@ -271,11 +281,11 @@ public class MateriaListaAulasDisponiveisActivity extends AppCompatActivity {
             ImageView ivIcon = viewHolder.itemView.findViewById(R.id.iv_icon_aulas_item);
 
             txtTitulo.setText(materialAula.getTitulo());
-            if(materialAula.getTipoArquivo().equalsIgnoreCase("aula")) {
+            if (materialAula.getTipoArquivo().equalsIgnoreCase("aula")) {
                 Drawable drawable = getResources().getDrawable(R.drawable.aula_online);
                 ivIcon.setImageDrawable(drawable);
             }
-            
+
         }
 
         @Override

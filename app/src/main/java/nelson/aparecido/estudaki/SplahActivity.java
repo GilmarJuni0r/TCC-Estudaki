@@ -24,7 +24,7 @@ public class SplahActivity extends AppCompatActivity {
     }
 
     // fazer a troca de telas no inicio com um delay de 10s
-    private void trocarTela(){
+    private void trocarTela() {
 
         new Handler().postDelayed(new Runnable() {
             @Override
@@ -34,6 +34,6 @@ public class SplahActivity extends AppCompatActivity {
                 startActivity(trocarDeTela);
                 finish();
             }
-        },tempoDeEspera);
+        }, tempoDeEspera);
     }
 }

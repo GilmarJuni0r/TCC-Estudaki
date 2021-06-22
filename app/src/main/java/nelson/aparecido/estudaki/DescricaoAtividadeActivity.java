@@ -14,8 +14,10 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
@@ -36,7 +38,7 @@ public class DescricaoAtividadeActivity extends AppCompatActivity {
 
     private static final int PICK_FILE_REQUEST = 4;
     private View calendario, nota, home, professor, perfil, btn_me_ajuda;
-    private TextView nomeMateria, tipoArquivo, tituloAtividade,descricaoConteudo, dataEntrega, txtUpload, txtSeleciona;
+    private TextView nomeMateria, tipoArquivo, tituloAtividade, descricaoConteudo, dataEntrega, txtUpload, txtSeleciona;
     private ImageView iconMateria, btnUpload, btnDownload, btnSeleciona;
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
     private String usuarioID;
@@ -57,13 +59,15 @@ public class DescricaoAtividadeActivity extends AppCompatActivity {
         AtividadeProva atividadeProva = getIntent().getExtras().getParcelable("atividadeProva"); // <- Objeto contendo o conteúdo selecionado
         tituloAtividade.setText(atividadeProva.getTitulo());
         descricaoConteudo.setText(atividadeProva.getDescricao());
+        dataEntrega.setText(atividadeProva.getDataMax());
 
         DocumentReference documentReference = db.collection("Usuario").document(usuarioID);
-        documentReference.addSnapshotListener(new EventListener<DocumentSnapshot>() {
+        documentReference.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
             @Override
-            public void onEvent(@Nullable @org.jetbrains.annotations.Nullable DocumentSnapshot value, @Nullable @org.jetbrains.annotations.Nullable FirebaseFirestoreException error) {
-                if(value.getString("ocupacao").equalsIgnoreCase("professor")
-                        || value.getString("ocupacao").equalsIgnoreCase("professora") ){
+            public void onComplete(@NonNull @NotNull Task<DocumentSnapshot> task) {
+                DocumentSnapshot value = task.getResult();
+                if (value.getString("ocupacao").equalsIgnoreCase("professor")
+                        || value.getString("ocupacao").equalsIgnoreCase("professora")) {
                     btnUpload.setVisibility(View.INVISIBLE);
                     txtUpload.setVisibility(View.INVISIBLE);
                     btnSeleciona.setVisibility(View.INVISIBLE);
@@ -95,15 +99,18 @@ public class DescricaoAtividadeActivity extends AppCompatActivity {
         btnUpload.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(diretorio != null){
+                if (diretorio != null) {
                     DocumentReference documentReference = db.collection("Usuario").document(usuarioID);
-                    documentReference.addSnapshotListener(new EventListener<DocumentSnapshot>() {
+                    documentReference.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
                         @Override
-                        public void onEvent(@Nullable @org.jetbrains.annotations.Nullable DocumentSnapshot value, @Nullable @org.jetbrains.annotations.Nullable FirebaseFirestoreException error) {
+                        public void onComplete(@NonNull @NotNull Task<DocumentSnapshot> task) {
+
+                            DocumentSnapshot value = task.getResult();
+
                             String filename = UUID.randomUUID().toString();
                             String uid = UUID.randomUUID().toString();
-                           // progressDialog.setTitle("Realizando upload...");
-                          //  progressDialog.show();
+                            progressDialog.setTitle("Realizando upload...");
+                            progressDialog.show();
                             long timestamp = System.currentTimeMillis();
 
                             StorageReference ref = storageReference.child("Respostas/" + filename);
@@ -121,18 +128,18 @@ public class DescricaoAtividadeActivity extends AppCompatActivity {
                                                     uri.toString(),
                                                     timestamp,
                                                     "",
-                                                    atividadeProva.getTitulo(),"");
+                                                    atividadeProva.getTitulo(), "");
                                             FirebaseFirestore.getInstance().collection("Respostas").document(uid).set(respostas)
                                                     .addOnSuccessListener(new OnSuccessListener<Void>() {
                                                         @Override
                                                         public void onSuccess(Void unused) {
                                                             Toast.makeText(getApplicationContext(), "Respostas cadastradas com sucesso!", Toast.LENGTH_LONG).show();
-                                                            diretorio=null;
+                                                            diretorio = null;
                                                         }
                                                     });
                                         }
                                     });
-                             //       progressDialog.dismiss();
+                                    progressDialog.dismiss();
                                 }
                             }).addOnFailureListener(new OnFailureListener() {
                                 @Override
@@ -143,12 +150,12 @@ public class DescricaoAtividadeActivity extends AppCompatActivity {
                                 @Override
                                 public void onProgress(@NonNull @NotNull UploadTask.TaskSnapshot snapshot) {
                                     double progresso = (100.0 * snapshot.getBytesTransferred()) / snapshot.getTotalByteCount();
-                               //     progressDialog.setMessage(((int) progresso) + "% Carregado");
+                                    progressDialog.setMessage(((int) progresso) + "% Carregado");
                                 }
                             });
                         }
                     });
-                }else{
+                } else {
                     Toast.makeText(getApplicationContext(), "Selecione um arquivo para enviar as respostas", Toast.LENGTH_LONG).show();
                 }
             }
@@ -174,7 +181,7 @@ public class DescricaoAtividadeActivity extends AppCompatActivity {
     private void gotoURL(String s) {
 
         Uri uri = Uri.parse(s);
-        startActivity(new Intent(Intent.ACTION_VIEW,uri));
+        startActivity(new Intent(Intent.ACTION_VIEW, uri));
     }
 
     private void cabecalho() {
@@ -191,32 +198,34 @@ public class DescricaoAtividadeActivity extends AppCompatActivity {
 
         usuarioID = FirebaseAuth.getInstance().getCurrentUser().getUid();
         DocumentReference documentReference = db.collection("Usuario").document(usuarioID);
-        documentReference.addSnapshotListener(new EventListener<DocumentSnapshot>() {
+        documentReference.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
             @Override
-            public void onEvent(@Nullable @org.jetbrains.annotations.Nullable DocumentSnapshot value, @Nullable @org.jetbrains.annotations.Nullable FirebaseFirestoreException error) {
-                if(value.getString("materiaAtual").equalsIgnoreCase("Matemática")){
+            public void onComplete(@NonNull @NotNull Task<DocumentSnapshot> task) {
+                DocumentSnapshot value = task.getResult();
+
+                if (value.getString("materiaAtual").equalsIgnoreCase("Matemática")) {
                     nomeMateria.setText(value.getString("materiaAtual"));
-                    Drawable drawable= getResources().getDrawable(R.drawable.logo_matematica);
+                    Drawable drawable = getResources().getDrawable(R.drawable.logo_matematica);
                     iconMateria.setImageDrawable(drawable);
 
-                }else if(value.getString("materiaAtual").equalsIgnoreCase("Português")){
+                } else if (value.getString("materiaAtual").equalsIgnoreCase("Português")) {
                     nomeMateria.setText(value.getString("materiaAtual"));
-                    Drawable drawable= getResources().getDrawable(R.drawable.logo_portugues);
+                    Drawable drawable = getResources().getDrawable(R.drawable.logo_portugues);
                     iconMateria.setImageDrawable(drawable);
 
-                }else if(value.getString("materiaAtual").equalsIgnoreCase("Ciências")){
+                } else if (value.getString("materiaAtual").equalsIgnoreCase("Ciências")) {
                     nomeMateria.setText(value.getString("materiaAtual"));
-                    Drawable drawable= getResources().getDrawable(R.drawable.logo_ciencia);
+                    Drawable drawable = getResources().getDrawable(R.drawable.logo_ciencia);
                     iconMateria.setImageDrawable(drawable);
 
-                }else if(value.getString("materiaAtual").equalsIgnoreCase("Geografia")){
+                } else if (value.getString("materiaAtual").equalsIgnoreCase("Geografia")) {
                     nomeMateria.setText(value.getString("materiaAtual"));
-                    Drawable drawable= getResources().getDrawable(R.drawable.logo_geografia);
+                    Drawable drawable = getResources().getDrawable(R.drawable.logo_geografia);
                     iconMateria.setImageDrawable(drawable);
 
-                }else{
+                } else {
                     nomeMateria.setText(value.getString("materiaAtual"));
-                    Drawable drawable= getResources().getDrawable(R.drawable.logo_historia);
+                    Drawable drawable = getResources().getDrawable(R.drawable.logo_historia);
                     iconMateria.setImageDrawable(drawable);
                 }
             }

@@ -73,9 +73,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             txt_email.setError("Insira um endereço de e-mail");
             txt_email.requestFocus();
             return;
-        }
-
-        else if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
+        } else if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
             txt_email.setError("Insira um e-mail válido");
             txt_email.requestFocus();
             return;
@@ -85,9 +83,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             txt_senha.setError("Insira a senha");
             txt_senha.requestFocus();
             return;
-        }
-
-        else if (senha.length() < 6) {
+        } else if (senha.length() < 6) {
             txt_senha.setError("Insira uma senha com pelo menos 6 dígitos");
             txt_senha.requestFocus();
             return;
@@ -112,7 +108,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
         FirebaseUser usuarioAtual = FirebaseAuth.getInstance().getCurrentUser();
 
-        if(usuarioAtual != null){
+        if (usuarioAtual != null) {
             Intent intent = new Intent(getApplicationContext(), MainActivity.class);
             startActivity(intent);
         }

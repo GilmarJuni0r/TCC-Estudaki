@@ -131,10 +131,10 @@ public class AtribuirNota extends AppCompatActivity {
                     DocumentSnapshot documentSnapshotAux = taskUser.getResult();
 
                     if (documentSnapshotAux.exists()) {
-                            if (documentSnapshotAux.getString("nota").equalsIgnoreCase("") &&
-                                    documentSnapshotAux.getString("feedbackProf").equalsIgnoreCase("")) {
-                                editComentarios.setText("Aguarde a avaliação");
-                            }
+                        if (documentSnapshotAux.getString("nota").equalsIgnoreCase("") &&
+                                documentSnapshotAux.getString("feedbackProf").equalsIgnoreCase("")) {
+                            editComentarios.setText("Aguarde a avaliação");
+                        }
 
                     }
                 }

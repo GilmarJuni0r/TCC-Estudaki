@@ -1,4 +1,4 @@
- package nelson.aparecido.estudaki;
+package nelson.aparecido.estudaki;
 
 import android.content.Intent;
 import android.net.Uri;
@@ -7,8 +7,11 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.annotations.Nullable;
 import com.google.firebase.firestore.DocumentReference;
@@ -18,9 +21,11 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.jaeger.library.StatusBarUtil;
 
+import org.jetbrains.annotations.NotNull;
+
 public class MainActivity extends AppCompatActivity {
 
-    private ImageView materias, aulas, playlist,playlist_historia;
+    private ImageView materias, aulas, playlist, playlist_historia;
     private View calendario, nota, home, professor, perfil, btn_me_ajuda;
     private TextView txtNome;
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
@@ -145,13 +150,11 @@ public class MainActivity extends AppCompatActivity {
 
         usuarioID = FirebaseAuth.getInstance().getCurrentUser().getUid();
         DocumentReference documentReference = db.collection("Usuario").document(usuarioID);
-        documentReference.addSnapshotListener(new EventListener<DocumentSnapshot>() {
-
+        documentReference.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
             @Override
-            public void onEvent(@Nullable @org.jetbrains.annotations.Nullable DocumentSnapshot documentSnapshotMain, @Nullable @org.jetbrains.annotations.Nullable FirebaseFirestoreException error) {
-                if(documentSnapshotMain != null){
-                    txtNome.setText(documentSnapshotMain.getString("nome"));
-                }
+            public void onComplete(@NonNull @NotNull Task<DocumentSnapshot> task) {
+                DocumentSnapshot value = task.getResult();
+                txtNome.setText(value.getString("nome"));
             }
         });
     }
@@ -159,6 +162,6 @@ public class MainActivity extends AppCompatActivity {
     private void gotoURL(String s) {
 
         Uri uri = Uri.parse(s);
-        startActivity(new Intent(Intent.ACTION_VIEW,uri));
+        startActivity(new Intent(Intent.ACTION_VIEW, uri));
     }
 }

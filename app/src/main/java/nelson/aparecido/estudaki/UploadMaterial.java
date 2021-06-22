@@ -15,14 +15,14 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
-import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.OnProgressListener;
 import com.google.firebase.storage.StorageReference;
@@ -72,9 +72,11 @@ public class UploadMaterial extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 DocumentReference documentReference = db.collection("Usuario").document(usuarioID);
-                documentReference.addSnapshotListener(new EventListener<DocumentSnapshot>() {
+                documentReference.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
                     @Override
-                    public void onEvent(@Nullable @org.jetbrains.annotations.Nullable DocumentSnapshot value, @Nullable @org.jetbrains.annotations.Nullable FirebaseFirestoreException error) {
+                    public void onComplete(@NonNull @NotNull Task<DocumentSnapshot> task) {
+                        DocumentSnapshot value = task.getResult();
+
                         if (value.getString("tipoArquivoAtual").equalsIgnoreCase("aula")) {
                             selecionaAula();
                         }
@@ -90,9 +92,10 @@ public class UploadMaterial extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 DocumentReference documentReference = db.collection("Usuario").document(usuarioID);
-                documentReference.addSnapshotListener(new EventListener<DocumentSnapshot>() {
+                documentReference.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
                     @Override
-                    public void onEvent(@Nullable @org.jetbrains.annotations.Nullable DocumentSnapshot value, @Nullable @org.jetbrains.annotations.Nullable FirebaseFirestoreException error) {
+                    public void onComplete(@NonNull @NotNull Task<DocumentSnapshot> task) {
+                        DocumentSnapshot value = task.getResult();
 
                         if (!(editTitulo.getText().toString().isEmpty()) || !(editDescricao.getText().toString().isEmpty())) {
                             String titulo = editTitulo.getText().toString();
@@ -103,7 +106,7 @@ public class UploadMaterial extends AppCompatActivity {
                                 String filename = UUID.randomUUID().toString();
                                 progressDialog.setTitle("Realizando upload...");
                                 progressDialog.show();
-                                StorageReference materialAulaRef = storageReference.child(value.getString("tipoArquivoAtual")+"/" + filename);
+                                StorageReference materialAulaRef = storageReference.child(value.getString("tipoArquivoAtual") + "/" + filename);
 
                                 materialAulaRef.putFile(diretorio).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                                     @Override
@@ -117,20 +120,20 @@ public class UploadMaterial extends AppCompatActivity {
                                                         value.getString("turma"),
                                                         titulo,
                                                         descricao,
-                                                        uri.toString(),timestamp);
+                                                        uri.toString(), timestamp);
 
                                                 FirebaseFirestore.getInstance().collection("Arquivos").add(aula).
                                                         addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
                                                             @Override
                                                             public void onSuccess(DocumentReference documentReference) {
-                                                                if(value.getString("tipoArquivoAtual").equalsIgnoreCase("Aula"))
+                                                                if (value.getString("tipoArquivoAtual").equalsIgnoreCase("Aula"))
                                                                     Toast.makeText(getApplicationContext(), "Aula cadastrada com sucesso!", Toast.LENGTH_LONG).show();
                                                                 else
                                                                     Toast.makeText(getApplicationContext(), "Material cadastrado com sucesso!", Toast.LENGTH_LONG).show();
 
                                                                 editTitulo.setText("");
                                                                 editDescricao.setText("");
-                                                                diretorio=null;
+                                                                diretorio = null;
                                                             }
                                                         });
                                             }
@@ -150,14 +153,14 @@ public class UploadMaterial extends AppCompatActivity {
                                         progressDialog.setMessage(((int) progresso) + "% Carregado");
                                     }
                                 });
-                            }else{
-                                if(value.getString("tipoArquivoAtual").equalsIgnoreCase("Aula"))
+                            } else {
+                                if (value.getString("tipoArquivoAtual").equalsIgnoreCase("Aula"))
                                     Toast.makeText(getApplicationContext(), "Selecione uma aula para realizar o upload", Toast.LENGTH_LONG).show();
                                 else
                                     Toast.makeText(getApplicationContext(), "Selecione o material para realizar o upload", Toast.LENGTH_LONG).show();
                             }
                         } else {
-                            if(value.getString("tipoArquivoAtual").equalsIgnoreCase("Aula"))
+                            if (value.getString("tipoArquivoAtual").equalsIgnoreCase("Aula"))
                                 Toast.makeText(getApplicationContext(), "Preencha os campos de título e descrição para cadastrar uma nova aula", Toast.LENGTH_LONG).show();
                             else
                                 Toast.makeText(getApplicationContext(), "Preencha os campos de título e descrição para cadastrar um novo material", Toast.LENGTH_LONG).show();
@@ -187,9 +190,11 @@ public class UploadMaterial extends AppCompatActivity {
 
         usuarioID = FirebaseAuth.getInstance().getCurrentUser().getUid();
         DocumentReference documentReference = db.collection("Usuario").document(usuarioID);
-        documentReference.addSnapshotListener(new EventListener<DocumentSnapshot>() {
+        documentReference.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
             @Override
-            public void onEvent(@Nullable @org.jetbrains.annotations.Nullable DocumentSnapshot value, @Nullable @org.jetbrains.annotations.Nullable FirebaseFirestoreException error) {
+            public void onComplete(@NonNull @NotNull Task<DocumentSnapshot> task) {
+                DocumentSnapshot value = task.getResult();
+
                 if (value.getString("materiaAtual").equalsIgnoreCase("Matemática")) {
                     nomeMateria.setText(value.getString("materiaAtual"));
                     Drawable drawable = getResources().getDrawable(R.drawable.logo_matematica);

@@ -6,7 +6,7 @@ import android.os.Parcelable;
 public class AtividadeProva implements Parcelable {
 
     private String codigo;
-    private String  tipoArquivo;
+    private String tipoArquivo;
     private String materia;
     private String turma;
     private String titulo;

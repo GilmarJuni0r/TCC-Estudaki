@@ -1,40 +1,40 @@
 package nelson.aparecido.estudaki;
 
-        import android.content.Intent;
-        import android.os.Bundle;
-        import android.view.View;
-        import android.widget.Button;
-        import android.widget.EditText;
-        import android.widget.ImageView;
-        import android.widget.TextView;
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.TextView;
 
-        import androidx.annotation.NonNull;
-        import androidx.annotation.Nullable;
-        import androidx.appcompat.app.AppCompatActivity;
-        import androidx.recyclerview.widget.LinearLayoutManager;
-        import androidx.recyclerview.widget.RecyclerView;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
-        import com.google.android.gms.tasks.OnCompleteListener;
-        import com.google.android.gms.tasks.OnSuccessListener;
-        import com.google.android.gms.tasks.Task;
-        import com.google.firebase.auth.FirebaseAuth;
-        import com.google.firebase.firestore.DocumentChange;
-        import com.google.firebase.firestore.DocumentReference;
-        import com.google.firebase.firestore.DocumentSnapshot;
-        import com.google.firebase.firestore.EventListener;
-        import com.google.firebase.firestore.FirebaseFirestore;
-        import com.google.firebase.firestore.FirebaseFirestoreException;
-        import com.google.firebase.firestore.Query;
-        import com.google.firebase.firestore.QuerySnapshot;
-        import com.jaeger.library.StatusBarUtil;
-        import com.squareup.picasso.Picasso;
-        import com.xwray.groupie.GroupAdapter;
-        import com.xwray.groupie.Item;
-        import com.xwray.groupie.ViewHolder;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.DocumentChange;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.EventListener;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.FirebaseFirestoreException;
+import com.google.firebase.firestore.Query;
+import com.google.firebase.firestore.QuerySnapshot;
+import com.jaeger.library.StatusBarUtil;
+import com.squareup.picasso.Picasso;
+import com.xwray.groupie.GroupAdapter;
+import com.xwray.groupie.Item;
+import com.xwray.groupie.ViewHolder;
 
-        import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.NotNull;
 
-        import java.util.List;
+import java.util.List;
 
 public class ChatActivity extends AppCompatActivity {
 
@@ -81,7 +81,7 @@ public class ChatActivity extends AppCompatActivity {
     }
 
     private void fetchMessages() {
-        if(aux != null){
+        if (aux != null) {
             String fromId = aux.getUid();
             String toId = usuario.getUid();
 
@@ -92,11 +92,11 @@ public class ChatActivity extends AppCompatActivity {
                         public void onEvent(@Nullable @org.jetbrains.annotations.Nullable QuerySnapshot value, @Nullable @org.jetbrains.annotations.Nullable FirebaseFirestoreException error) {
                             List<DocumentChange> documentChanges = value.getDocumentChanges();
 
-                            if(documentChanges != null){
-                                for (DocumentChange doc: documentChanges) {
-                                    if(doc.getType() == DocumentChange.Type.ADDED){
+                            if (documentChanges != null) {
+                                for (DocumentChange doc : documentChanges) {
+                                    if (doc.getType() == DocumentChange.Type.ADDED) {
                                         Mensagem mensagem = doc.getDocument().toObject(Mensagem.class);
-                                        adapter.add(new MessageItem(mensagem , mensagem.getFromId()));
+                                        adapter.add(new MessageItem(mensagem, mensagem.getFromId()));
                                     }
                                 }
                             }
@@ -119,16 +119,18 @@ public class ChatActivity extends AppCompatActivity {
         mensagem.setToId(destinoId);
         mensagem.setTimestamp(timestamp);
 
-        if(!mensagem.getTexto().isEmpty()){
+        if (!mensagem.getTexto().isEmpty()) {
             FirebaseFirestore.getInstance().collection("Conversas").document(fonteId).collection(destinoId)
                     .add(mensagem).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
                 @Override
-                public void onSuccess(DocumentReference documentReference) { }
+                public void onSuccess(DocumentReference documentReference) {
+                }
             });
             FirebaseFirestore.getInstance().collection("Conversas").document(destinoId).collection(fonteId)
                     .add(mensagem).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
                 @Override
-                public void onSuccess(DocumentReference documentReference) { }
+                public void onSuccess(DocumentReference documentReference) {
+                }
             });
         }
     }
@@ -138,7 +140,7 @@ public class ChatActivity extends AppCompatActivity {
         private final Mensagem mensagem;
         private String fromId;
 
-        private MessageItem(Mensagem mensagem,String Id) {
+        private MessageItem(Mensagem mensagem, String Id) {
             this.mensagem = mensagem;
             this.fromId = Id;
         }
@@ -164,9 +166,9 @@ public class ChatActivity extends AppCompatActivity {
             docRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
                 @Override
                 public void onComplete(@NonNull Task<DocumentSnapshot> task) {
-                    if(task.isSuccessful()){
+                    if (task.isSuccessful()) {
                         DocumentSnapshot document = task.getResult();
-                        if (document.exists()){
+                        if (document.exists()) {
                             String profileUrl = document.get("fotoPerfil").toString();
                             Picasso.get()
                                     .load(profileUrl).fit().centerInside().into(imgMensagem);
@@ -179,7 +181,7 @@ public class ChatActivity extends AppCompatActivity {
         @Override
         public int getLayout() {
 
-            return mensagem.getFromId().equals( FirebaseAuth.getInstance().getUid())
+            return mensagem.getFromId().equals(FirebaseAuth.getInstance().getUid())
                     ? R.layout.item_to_message
                     : R.layout.item_from_message;
         }

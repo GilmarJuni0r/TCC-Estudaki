@@ -15,7 +15,7 @@ public class Usuario implements Parcelable {
     private String turma;
     private String fotoPerfil;
 
-    public Usuario(){
+    public Usuario() {
 
     }
 
