@@ -103,7 +103,7 @@
                 android:layout_height="65dp"
                 android:layout_marginStart="112dp"
                 android:layout_marginLeft="112dp"
-                android:layout_marginTop="60dp"
+                android:layout_marginTop="30dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/edit_comentarios_nota_atividade"
                 app:srcCompat="@drawable/img_dowloard" />
@@ -127,6 +127,7 @@
                 android:layout_height="55dp"
                 android:layout_marginStart="52dp"
                 android:layout_marginLeft="52dp"
+                android:layout_marginTop="5dp"
                 app:layout_constraintBottom_toBottomOf="@+id/img_download_atividade_enviada"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.165"
@@ -170,6 +171,26 @@
                 app:layout_constraintEnd_toEndOf="@+id/imageView11"
                 app:layout_constraintStart_toStartOf="@+id/imageView11"
                 app:layout_constraintTop_toBottomOf="@+id/textView5" />
+
+            <TextView
+                android:id="@+id/txt_download_atividade_entregue"
+                android:layout_width="125dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="Baixar atividade entregue"
+                android:gravity="center"
+                app:layout_constraintEnd_toEndOf="@+id/img_download_atividade_enviada"
+                app:layout_constraintStart_toStartOf="@+id/img_download_atividade_enviada"
+                app:layout_constraintTop_toBottomOf="@+id/img_download_atividade_enviada" />
+
+            <TextView
+                android:id="@+id/txt_btn_atribuir_nota"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Atribuir nota"
+                app:layout_constraintEnd_toEndOf="@+id/img_atualiza_nota"
+                app:layout_constraintStart_toStartOf="@+id/img_atualiza_nota"
+                app:layout_constraintTop_toTopOf="@+id/txt_download_atividade_entregue" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
 

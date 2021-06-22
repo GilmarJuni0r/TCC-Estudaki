@@ -30,7 +30,7 @@ import org.jetbrains.annotations.NotNull;
 public class AtribuirNota extends AppCompatActivity {
 
     private View calendario, nota, home, professor, perfil, btn_me_ajuda;
-    private TextView nomeMateria;
+    private TextView nomeMateria, lgdDownload, lgdAtribui;
     private EditText editNota, editComentarios;
     private ImageView iconMateria, imgDownloadResposta, imgAtualizNota;
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
@@ -48,6 +48,8 @@ public class AtribuirNota extends AppCompatActivity {
         editComentarios = findViewById(R.id.edit_comentarios_nota_atividade);
         imgDownloadResposta = findViewById(R.id.img_download_atividade_enviada);
         imgAtualizNota = findViewById(R.id.img_atualiza_nota);
+        lgdAtribui = findViewById(R.id.txt_btn_atribuir_nota);
+        lgdDownload = findViewById(R.id.txt_download_atividade_entregue);
 
         usuarioID = FirebaseAuth.getInstance().getCurrentUser().getUid();
 
@@ -66,6 +68,8 @@ public class AtribuirNota extends AppCompatActivity {
                             editComentarios.setEnabled(false);
                             imgAtualizNota.setVisibility(View.INVISIBLE);
                             imgDownloadResposta.setVisibility(View.INVISIBLE);
+                            lgdAtribui.setVisibility(View.INVISIBLE);
+                            lgdDownload.setVisibility(View.INVISIBLE);
                             setMessage(atividadeEntregue);
                         }
                     }
