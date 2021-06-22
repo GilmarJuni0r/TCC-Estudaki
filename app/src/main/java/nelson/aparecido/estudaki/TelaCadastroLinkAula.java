@@ -7,9 +7,12 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
@@ -17,6 +20,8 @@ import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.jaeger.library.StatusBarUtil;
+
+import org.jetbrains.annotations.NotNull;
 
 public class TelaCadastroLinkAula extends AppCompatActivity {
 
@@ -40,19 +45,22 @@ public class TelaCadastroLinkAula extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 DocumentReference documentReference = db.collection("Usuario").document(usuarioID);
-                documentReference.addSnapshotListener(new EventListener<DocumentSnapshot>() {
+                documentReference.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
                     @Override
-                    public void onEvent(@Nullable @org.jetbrains.annotations.Nullable DocumentSnapshot value, @Nullable @org.jetbrains.annotations.Nullable FirebaseFirestoreException error) {
+                    public void onComplete(@NonNull @NotNull Task<DocumentSnapshot> task) {
+                        if (task.isSuccessful()) {
+                            DocumentSnapshot value = task.getResult();
 
-                        if (!(editLink.getText().toString()).isEmpty()) {
-                            db.collection("Turma").document(value.getString("turma")).update("linkAula", editLink.getText());
-                            Toast.makeText(getApplicationContext(), "Link de aula ao vivo cadastrado com sucesso!", Toast.LENGTH_LONG).show();
-                        } else {
-                            Toast.makeText(getApplicationContext(), "Insira um link para ser cadastrado", Toast.LENGTH_LONG).show();
+                            if (!(editLink.getText().toString().equalsIgnoreCase(""))) {
+                                db.collection("Turma").document(value.getString("turma")).update("linkAula", editLink.getText().toString());
+                                Toast.makeText(getApplicationContext(), "Link de aula ao vivo cadastrado com sucesso!", Toast.LENGTH_LONG).show();
+                                finish();
+                            } else {
+                                Toast.makeText(getApplicationContext(), "Insira um link para ser cadastrado", Toast.LENGTH_LONG).show();
+                            }
                         }
                     }
                 });
-                finish();
             }
         });
     }
