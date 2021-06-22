@@ -101,8 +101,9 @@ public class DescricaoAtividadeActivity extends AppCompatActivity {
                         @Override
                         public void onEvent(@Nullable @org.jetbrains.annotations.Nullable DocumentSnapshot value, @Nullable @org.jetbrains.annotations.Nullable FirebaseFirestoreException error) {
                             String filename = UUID.randomUUID().toString();
-                            progressDialog.setTitle("Realizando upload...");
-                            progressDialog.show();
+                            String uid = UUID.randomUUID().toString();
+                           // progressDialog.setTitle("Realizando upload...");
+                          //  progressDialog.show();
                             long timestamp = System.currentTimeMillis();
 
                             StorageReference ref = storageReference.child("Respostas/" + filename);
@@ -112,26 +113,26 @@ public class DescricaoAtividadeActivity extends AppCompatActivity {
                                     ref.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
                                         @Override
                                         public void onSuccess(Uri uri) {
-                                            Respostas respostas = new Respostas(
+                                            Respostas respostas = new Respostas(uid,
                                                     value.getString("tipoArquivoAtual"),
                                                     value.getString("materiaAtual"),
                                                     value.getString("turma"),
                                                     usuarioID,
                                                     uri.toString(),
                                                     timestamp,
-                                                    "-",
-                                                    atividadeProva.getTitulo());
-                                            FirebaseFirestore.getInstance().collection("Respostas").add(respostas).
-                                                    addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+                                                    "",
+                                                    atividadeProva.getTitulo(),"");
+                                            FirebaseFirestore.getInstance().collection("Respostas").document(uid).set(respostas)
+                                                    .addOnSuccessListener(new OnSuccessListener<Void>() {
                                                         @Override
-                                                        public void onSuccess(DocumentReference documentReference) {
+                                                        public void onSuccess(Void unused) {
                                                             Toast.makeText(getApplicationContext(), "Respostas cadastradas com sucesso!", Toast.LENGTH_LONG).show();
                                                             diretorio=null;
                                                         }
                                                     });
                                         }
                                     });
-                                    progressDialog.dismiss();
+                             //       progressDialog.dismiss();
                                 }
                             }).addOnFailureListener(new OnFailureListener() {
                                 @Override
@@ -142,7 +143,7 @@ public class DescricaoAtividadeActivity extends AppCompatActivity {
                                 @Override
                                 public void onProgress(@NonNull @NotNull UploadTask.TaskSnapshot snapshot) {
                                     double progresso = (100.0 * snapshot.getBytesTransferred()) / snapshot.getTotalByteCount();
-                                    progressDialog.setMessage(((int) progresso) + "% Carregado");
+                               //     progressDialog.setMessage(((int) progresso) + "% Carregado");
                                 }
                             });
                         }

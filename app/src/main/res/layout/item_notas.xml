@@ -19,7 +19,7 @@
 
     <TextView
         android:id="@+id/txt_titulo_notas"
-        android:layout_width="wrap_content"
+        android:layout_width="240dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
@@ -36,8 +36,10 @@
         android:id="@+id/txt_nota_notas"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="150dp"
-        android:layout_marginLeft="150dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
         android:text="NOTA"
         android:textColor="@color/black"
         android:textStyle="bold"

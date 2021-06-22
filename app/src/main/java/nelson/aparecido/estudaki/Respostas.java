@@ -5,6 +5,7 @@ import android.os.Parcelable;
 
 public class Respostas implements Parcelable {
 
+    private String uid;
     private String tipo;
     private String materia;
     private String turma;
@@ -13,11 +14,13 @@ public class Respostas implements Parcelable {
     private long timestamp;
     private String nota;
     private String tituloProvaAtividade;
+    private String feedbackProf;
 
     public Respostas() {
     }
 
-    public Respostas(String tipo, String materia, String turma, String alunoID, String url, long timestamp, String nota, String tituloProvaAtividade) {
+    public Respostas(String uid, String tipo, String materia, String turma, String alunoID, String url, long timestamp, String nota, String tituloProvaAtividade, String feedbackProf) {
+        this.uid = uid;
         this.tipo = tipo;
         this.materia = materia;
         this.turma = turma;
@@ -26,9 +29,11 @@ public class Respostas implements Parcelable {
         this.timestamp = timestamp;
         this.nota = nota;
         this.tituloProvaAtividade = tituloProvaAtividade;
+        this.feedbackProf = feedbackProf;
     }
 
     protected Respostas(Parcel in) {
+        uid = in.readString();
         tipo = in.readString();
         materia = in.readString();
         turma = in.readString();
@@ -37,6 +42,7 @@ public class Respostas implements Parcelable {
         timestamp = in.readLong();
         nota = in.readString();
         tituloProvaAtividade = in.readString();
+        feedbackProf = in.readString();
     }
 
     public static final Creator<Respostas> CREATOR = new Creator<Respostas>() {
@@ -50,6 +56,14 @@ public class Respostas implements Parcelable {
             return new Respostas[size];
         }
     };
+
+    public String getUid() {
+        return uid;
+    }
+
+    public void setUid(String uid) {
+        this.uid = uid;
+    }
 
     public String getTipo() {
         return tipo;
@@ -115,6 +129,14 @@ public class Respostas implements Parcelable {
         this.tituloProvaAtividade = tituloProvaAtividade;
     }
 
+    public String getFeedbackProf() {
+        return feedbackProf;
+    }
+
+    public void setFeedbackProf(String feedbackProf) {
+        this.feedbackProf = feedbackProf;
+    }
+
     @Override
     public int describeContents() {
         return 0;
@@ -122,6 +144,7 @@ public class Respostas implements Parcelable {
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(uid);
         dest.writeString(tipo);
         dest.writeString(materia);
         dest.writeString(turma);
@@ -130,5 +153,6 @@ public class Respostas implements Parcelable {
         dest.writeLong(timestamp);
         dest.writeString(nota);
         dest.writeString(tituloProvaAtividade);
+        dest.writeString(feedbackProf);
     }
 }

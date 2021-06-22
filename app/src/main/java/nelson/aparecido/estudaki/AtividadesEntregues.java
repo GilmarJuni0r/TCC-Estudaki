@@ -37,11 +37,11 @@ package nelson.aparecido.estudaki;
 public class AtividadesEntregues extends AppCompatActivity {
 
     private View calendario, nota, home, professor, perfil, btn_me_ajuda;
+    TextView nomeAluno;
     private GroupAdapter adapterAtividadesEntregues;
-    private Usuario usuario, aux;
+    private Usuario usuario;
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
     private String usuarioID;
-    private boolean userProfessor = false;;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,23 +50,6 @@ public class AtividadesEntregues extends AppCompatActivity {
         barraDeTarefas();
 
         usuarioID = FirebaseAuth.getInstance().getCurrentUser().getUid();
-        DocumentReference documentReference = db.collection("Usuario").document(usuarioID);
-        documentReference.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
-            @Override
-            public void onComplete(@NonNull @NotNull Task<DocumentSnapshot> task) {
-                if(task.isSuccessful()){
-                    DocumentSnapshot documentSnapshot = task.getResult();
-
-                    if(documentSnapshot.exists()){
-                        String ocupacao = documentSnapshot.getData().get("ocupacao").toString();
-
-                        if (ocupacao.equalsIgnoreCase("professor") || ocupacao.equalsIgnoreCase("professora")){
-                            userProfessor = true;
-                        }
-                    }
-                }
-            }
-        });
 
         RecyclerView recyclerAtividadesEntregues = findViewById(R.id.recycler_atividades_entregues);
         recyclerAtividadesEntregues.setLayoutManager(new LinearLayoutManager(this));
@@ -105,13 +88,13 @@ public class AtividadesEntregues extends AppCompatActivity {
                                     if(user.getString("ocupacao").equalsIgnoreCase("professor") || user.getString("ocupacao").equalsIgnoreCase("professora")){
                                         usuario = getIntent().getExtras().getParcelable("usuario");
                                         if(atividadeEntregue.getAlunoID().equalsIgnoreCase(usuario.getUid())){
+                                            nomeAluno.setText(usuario.getNome());
                                             adapterAtividadesEntregues.add(new AtividadesEntregues.AtividadesEntItem(atividadeEntregue));
                                         }
-
-                                    }
-                                    else {
+                                    } else {
                                         if (atividadeEntregue.getAlunoID().equalsIgnoreCase(usuarioID))
-                                                    adapterAtividadesEntregues.add(new AtividadesEntregues.AtividadesEntItem(atividadeEntregue));
+                                            nomeAluno.setText(user.getString("nome"));
+                                            adapterAtividadesEntregues.add(new AtividadesEntregues.AtividadesEntItem(atividadeEntregue));
                                     }
                                 }
                             }
@@ -126,6 +109,7 @@ public class AtividadesEntregues extends AppCompatActivity {
         home = findViewById(R.id.view_home);
         professor = findViewById(R.id.view_conversa_professor);
         perfil = findViewById(R.id.view_perfil);
+        nomeAluno = findViewById(R.id.txt_nomeAlunoAtividadesEntregues);
 
         btn_me_ajuda = (View) findViewById(R.id.view_me_ajuda_atividadesEntregues);
         btn_me_ajuda.setOnClickListener(new View.OnClickListener() {
@@ -197,7 +181,13 @@ public class AtividadesEntregues extends AppCompatActivity {
             ImageView ivIcon = viewHolder.itemView.findViewById(R.id.iv_icon_notas_item);
 
             txtTitulo.setText(atividadeEntregue.getMateria() + " - " + atividadeEntregue.getTituloProvaAtividade());
-            txtNota.setText(atividadeEntregue.getNota());
+
+            if(atividadeEntregue.getNota().equalsIgnoreCase("")){
+                txtNota.setText("-");
+            }else{
+                txtNota.setText("Nota:\n"+atividadeEntregue.getNota());
+            }
+
 
             if (atividadeEntregue.getTipo().equalsIgnoreCase("atividade")) {
                 Drawable drawable = getResources().getDrawable(R.drawable.img_correcao_atividades);

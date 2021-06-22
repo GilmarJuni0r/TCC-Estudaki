@@ -78,10 +78,10 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
-                    android:id="@+id/txt_nomeAlunoAtividades"
+                    android:id="@+id/txt_nomeAlunoAtividadesEntregues"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="50dp"
+                    android:layout_marginTop="30dp"
                     android:text="Nome Aluno"
                     android:textColor="#000000"
                     android:textSize="24sp"
@@ -98,10 +98,10 @@
         android:id="@+id/recycler_atividades_entregues"
         android:layout_width="414dp"
         android:layout_height="418dp"
-        android:layout_marginTop="150dp"
+        app:layout_constraintBottom_toBottomOf="@+id/scrollView4"
         app:layout_constraintEnd_toEndOf="@+id/barradenavegacao"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/view3" >
+        app:layout_constraintTop_toBottomOf="@+id/view3">
 
     </androidx.recyclerview.widget.RecyclerView>
 
