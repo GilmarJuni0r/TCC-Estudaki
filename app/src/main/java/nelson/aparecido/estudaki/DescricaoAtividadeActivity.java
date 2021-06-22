@@ -59,7 +59,7 @@ public class DescricaoAtividadeActivity extends AppCompatActivity {
         AtividadeProva atividadeProva = getIntent().getExtras().getParcelable("atividadeProva"); // <- Objeto contendo o conteúdo selecionado
         tituloAtividade.setText(atividadeProva.getTitulo());
         descricaoConteudo.setText(atividadeProva.getDescricao());
-        dataEntrega.setText(atividadeProva.getDataMax());
+        dataEntrega.setText("Data de entrega: "+atividadeProva.getDataMax());
 
         DocumentReference documentReference = db.collection("Usuario").document(usuarioID);
         documentReference.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
